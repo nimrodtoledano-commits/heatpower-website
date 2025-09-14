@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>heatPower | ההזדמנות העסקית</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
+   <style>
+    body { font-family: 'Assistant', sans-serif; background-color: #010409; color: #e6edf3; scroll-behavior: smooth; }
+    .text-primary { color: #f0f6fc; } 
+    .text-secondary { color: #8b949e; } 
+    .text-accent { color: #58a6ff; } /* Brighter Blue for accent */
+    .navbar { position: fixed; top: 0; left: 0; width: 100%; background-color: rgba(1, 4, 9, 0.7); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid #30363d; }
+    .page-hero {
+        padding-top: 12rem;
+        padding-bottom: 8rem;
+        text-align: center;
+        background-image: linear-gradient(rgba(1, 4, 9, 0.7), rgba(1, 4, 9, 0.7)), url('hero-presentation.jpg?v=1');
+        background-size: cover;
+        background-position: center;
+    }
+    .section-heading { border-bottom: 1px solid #30363d; padding-bottom: 1.5rem; margin-bottom: 4rem; }
+    .table-responsive { overflow-x: auto; }
+    .source-text { font-size: 0.75rem; color: #8b949e; text-align: right; margin-top: 0.5rem; }
+    .case-study-grid { display: grid; grid-template-columns: repeat(1, minmax(0, 1fr)); gap: 2rem; align-items: center; }
+    @media (min-width: 1024px) { .case-study-grid { grid-template-columns: 1fr 1.5fr; } }
+</style>
+</head>
+<body class="bg-slate-900">
+    <header class="navbar">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-3xl font-bold text-accent tracking-wider">heatPower</div>
+            <ul class="hidden md:flex items-center text-lg font-semibold">
+                <li class="ml-10"><a href="index.html" class="text-gray-300 hover:text-accent transition-colors">דף הבית</a></li>
+                <li class="ml-10"><a href="presentation.html" class="text-white hover:text-accent transition-colors">ההזדמנות העסקית</a></li>
+                <li class="ml-10"><a href="technology.html" class="text-gray-300 hover:text-accent transition-colors">הפיתוח הטכנולוגי</a></li>
+                <li class="ml-10"><a href="investors.html" class="text-gray-300 hover:text-accent transition-colors">למשקיעים</a></li>
+                <li class="ml-10"><a href="simulation1.html" class="text-gray-300 hover:text-accent transition-colors">סימולטור אנרגיה</a></li>
+                <li><a href="simulation2.html" class="text-gray-300 hover:text-accent transition-colors">סימולטור כלכלי</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="page-hero">
+            <div class="max-w-4xl mx-auto px-6">
+                <h1 class="text-5xl md:text-7xl font-extrabold text-primary leading-tight">ההזדמנות העסקית</h1>
+                <p class="mt-4 text-xl md:text-2xl text-secondary">ניצול חום שיורי הוא מהלך כלכלי אסטרטגי שמגדיר מחדש את גבולות היעילות התעשייתית.</p>
+            </div>
+        </section>
+        <div class="container mx-auto px-6 py-24 space-y-24">
+            <section id="market-opportunity">
+                <div class="max-w-5xl mx-auto">
+                    <div class="section-heading text-center"><h2 class="text-4xl font-bold text-primary">שוק גלובלי עם צורך דחוף</h2></div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+                         <div><p class="text-lg font-semibold text-secondary">גודל שוק גלובלי (2024)</p><p class="text-6xl font-extrabold text-accent my-2">$22B+</p><p class="text-md text-secondary">שוק הקירור התעשייתי</p></div>
+                        <div><p class="text-lg font-semibold text-secondary">החזר השקעה (ROI) ממוצע</p><p class="text-6xl font-extrabold text-accent my-2">2-4</p><p class="text-md text-secondary">שנים, בזכות חיסכון תפעולי</p></div>
+                        <div><p class="text-lg font-semibold text-secondary">הוצאה שנתית על קירור</p><p class="text-5xl font-extrabold text-accent my-2">$1M+</p><p class="text-md text-secondary">ללקוח יחיד בחוות שרתים</p></div>
+                    </div>
+                </div>
+            </section>
+            <section id="business-model">
+                <div class="max-w-5xl mx-auto">
+                    <div class="section-heading text-center"><h2 class="text-4xl font-bold text-primary">מודל עסקי ופוטנציאל כלכלי</h2><p class="mt-2 text-lg text-secondary">פלטפורמה אחת, שני אפיקי רווח, ותוצאות מוכחות.</p></div>
+                    <div class="space-y-20">
+                        <div class="case-study-grid"><div class="lg:pr-8"> <h3 class="text-3xl font-bold text-primary mb-2">מקרה בוחן #1: מרכז נתונים</h3> <p class="text-lg text-secondary mb-6">מרכז נתונים קטן-בינוני עם צורך קירור קבוע של 142 טון (500 kWt), הפועל 24/7.</p><div class="table-responsive bg-slate-800/50 border border-slate-700 rounded-lg p-4"><table class="w-full text-center"><thead><tr class="border-b border-slate-600"><th class="py-3 text-primary">מדד</th><th class="py-2 text-secondary">מערכת מסורתית</th><th class="py-2 text-accent">מערכת heatPower</th></tr></thead><tbody><tr class="border-b border-slate-700"><td class="py-3 text-primary font-semibold">השקעה ראשונית</td><td>$78,100</td><td class="text-white">$611,000</td></tr><tr class="border-b border-slate-700"><td class="py-3 text-primary font-semibold">עלות תפעול שנתית</td><td>$79,627</td><td class="text-green-400">($176,670) (רווח)</td></tr><tr><td class="py-3 text-primary font-semibold">החזר השקעה (ROI)</td><td>-</td><td class="text-accent text-xl font-bold">2.38 שנים</td></tr></tbody></table></div><p class="mt-4 text-secondary"><strong>סיכום כלכלי:</strong> המערכת הופכת הוצאת אנרגיה מרכזית למקור חיסכון, עם החזר השקעה (ROI) של פחות מ-2.5 שנים ותזרים מזומנים חיובי צפוי של מעל $21,000 לחודש.</p></div><div><img src="case-datacenter.jpg" alt="מרכז נתונים" class="rounded-lg shadow-xl w-full h-full object-cover"></div></div>
+                        <div class="case-study-grid"><div><img src="case-brewery.jpg" alt="מבשלת בירה" class="rounded-lg shadow-xl w-full h-full object-cover"></div><div class="lg:pl-8"><h3 class="text-3xl font-bold text-primary mb-2">מקרה בוחן #2: מבשלת בירה</h3> <p class="text-lg text-secondary mb-6">מבשלת בירה אזורית עם צורך בקירור מבוסס גליקול של 180 טון (633 kWt).</p><div class="table-responsive bg-slate-800/50 border border-slate-700 rounded-lg p-4"><table class="w-full text-center"><thead><tr class="border-b border-slate-600"><th class="py-3 text-primary">מדד</th><th class="py-2 text-secondary">מערכת מסורתית</th><th class="py-2 text-accent">מערכת heatPower</th></tr></thead><tbody><tr class="border-b border-slate-700"><td class="py-3 text-primary font-semibold">השקעה ראשונית</td><td>$99,000</td><td class="text-white">$611,000</td></tr><tr class="border-b border-slate-700"><td class="py-3 text-primary font-semibold">עלות תפעול שנתית</td><td>$72,675</td><td class="text-green-400">($176,670) (רווח)</td></tr><tr><td class="py-3 text-primary font-semibold">החזר השקעה (ROI)</td><td>-</td><td class="text-accent text-xl font-bold">2.45 שנים</td></tr></tbody></table></div><p class="mt-4 text-secondary"><strong>סיכום כלכלי:</strong> המערכת משנה את מבנה הרווחיות על ידי הפיכת הוצאת הקירור למקור חיסכון של כרבע מיליון דולר בשנה.</p></div></div>
+                        <div class="case-study-grid"><div class="lg:pr-8"><h3 class="text-3xl font-bold text-primary mb-2">מקרה בוחן #3: מפעל מזון</h3> <p class="text-lg text-secondary mb-6">מפעל לעיבוד מזון הצורך 2,000 ק"ג קיטור בשעה, ובעל מקור זמין של חום שיורי.</p><div class="table-responsive bg-slate-800/50 border border-slate-700 rounded-lg p-4"><table class="w-full text-center"><thead><tr class="border-b border-slate-600"><th class="py-3 text-primary">מדד</th><th class="py-2 text-secondary">דוד קיטור מסורתי</th><th class="py-2 text-accent">מערכת heatPower</th></tr></thead><tbody><tr class="border-b border-slate-700"><td class="py-3 text-primary font-semibold">עלות ייצור שנתית</td><td>$177,600</td><td class="text-white">$25,170</td></tr><tr class="border-b border-slate-700"><td class="py-3 text-primary font-semibold">חיסכון שנתי נקי</td><td>-</td><td class="text-green-400 font-bold">$152,430</td></tr><tr><td class="py-3 text-primary font-semibold">החזר השקעה (ROI)</td><td>-</td><td class="text-accent text-xl font-bold">4.01 שנים</td></tr></tbody></table></div><p class="mt-4 text-secondary"><strong>סיכום כלכלי:</strong> המערכת רותמת חום שיורי לייצור קיטור חיוני בעלות מופחתת ב-86%.</p></div><div><img src="case-food.jpg" alt="מפעל מזון" class="rounded-lg shadow-xl w-full h-full object-cover"></div></div>
+                    </div>
+                     <div class="mt-24 text-center"><a href="simulation2.html" class="bg-accent text-white font-bold py-4 px-8 rounded-full text-xl shadow-lg transform hover:scale-105 transition-transform hover:bg-blue-600">בחן את הכדאיות בסימולטור הכלכלי</a></div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer class="bg-gray-900 text-gray-500 text-center py-6 border-t border-gray-700"><p>&copy; 2025 heatPower. כל הזכויות שמורות.</p></footer>
+</body>
+</html>
