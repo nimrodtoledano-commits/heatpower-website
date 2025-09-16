@@ -12,8 +12,9 @@
         body { font-family: 'Assistant', sans-serif; background-color: #010409; color: #e6edf3; }
         .text-primary { color: #f0f6fc; } .text-secondary { color: #8b949e; } .text-accent { color: #58a6ff; }
         .navbar { position: fixed; top: 0; left: 0; width: 100%; background-color: rgba(1, 4, 9, 0.7); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid #30363d; }
-        .page-hero { padding-top: 12rem; padding-bottom: 8rem; text-align: center; background-image: linear-gradient(rgba(1, 4, 9, 0.7), rgba(1, 4, 9, 0.7)), url('hero-simulation-eco.jpg'); background-size: cover; background-position: center; }
+        .page-hero { padding-top: 10rem; padding-bottom: 6rem; md:padding-top: 12rem; md:padding-bottom: 8rem; text-align: center; background-image: linear-gradient(rgba(1, 4, 9, 0.7), rgba(1, 4, 9, 0.7)), url('hero-simulation-eco.jpg'); background-size: cover; background-position: center; }
         input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; margin-top: -6px; background-color: #58a6ff; height: 24px; width: 24px; border-radius: 50%; cursor: pointer; }
+        input[type="range"]::-moz-range-thumb { background-color: #58a6ff; height: 20px; width: 20px; border-radius: 50%; border: none; cursor: pointer; }
         .info-icon { position: relative; display: inline-flex; align-items: center; justify-content: center; cursor: help; margin-left: 6px; color: #8b949e; border: 1px solid #484f58; border-radius: 50%; width: 18px; height: 18px; font-style: normal; font-weight: bold; font-size: 12px; }
         .info-icon .tooltip-text { visibility: hidden; width: 320px; background-color: #161b22; color: #fff; text-align: right; border-radius: 6px; padding: 10px; position: absolute; z-index: 50; bottom: 140%; left: 50%; transform: translateX(50%); opacity: 0; transition: opacity 0.3s; font-weight: normal; font-size: 14px; line-height: 1.5; }
         .info-icon:hover .tooltip-text { visibility: visible; opacity: 1; }
@@ -24,61 +25,79 @@
     <header class="navbar">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="text-3xl font-bold text-accent tracking-wider">heatPower</div>
-            <ul class="hidden md:flex items-center text-lg font-semibold">
-                <li class="ml-10"><a href="index.html" class="text-gray-300 hover:text-accent transition-colors">דף הבית</a></li>
-                <li class="ml-10"><a href="presentation.html" class="text-gray-300 hover:text-accent transition-colors">ההזדמנות העסקית</a></li>
-                <li class="ml-10"><a href="technology.html" class="text-gray-300 hover:text-accent transition-colors">הפיתוח הטכנולוגי</a></li>
-                <li class="ml-10"><a href="investors.html" class="text-gray-300 hover:text-accent transition-colors">למשקיעים</a></li>
-                <li class="ml-10"><a href="simulation1.html" class="text-gray-300 hover:text-accent transition-colors">סימולטור אנרגיה</a></li>
+            
+            <ul class="hidden md:flex items-center text-lg font-semibold space-x-8 space-x-reverse">
+                <li><a href="index.html" class="text-gray-300 hover:text-accent transition-colors">דף הבית</a></li>
+                <li><a href="presentation.html" class="text-gray-300 hover:text-accent transition-colors">ההזדמנות העסקית</a></li>
+                <li><a href="technology.html" class="text-gray-300 hover:text-accent transition-colors">הפיתוח הטכנולוגי</a></li>
+                <li><a href="investors.html" class="text-gray-300 hover:text-accent transition-colors">למשקיעים</a></li>
+                <li><a href="simulation1.html" class="text-gray-300 hover:text-accent transition-colors">סימולטור אנרגיה</a></li>
                 <li><a href="simulation2.html" class="text-white hover:text-accent transition-colors">סימולטור כלכלי</a></li>
             </ul>
+
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
         </nav>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-800">
+            <a href="index.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">דף הבית</a>
+            <a href="presentation.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">ההזדמנות העסקית</a>
+            <a href="technology.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">הפיתוח הטכנולוגי</a>
+            <a href="investors.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">למשקיעים</a>
+            <a href="simulation1.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">סימולטור אנרגיה</a>
+            <a href="simulation2.html" class="block py-2 px-6 text-white bg-slate-700">סימולטור כלכלי</a>
+        </div>
     </header>
     <main>
         <section class="page-hero">
             <div class="max-w-4xl mx-auto px-6">
-                <h1 class="text-5xl md:text-7xl font-extrabold text-primary leading-tight">סימולטור כלכלי</h1>
-                <p class="mt-4 text-xl md:text-2xl text-secondary">בחינת כדאיות כלכלית והחזר השקעה (ROI) בתרחישי חימום וקירור.</p>
+                <h1 class="text-4xl md:text-7xl font-extrabold text-primary leading-tight">סימולטור כלכלי</h1>
+                <p class="mt-4 text-lg md:text-2xl text-secondary">בחינת כדאיות כלכלית והחזר השקעה (ROI) בתרחישי חימום וקירור.</p>
             </div>
         </section>
-        <div class="flex">
-            <aside class="w-96 bg-slate-800/50 border-l border-slate-700 p-6 h-screen sticky top-0 overflow-y-auto">
-                <h2 class="text-2xl font-bold mb-6 text-accent border-b border-slate-700 pb-4">הגדרות סימולציה</h2>
-                <div class="space-y-8">
-                    <div>
-                        <h3 class="text-lg font-semibold mb-3 text-primary">פרמטרים תפעוליים</h3>
-                        <div class="space-y-5">
-                            <div><label for="power_demand" class="block font-semibold mb-2 flex items-center"><span>הספק תרמי מבוקש (kW)</span><span class="info-icon mr-2">ⓘ<span class="tooltip-text"><strong class="block mb-2 text-white">דוגמאות להספקים:</strong><ul class="list-disc list-inside space-y-1"><li><strong>תעשייה קטנה (100-500 kW):</strong> מחלבה, מאפייה.</li><li><strong>תעשייה בינונית (500-2000 kW):</strong> מפעל מזון, טקסטיל.</li></ul></span></span></label><div class="flex items-center space-x-2 space-x-reverse"><input type="range" id="power_demand" min="100" max="5000" value="1000" step="100" class="w-full h-2 bg-slate-600 rounded-lg appearance-none cursor-pointer"><span id="power_demand_value" class="font-bold text-indigo-400 w-24 text-center text-lg">1000 kW</span></div></div>
-                            <div><label for="ambient_temp_slider" class="block font-semibold">טמפרטורת סביבה</label><div class="flex items-center space-x-2 space-x-reverse"><input type="range" id="ambient_temp_slider" min="-10" max="40" value="25" step="1" class="w-full h-2 bg-slate-600 rounded-lg appearance-none cursor-pointer"><span id="ambient_temp_value" class="font-bold text-orange-400 w-24 text-center text-lg">25°C</span></div></div>
-                            <div class="text-sm"><p class="flex justify-between items-center bg-slate-700/50 p-2 rounded-md"><span>מקדם ביצועים (COP):</span><strong id="heat_pump_cop_value" class="text-white font-bold text-base"></strong></p></div>
+        
+        <div class="container mx-auto px-6 py-12 md:py-20">
+            <div class="flex flex-col lg:flex-row gap-8">
+                <aside class="w-full lg:w-1/3 bg-slate-800/50 border border-slate-700 p-6 rounded-lg self-start">
+                    <h2 class="text-2xl font-bold mb-6 text-accent border-b border-slate-700 pb-4">הגדרות סימולציה</h2>
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-lg font-semibold mb-3 text-primary">פרמטרים תפעוליים</h3>
+                            <div class="space-y-5">
+                                <div><label for="power_demand" class="block font-semibold mb-2 flex items-center"><span>הספק תרמי מבוקש (kW)</span><span class="info-icon mr-2">ⓘ<span class="tooltip-text"><strong class="block mb-2 text-white">דוגמאות להספקים:</strong><ul class="list-disc list-inside space-y-1"><li><strong>תעשייה קטנה (100-500 kW):</strong> מחלבה, מאפייה.</li><li><strong>תעשייה בינונית (500-2000 kW):</strong> מפעל מזון, טקסטיל.</li></ul></span></span></label><div class="flex items-center space-x-2 space-x-reverse"><input type="range" id="power_demand" min="100" max="5000" value="1000" step="100" class="w-full h-2 bg-slate-600 rounded-lg appearance-none cursor-pointer"><span id="power_demand_value" class="font-bold text-indigo-400 w-24 text-center text-lg">1000 kW</span></div></div>
+                                <div><label for="ambient_temp_slider" class="block font-semibold">טמפרטורת סביבה</label><div class="flex items-center space-x-2 space-x-reverse"><input type="range" id="ambient_temp_slider" min="-10" max="40" value="25" step="1" class="w-full h-2 bg-slate-600 rounded-lg appearance-none cursor-pointer"><span id="ambient_temp_value" class="font-bold text-orange-400 w-24 text-center text-lg">25°C</span></div></div>
+                                <div class="text-sm"><p class="flex justify-between items-center bg-slate-700/50 p-2 rounded-md"><span>מקדם ביצועים (COP):</span><strong id="heat_pump_cop_value" class="text-white font-bold text-base"></strong></p></div>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold mb-3 text-primary">הנחות יסוד כלכליות</h3>
+                            <div class="bg-slate-700/50 p-4 rounded-lg space-y-3">
+                                <div><label for="cost_electricity" class="block text-sm font-medium flex items-center">עלות חשמל (ש"ח לקוט"ש)</label><input type="number" id="cost_electricity" value="0.6" step="0.01" class="mt-1 block w-full rounded-md border-slate-600 bg-slate-800 shadow-sm text-center"></div>
+                            </div>
                         </div>
                     </div>
-                    <div>
-                        <h3 class="text-lg font-semibold mb-3 text-primary">הנחות יסוד כלכליות</h3>
-                        <div class="bg-slate-700/50 p-4 rounded-lg space-y-3">
-                            <div><label for="cost_electricity" class="block text-sm font-medium flex items-center">עלות חשמל (ש"ח לקוט"ש)</label><input type="number" id="cost_electricity" value="0.6" step="0.01" class="mt-1 block w-full rounded-md border-slate-600 bg-slate-800 shadow-sm text-center"></div>
-                        </div>
-                    </div>
-                </div>
-            </aside>
-            <div class="flex-grow p-8">
-                <div class="grid grid-cols-1 xl:grid-cols-2 gap-8 mb-8">
+                </aside>
+
+                <div class="w-full lg:w-2/3 space-y-8">
                     <div class="bg-slate-800/50 border border-slate-700 p-6 rounded-lg flex flex-col"><h3 class="text-2xl font-bold mb-4 flex items-center">🔥 השוואת חימום (קיטור)</h3><div class="space-y-6 flex-grow"><div class="border border-slate-600 p-4 rounded-lg"><h4 class="text-lg font-bold mb-2 text-blue-400">תרחיש א': מגבר קיטור</h4><p class="text-xs text-secondary mb-3">המערכת מופעלת ע"י חשמל חיצוני וממירה אותו לקיטור ביעילות שיא.</p><div class="space-y-2"><p class="flex justify-between"><span>תפוקת קיטור:</span> <strong id="steam_output_A" class="text-white"></strong></p><p class="flex justify-between"><span>עלות חשמל חיצונית:</span> <strong id="external_power_cost_A" class="cost"></strong></p><p class="flex justify-between border-t border-slate-700 pt-2 mt-2"><span>עלות לק"ג (שלנו):</span> <strong id="cost_per_kg_A" class="text-white"></strong></p><p class="flex justify-between"><span>עלות לק"ג (שוק):</span> <strong id="market_cost_per_kg_A" class="text-white"></strong></p><div class="bg-blue-900/40 p-3 rounded-md text-center"><p class="text-base font-semibold text-blue-300">חיסכון שעתי: <strong id="total_savings_A" class="text-xl block mt-1"></strong> (<span id="percentage_savings_A"></span>)</p></div></div></div><div class="border border-slate-600 p-4 rounded-lg"><h4 class="text-lg font-bold mb-2 text-green-400">תרחיש ב': יחידה עצמאית</h4><p class="text-xs text-secondary mb-3">המערכת מנצלת חלק מהאנרגיה להפעלת עצמה, ומספקת את הקיטור הנותר בחינם.</p><div class="space-y-2"><p class="flex justify-between"><span>תפוקת קיטור עודף:</span> <strong id="steam_output_B" class="text-white"></strong></p><p class="flex justify-between"><span>עלות תפעול נטו:</span> <strong id="net_op_cost_B" class="profit"></strong></p><div class="bg-green-900/40 p-3 rounded-md text-center"><p class="text-base font-semibold text-green-300">חיסכון שעתי: <strong id="total_savings_B" class="text-xl block mt-1"></strong></p></div></div></div></div></div>
                     <div class="bg-slate-800/50 border border-slate-700 p-6 rounded-lg flex flex-col"><h3 class="text-2xl font-bold mb-4 flex items-center">❄️ השוואת קירור</h3><div class="space-y-4 flex-grow"><p class="flex justify-between items-center text-lg"><span>הספק קירור נטו:</span> <strong id="cooling_ton_hr" class="text-xl text-white"></strong></p><hr class="border-slate-700"><p class="flex justify-between items-center"><span class="flex items-center">עלות תפעול (צ'ילר):</span> <strong id="chiller_cost" class="text-xl text-white"></strong></p><p class="flex justify-between items-center"><span class="flex items-center">עלות תפעולית (שלנו):</span> <strong id="our_system_op_cost_cool" class="text-xl"></strong></p><div class="bg-cyan-900/40 p-4 rounded-md text-center"><p class="text-lg font-semibold text-cyan-300">חיסכון שעתי (מקירור): <strong id="cooling_savings" class="text-2xl block mt-1"></strong></p></div></div></div>
-                </div>
-                <div class="bg-slate-800/50 border border-slate-700 p-6 rounded-lg shadow-xl mt-8">
-                    <h3 class="text-2xl font-bold mb-4 text-primary">סיכום ותחזית רווחים</h3><div class="flex flex-wrap items-center gap-6 mb-6"><div><label for="operating_hours" class="block font-semibold mb-2">שעות פעולה ביום</label><div class="flex items-center space-x-2 space-x-reverse"><input type="range" id="operating_hours" min="1" max="24" value="16" step="1" class="w-48 h-2 bg-slate-600 rounded-lg appearance-none cursor-pointer"><span id="operating_hours_value" class="font-bold text-indigo-400 text-lg">16</span></div></div></div>
-                    <div class="table-responsive"><table class="w-full text-right">
-                        <thead class="border-b-2 border-slate-700 text-secondary"><tr class="text-lg"><th class="py-2 font-semibold">תקופה</th><th class="py-2 font-semibold text-center">חיסכון (מגבר קיטור)</th><th class="py-2 font-semibold text-center">חיסכון (יחידה עצמאית)</th><th class="py-2 font-semibold text-center">חיסכון (קירור)</th></tr></thead>
-                        <tbody id="summary_table_body"></tbody>
-                    </table></div>
+                    <div class="bg-slate-800/50 border border-slate-700 p-6 rounded-lg shadow-xl mt-8">
+                        <h3 class="text-2xl font-bold mb-4 text-primary">סיכום ותחזית רווחים</h3><div class="flex flex-wrap items-center gap-6 mb-6"><div><label for="operating_hours" class="block font-semibold mb-2">שעות פעולה ביום</label><div class="flex items-center space-x-2 space-x-reverse"><input type="range" id="operating_hours" min="1" max="24" value="16" step="1" class="w-48 h-2 bg-slate-600 rounded-lg appearance-none cursor-pointer"><span id="operating_hours_value" class="font-bold text-indigo-400 text-lg">16</span></div></div></div>
+                        <div class="table-responsive"><table class="w-full text-right">
+                            <thead class="border-b-2 border-slate-700 text-secondary"><tr class="text-lg"><th class="py-2 font-semibold">תקופה</th><th class="py-2 font-semibold text-center">חיסכון (מגבר קיטור)</th><th class="py-2 font-semibold text-center">חיסכון (יחידה עצמאית)</th><th class="py-2 font-semibold text-center">חיסכון (קירור)</th></tr></thead>
+                            <tbody id="summary_table_body"></tbody>
+                        </table></div>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
+    <footer class="bg-gray-900 text-gray-500 text-center py-6 border-t border-gray-700"><p>&copy; 2025 heatPower. כל הזכויות שמורות.</p></footer>
+    
     <script>
-        // Paste the full JavaScript from the user's provided code here.
-        // It is self-contained and should work with the updated HTML structure.
         const inputs = { cost_electricity: document.getElementById('cost_electricity'), power_demand: document.getElementById('power_demand'), ambient_temp: document.getElementById('ambient_temp_slider'), operating_hours: document.getElementById('operating_hours'), };
         const values = { power_demand: document.getElementById('power_demand_value'), ambient_temp: document.getElementById('ambient_temp_value'), operating_hours: document.getElementById('operating_hours_value'), };
         const outputs = { steam_output_A: document.getElementById('steam_output_A'), external_power_cost_A: document.getElementById('external_power_cost_A'), cost_per_kg_A: document.getElementById('cost_per_kg_A'), market_cost_per_kg_A: document.getElementById('market_cost_per_kg_A'), total_savings_A: document.getElementById('total_savings_A'), percentage_savings_A: document.getElementById('percentage_savings_A'), steam_output_B: document.getElementById('steam_output_B'), net_op_cost_B: document.getElementById('net_op_cost_B'), total_savings_B: document.getElementById('total_savings_B'), cooling_ton_hr: document.getElementById('cooling_ton_hr'), our_system_op_cost_cool: document.getElementById('our_system_op_cost_cool'), chiller_cost: document.getElementById('chiller_cost'), cooling_savings: document.getElementById('cooling_savings'), summary_table_body: document.getElementById('summary_table_body'), heat_pump_cop_value: document.getElementById('heat_pump_cop_value'), };
@@ -147,6 +166,13 @@
         }
         Object.values(inputs).forEach(input => { input.addEventListener('input', calculateAndDisplay); });
         document.addEventListener('DOMContentLoaded', calculateAndDisplay);
+    </script>
+    
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            var menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
     </script>
 </body>
 </html>

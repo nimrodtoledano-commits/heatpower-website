@@ -19,42 +19,58 @@
         }
         .text-primary { color: #f0f6fc; } .text-secondary { color: #8b949e; } .text-accent { color: #58a6ff; }
         .navbar { position: fixed; top: 0; left: 0; width: 100%; background-color: rgba(13, 17, 23, 0.7); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid #30363d; }
-        .page-hero { padding-top: 12rem; padding-bottom: 8rem; text-align: center; background-image: linear-gradient(rgba(13, 17, 23, 0.7), rgba(13, 17, 23, 0.7)), url('hero-investors.jpg'); background-size: cover; background-position: center; }
-        .section-heading { border-bottom: 1px solid #30363d; padding-bottom: 1.5rem; margin-bottom: 4rem; }
-        .chart-container { position: relative; width: 100%; max-width: 500px; margin: auto; height: 500px; }
+        .page-hero { padding-top: 10rem; padding-bottom: 6rem; md:padding-top: 12rem; md:padding-bottom: 8rem; text-align: center; background-image: linear-gradient(rgba(13, 17, 23, 0.7), rgba(13, 17, 23, 0.7)), url('hero-investors.jpg'); background-size: cover; background-position: center; }
+        .section-heading { border-bottom: 1px solid #30363d; padding-bottom: 1.5rem; margin-bottom: 3rem; md:margin-bottom: 4rem; }
+        .chart-container { position: relative; width: 100%; max-width: 500px; margin: auto; height: 400px; md:height: 500px; }
     </style>
 </head>
 <body class="bg-slate-900">
     <header class="navbar">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="text-3xl font-bold text-accent tracking-wider">heatPower</div>
-            <ul class="hidden md:flex items-center text-lg font-semibold">
-                <li class="ml-10"><a href="index.html" class="text-gray-300 hover:text-accent transition-colors">דף הבית</a></li>
-                <li class="ml-10"><a href="presentation.html" class="text-gray-300 hover:text-accent transition-colors">ההזדמנות העסקית</a></li>
-                <li class="ml-10"><a href="technology.html" class="text-gray-300 hover:text-accent transition-colors">הפיתוח הטכנולוגי</a></li>
-                <li class="ml-10"><a href="investors.html" class="text-white hover:text-accent transition-colors">למשקיעים</a></li>
-                <li class="ml-10"><a href="simulation1.html" class="text-gray-300 hover:text-accent transition-colors">סימולטור אנרגיה</a></li>
+            
+            <ul class="hidden md:flex items-center text-lg font-semibold space-x-8 space-x-reverse">
+                <li><a href="index.html" class="text-gray-300 hover:text-accent transition-colors">דף הבית</a></li>
+                <li><a href="presentation.html" class="text-gray-300 hover:text-accent transition-colors">ההזדמנות העסקית</a></li>
+                <li><a href="technology.html" class="text-gray-300 hover:text-accent transition-colors">הפיתוח הטכנולוגי</a></li>
+                <li><a href="investors.html" class="text-white hover:text-accent transition-colors">למשקיעים</a></li>
+                <li><a href="simulation1.html" class="text-gray-300 hover:text-accent transition-colors">סימולטור אנרגיה</a></li>
                 <li><a href="simulation2.html" class="text-gray-300 hover:text-accent transition-colors">סימולטור כלכלי</a></li>
             </ul>
+
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
         </nav>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-800">
+            <a href="index.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">דף הבית</a>
+            <a href="presentation.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">ההזדמנות העסקית</a>
+            <a href="technology.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">הפיתוח הטכנולוגי</a>
+            <a href="investors.html" class="block py-2 px-6 text-white bg-slate-700">למשקיעים</a>
+            <a href="simulation1.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">סימולטור אנרגיה</a>
+            <a href="simulation2.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">סימולטור כלכלי</a>
+        </div>
     </header>
     <main>
         <section class="page-hero">
             <div class="max-w-4xl mx-auto px-6">
-                <h1 class="text-5xl md:text-7xl font-extrabold text-primary leading-tight">מידע למשקיעים</h1>
-                <p class="mt-4 text-xl md:text-2xl text-secondary">ניתוח פיננסי של פלטפורמת האנרגיה heatPower.</p>
+                <h1 class="text-4xl md:text-7xl font-extrabold text-primary leading-tight">מידע למשקיעים</h1>
+                <p class="mt-4 text-lg md:text-2xl text-secondary">ניתוח פיננסי של פלטפורמת האנרגיה heatPower.</p>
             </div>
         </section>
-        <div class="container mx-auto px-6 py-24 space-y-24">
+        <div class="container mx-auto px-6 py-16 space-y-16 md:py-24 md:space-y-24">
             <section id="costs">
                 <div class="max-w-5xl mx-auto">
-                    <div class="section-heading text-center"><h2 class="text-4xl font-bold text-primary">ההשקעה הנדרשת וציר הזמן</h2></div>
+                    <div class="section-heading text-center"><h2 class="text-3xl md:text-4xl font-bold text-primary">ההשקעה הנדרשת וציר הזמן</h2></div>
                     <div class="grid md:grid-cols-2 gap-12 items-center">
-                        <div class="bg-slate-800/50 border border-slate-700 p-8 rounded-lg">
+                        <div class="bg-slate-800/50 border border-slate-700 p-6 md:p-8 rounded-lg">
                             <h4 class="text-2xl font-bold text-primary text-center">פירוט השקעה (אב-טיפוס)</h4>
                             <div class="mt-6 chart-container"><canvas id="costsChart"></canvas></div>
                         </div>
-                        <div class="bg-slate-800/50 border border-slate-700 p-8 rounded-lg">
+                        <div class="bg-slate-800/50 border border-slate-700 p-6 md:p-8 rounded-lg">
                             <h4 class="text-2xl font-bold text-primary mb-6 text-center">ציר זמן להגעה ליעדים</h4>
                             <ol class="space-y-4 text-lg relative border-s border-gray-700"><li class="ms-4"><div class="absolute w-3 h-3 bg-gray-500 rounded-full mt-1.5 -start-1.5 border border-slate-900"></div><h5 class="font-semibold text-primary">חודשים 1-9: פיתוח אב-טיפוס</h5><p class="text-base text-secondary">תכנון, הרכבה, ובדיקות ביצועים.</p></li><li class="ms-4"><div class="absolute w-3 h-3 bg-gray-500 rounded-full mt-1.5 -start-1.5 border border-slate-900"></div><h5 class="font-semibold text-primary">חודשים 10-12: פיילוט ראשוני</h5><p class="text-base text-secondary">התקנה ובחינה בסביבת לקוח.</p></li><li class="ms-4"><div class="absolute w-3 h-3 bg-accent rounded-full mt-1.5 -start-1.5 border border-slate-900"></div><h5 class="font-semibold text-accent">יעד: 12-18 חודשים</h5><p class="text-base text-secondary font-bold">מוכנות מסחרית ללקוח ראשון.</p></li></ol>
                         </div>
@@ -63,23 +79,31 @@
             </section>
             <section id="price-analysis">
                 <div class="max-w-5xl mx-auto">
-                    <div class="section-heading text-center"><h2 class="text-4xl font-bold text-primary">נספח: ניתוח מחיר מכונה ללקוח</h2></div>
+                    <div class="section-heading text-center"><h2 class="text-3xl md:text-4xl font-bold text-primary">נספח: ניתוח מחיר מכונה ללקוח</h2></div>
                     <div class="space-y-8">
-                        <div class="bg-slate-800/50 border border-slate-700 p-8 rounded-lg">
-                            <h4 class="text-xl font-bold text-primary">הערה על עלויות הייצור</h4>
-                            <p class="mt-3 text-secondary leading-relaxed">מחיר הייצור המוצג מבוסס על הערכות מחמירות, מתוך הנחת עבודה של שימוש בחומרים אקזוטיים ועמידים במיוחד לקורוזיה הנדרשים בשלב אב-הטיפוס. עלויות אלו צפויות לצנוח באופן דרמטי של 50% ויותר במעבר לייצור סדרתי, הודות לאופטימיזציה של חומרים ותהליכים הנדסיים.</p>
-                        </div>
-                        <div class="text-center bg-slate-800/50 border-2 border-accent p-8 rounded-lg"><h4 class="text-2xl font-bold text-primary mb-4">הערכה סופית: מחיר מומלץ ללקוח</h4><p class="text-5xl font-extrabold text-accent my-2">$600,000 - $650,000</p><p class="text-md text-secondary mt-2">טווח מחירים זה מבטיח מרווח רווח בריא לחברה והחזר השקעה אטרקטיבי ומהיר ללקוח.</p></div>
+                        <div class="bg-slate-800/50 border border-slate-700 p-6 md:p-8 rounded-lg"><h4 class="text-xl font-bold text-primary">הערה על עלויות הייצור</h4><p class="mt-3 text-secondary leading-relaxed">מחיר הייצור המוצג מבוסס על הערכות מחמירות, מתוך הנחת עבודה של שימוש בחומרים אקזוטיים ועמידים במיוחד לקורוזיה הנדרשים בשלב אב-הטיפוס. עלויות אלו צפויות לצנוח באופן דרמטי של 50% ויותר במעבר לייצור סדרתי, הודות לאופטימיזציה של חומרים ותהליכים הנדסיים.</p></div>
+                        <div class="text-center bg-slate-800/50 border-2 border-accent p-6 md:p-8 rounded-lg"><h4 class="text-xl md:text-2xl font-bold text-primary mb-4">הערכה סופית: מחיר מומלץ ללקוח</h4><p class="text-4xl md:text-5xl font-extrabold text-accent my-2">$600,000 - $650,000</p><p class="text-md text-secondary mt-2">טווח מחירים זה מבטיח מרווח רווח בריא לחברה והחזר השקעה אטרקטיבי ומהיר ללקוח.</p></div>
                     </div>
+                </div>
+                 <div class="mt-16 md:mt-24 text-center">
+                    <a href="simulation2.html" class="bg-accent text-white font-bold py-3 px-6 md:py-4 md:px-8 rounded-full text-lg md:text-xl shadow-lg transform hover:scale-105 transition-transform hover:bg-blue-600">בחן את הכדאיות בסימולטור הכלכלי</a>
                 </div>
             </section>
         </div>
     </main>
     <footer class="bg-gray-900 text-gray-500 text-center py-6 border-t border-gray-700"><p>&copy; 2025 heatPower. כל הזכויות שמורות.</p></footer>
+    
     <script>
+        // Chart.js Script
         const costData = { prototype: { labels: ['מערכת ORC', 'משאבת חום', 'מחליפי חום', 'משאבות', 'בצ"מ/תקורה', 'כוח אדם', 'אחר'], data: [250000, 80000, 40000, 30000, 170000, 290000, 140000], total: 1000000 } };
         function renderCostsChart(view) { const chartElement = document.getElementById('costsChart'); if (!chartElement) return; const ctx = chartElement.getContext('2d'); const data = costData[view]; const total = data.total; new Chart(ctx, { type: 'doughnut', data: { labels: data.labels, datasets: [{ label: `עלות ($)`, data: data.data, backgroundColor: ['#1e3a8a', '#1e40af', '#1d4ed8', '#2563eb', '#3b82f6', '#60a5fa', '#93c5fd'], borderColor: '#1f2937', borderWidth: 4 }] }, options: { responsive: true, plugins: { legend: { position: 'right', labels: { color: '#d1d5db', font: { size: 14 } } }, title: { display: true, text: `סה"כ השקעה: $${total.toLocaleString()}`, color: '#f0f6fc', font: { size: 20 } } } } }); }
         document.addEventListener('DOMContentLoaded', () => { renderCostsChart('prototype'); });
+
+        // Mobile Menu Script
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            var menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
     </script>
 </body>
 </html>

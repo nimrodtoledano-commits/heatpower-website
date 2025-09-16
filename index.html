@@ -16,17 +16,12 @@
         #bg-image-container::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(1, 4, 9, 1) 10%, rgba(1, 4, 9, 0.5) 50%, rgba(1, 4, 9, 0.3) 100%); }
         
         #stars-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%; 
-            height: 100%;
-            z-index: 2;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2;
             background-repeat: repeat;
             background-image: url('star-trails.png');
             background-size: 800px;
             opacity: 0.25;
-            animation: move-stars 150s linear infinite; /* Correct animation call */
+            animation: move-stars 150s linear infinite;
             mask-image: linear-gradient(to bottom, black 10%, transparent 25%);
             -webkit-mask-image: linear-gradient(to bottom, black 10%, transparent 25%);
         }
@@ -49,15 +44,33 @@
     <header class="navbar">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="text-3xl font-bold text-accent tracking-wider">heatPower</div>
-            <ul class="hidden md:flex items-center text-lg font-semibold">
-                <li class="ml-10"><a href="index.html" class="text-white hover:text-accent transition-colors">דף הבית</a></li>
-                <li class="ml-10"><a href="presentation.html" class="text-gray-300 hover:text-accent transition-colors">ההזדמנות העסקית</a></li>
-                <li class="ml-10"><a href="technology.html" class="text-gray-300 hover:text-accent transition-colors">הפיתוח הטכנולוגי</a></li>
-                <li class="ml-10"><a href="investors.html" class="text-gray-300 hover:text-accent transition-colors">למשקיעים</a></li>
-                <li class="ml-10"><a href="simulation1.html" class="text-gray-300 hover:text-accent transition-colors">סימולטור אנרגיה</a></li>
+            
+            <ul class="hidden md:flex items-center text-lg font-semibold space-x-8 space-x-reverse">
+                <li><a href="index.html" class="text-white hover:text-accent transition-colors">דף הבית</a></li>
+                <li><a href="presentation.html" class="text-gray-300 hover:text-accent transition-colors">ההזדמנות העסקית</a></li>
+                <li><a href="technology.html" class="text-gray-300 hover:text-accent transition-colors">הפיתוח הטכנולוגי</a></li>
+                <li><a href="investors.html" class="text-gray-300 hover:text-accent transition-colors">למשקיעים</a></li>
+                <li><a href="simulation1.html" class="text-gray-300 hover:text-accent transition-colors">סימולטור אנרגיה</a></li>
                 <li><a href="simulation2.html" class="text-gray-300 hover:text-accent transition-colors">סימולטור כלכלי</a></li>
             </ul>
+
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
         </nav>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-800">
+            <a href="index.html" class="block py-2 px-6 text-white hover:bg-slate-700">דף הבית</a>
+            <a href="presentation.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">ההזדמנות העסקית</a>
+            <a href="technology.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">הפיתוח הטכנולוגי</a>
+            <a href="investors.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">למשקיעים</a>
+            <a href="simulation1.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">סימולטור אנרגיה</a>
+            <a href="simulation2.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">סימולטור כלכלי</a>
+        </div>
     </header>
     <main>
         <section id="hero-section">
@@ -66,9 +79,9 @@
             </div>
             <div id="stars-container"></div>
             <div class="hero-content">
-                <h1 class="text-8xl font-extrabold text-white tracking-widest" style="text-shadow: 0 0 20px rgba(45, 212, 191, 0.5);">heatPower</h1>
+                <h1 class="text-6xl md:text-8xl font-extrabold text-white tracking-widest" style="text-shadow: 0 0 20px rgba(45, 212, 191, 0.5);">heatPower</h1>
                 <blockquote class="mt-8 max-w-3xl mx-auto">
-                    <p class="text-2xl text-gray-300 italic leading-relaxed">"כמה אנרגיה עודפת מקיפה אותנו ואנו לא יודעים לנצל אותה לכלום... <br>זהו משבר האנרגיה האמיתי."</p>
+                    <p class="text-xl md:text-2xl text-gray-300 italic leading-relaxed">"כמה אנרגיה עודפת מקיפה אותנו ואנו לא יודעים לנצל אותה לכלום... <br>זהו משבר האנרגיה האמיתי."</p>
                 </blockquote>
             </div>
             <a href="#problem" class="scroll-down-arrow">&#8595;</a>
@@ -76,7 +89,7 @@
         <section id="problem" class="py-20 bg-black/30">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16"><h3 class="text-3xl md:text-4xl font-bold text-primary">פרדוקס האנרגיה התעשייתיית: תשלום כפול על אותו החום</h3><p class="mt-4 text-lg text-secondary max-w-3xl mx-auto">מפעלים ומרכזי נתונים משקיעים הון בייצור חום לתהליכים, ומיד לאחר מכן משקיעים הון נוסף כדי לקרר את המערכות ולפלוט את אותו החום לסביבה. זהו מעגל של בזבוז כלכלי וסביבתי.</p></div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div class="floating-card p-6 rounded-xl text-center border-t-4 border-red-500"><h4 class="font-bold text-xl mt-3 text-primary">עלויות אנרגיה גבוהות</h4><p class="mt-2 text-secondary">בחוות שרתים, עלויות האנרגיה והקירור מגיעות עד 40% מההוצאות התפעוליות.</p></div>
                     <div class="floating-card p-6 rounded-xl text-center border-t-4 border-orange-500"><h4 class="font-bold text-xl mt-3 text-primary">בזבוז חום שיורי</h4><p class="mt-2 text-secondary">מפעלים ושרתים פולטים חום יקר לסביבה במקום לנצל אותו כמקור אנרגיה.</p></div>
                     <div class="floating-card p-6 rounded-xl text-center border-t-4 border-yellow-500"><h4 class="font-bold text-xl mt-3 text-primary">צורך באגירה יעילה</h4><p class="mt-2 text-secondary">פתרונות אגירת אנרגיה קיימים הם יקרים, מוגבלים בזמן ולא תמיד זמינים.</p></div>
@@ -87,5 +100,13 @@
         </section>
     </main>
     <footer class="bg-gray-900 text-gray-500 text-center py-6 border-t border-gray-700"><p>&copy; 2025 heatPower. כל הזכויות שמורות.</p></footer>
+
+    <script>
+        // JavaScript to toggle the mobile menu
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            var menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>
