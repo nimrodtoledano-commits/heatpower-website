@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>heatPower | סימולטור כלכלי</title>
+    <title>HeatPower | סימולטור כלכלי</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,7 +24,7 @@
 <body>
     <header class="navbar">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-3xl font-bold text-accent tracking-wider">heatPower</div>
+            <div class="text-3xl font-bold text-accent tracking-wider">HeatPower</div>
             
             <ul class="hidden md:flex items-center text-lg font-semibold space-x-8 space-x-reverse">
                 <li><a href="index.html" class="text-gray-300 hover:text-accent transition-colors">דף הבית</a></li>
@@ -84,18 +84,30 @@
                 <div class="w-full lg:w-2/3 space-y-8">
                     <div class="bg-slate-800/50 border border-slate-700 p-6 rounded-lg flex flex-col"><h3 class="text-2xl font-bold mb-4 flex items-center">🔥 השוואת חימום (קיטור)</h3><div class="space-y-6 flex-grow"><div class="border border-slate-600 p-4 rounded-lg"><h4 class="text-lg font-bold mb-2 text-blue-400">תרחיש א': מגבר קיטור</h4><p class="text-xs text-secondary mb-3">המערכת מופעלת ע"י חשמל חיצוני וממירה אותו לקיטור ביעילות שיא.</p><div class="space-y-2"><p class="flex justify-between"><span>תפוקת קיטור:</span> <strong id="steam_output_A" class="text-white"></strong></p><p class="flex justify-between"><span>עלות חשמל חיצונית:</span> <strong id="external_power_cost_A" class="cost"></strong></p><p class="flex justify-between border-t border-slate-700 pt-2 mt-2"><span>עלות לק"ג (שלנו):</span> <strong id="cost_per_kg_A" class="text-white"></strong></p><p class="flex justify-between"><span>עלות לק"ג (שוק):</span> <strong id="market_cost_per_kg_A" class="text-white"></strong></p><div class="bg-blue-900/40 p-3 rounded-md text-center"><p class="text-base font-semibold text-blue-300">חיסכון שעתי: <strong id="total_savings_A" class="text-xl block mt-1"></strong> (<span id="percentage_savings_A"></span>)</p></div></div></div><div class="border border-slate-600 p-4 rounded-lg"><h4 class="text-lg font-bold mb-2 text-green-400">תרחיש ב': יחידה עצמאית</h4><p class="text-xs text-secondary mb-3">המערכת מנצלת חלק מהאנרגיה להפעלת עצמה, ומספקת את הקיטור הנותר בחינם.</p><div class="space-y-2"><p class="flex justify-between"><span>תפוקת קיטור עודף:</span> <strong id="steam_output_B" class="text-white"></strong></p><p class="flex justify-between"><span>עלות תפעול נטו:</span> <strong id="net_op_cost_B" class="profit"></strong></p><div class="bg-green-900/40 p-3 rounded-md text-center"><p class="text-base font-semibold text-green-300">חיסכון שעתי: <strong id="total_savings_B" class="text-xl block mt-1"></strong></p></div></div></div></div></div>
                     <div class="bg-slate-800/50 border border-slate-700 p-6 rounded-lg flex flex-col"><h3 class="text-2xl font-bold mb-4 flex items-center">❄️ השוואת קירור</h3><div class="space-y-4 flex-grow"><p class="flex justify-between items-center text-lg"><span>הספק קירור נטו:</span> <strong id="cooling_ton_hr" class="text-xl text-white"></strong></p><hr class="border-slate-700"><p class="flex justify-between items-center"><span class="flex items-center">עלות תפעול (צ'ילר):</span> <strong id="chiller_cost" class="text-xl text-white"></strong></p><p class="flex justify-between items-center"><span class="flex items-center">עלות תפעולית (שלנו):</span> <strong id="our_system_op_cost_cool" class="text-xl"></strong></p><div class="bg-cyan-900/40 p-4 rounded-md text-center"><p class="text-lg font-semibold text-cyan-300">חיסכון שעתי (מקירור): <strong id="cooling_savings" class="text-2xl block mt-1"></strong></p></div></div></div>
-                    <div class="bg-slate-800/50 border border-slate-700 p-6 rounded-lg shadow-xl mt-8">
-                        <h3 class="text-2xl font-bold mb-4 text-primary">סיכום ותחזית רווחים</h3><div class="flex flex-wrap items-center gap-6 mb-6"><div><label for="operating_hours" class="block font-semibold mb-2">שעות פעולה ביום</label><div class="flex items-center space-x-2 space-x-reverse"><input type="range" id="operating_hours" min="1" max="24" value="16" step="1" class="w-48 h-2 bg-slate-600 rounded-lg appearance-none cursor-pointer"><span id="operating_hours_value" class="font-bold text-indigo-400 text-lg">16</span></div></div></div>
-                        <div class="table-responsive"><table class="w-full text-right">
-                            <thead class="border-b-2 border-slate-700 text-secondary"><tr class="text-lg"><th class="py-2 font-semibold">תקופה</th><th class="py-2 font-semibold text-center">חיסכון (מגבר קיטור)</th><th class="py-2 font-semibold text-center">חיסכון (יחידה עצמאית)</th><th class="py-2 font-semibold text-center">חיסכון (קירור)</th></tr></thead>
-                            <tbody id="summary_table_body"></tbody>
-                        </table></div>
+                    
+                    <div class="mt-8">
+                        <h3 class="text-2xl font-bold mb-4 text-primary text-center">סיכום ותחזית רווחים</h3>
+                        <div class="flex flex-wrap items-center justify-center gap-6 mb-6">
+                            <div>
+                                <label for="operating_hours" class="block font-semibold mb-2">שעות פעולה ביום</label>
+                                <div class="flex items-center space-x-2 space-x-reverse">
+                                    <input type="range" id="operating_hours" min="1" max="24" value="16" step="1" class="w-48 h-2 bg-slate-600 rounded-lg appearance-none cursor-pointer">
+                                    <span id="operating_hours_value" class="font-bold text-indigo-400 text-lg">16</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table-responsive bg-slate-800/50 border border-slate-700 rounded-lg p-4">
+                            <table class="w-full text-right">
+                                <thead class="border-b-2 border-slate-700 text-secondary"><tr class="text-lg"><th class="py-2 font-semibold">תקופה</th><th class="py-2 font-semibold text-center">חיסכון (מגבר קיטור)</th><th class="py-2 font-semibold text-center">חיסכון (יחידה עצמאית)</th><th class="py-2 font-semibold text-center">חיסכון (קירור)</th></tr></thead>
+                                <tbody id="summary_table_body"></tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
-    <footer class="bg-gray-900 text-gray-500 text-center py-6 border-t border-gray-700"><p>&copy; 2025 heatPower. כל הזכויות שמורות.</p></footer>
+    <footer class="bg-gray-900 text-gray-500 text-center py-6 border-t border-gray-700"><p>&copy; 2025 HeatPower. כל הזכויות שמורות.</p></footer>
     
     <script>
         const inputs = { cost_electricity: document.getElementById('cost_electricity'), power_demand: document.getElementById('power_demand'), ambient_temp: document.getElementById('ambient_temp_slider'), operating_hours: document.getElementById('operating_hours'), };
