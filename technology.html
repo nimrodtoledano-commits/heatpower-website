@@ -17,7 +17,7 @@
             color: #4a4a4a;
         }
         .main-content-area {
-            background-color: transparent; /* Content area is now transparent to show the body's gradient */
+            background-color: transparent; 
         }
         .text-primary-warm { color: #2d2d2d; } 
         .text-secondary-warm { color: #5a5a5a; } 
@@ -41,11 +41,13 @@
             transition: all 0.3s ease-in-out; 
             border: 1px solid #e5e5e0; 
             background-color: white;
+            border-right-width: 6px; /* Default border */
         }
         .stage-box.active { 
             transform: translateY(-5px); 
             box-shadow: 0 10px 15px -3px rgba(0,0,0,0.07); 
             border-color: #d97706; 
+            border-right-width: 6px;
         }
         .navbar a { color: #5a5a5a; }
         .navbar .font-bold { color: #2d2d2d; }
@@ -98,11 +100,22 @@
         <div class="py-12 md:py-20 container mx-auto px-6 space-y-12 md:space-y-20">
             <section id="system">
                 <div class="text-center mb-12"><h2 class="text-3xl md:text-4xl font-bold text-primary-warm">איך זה עובד? הצצה למנוע האנרגטי</h2><p class="mt-4 text-lg text-secondary-warm max-w-3xl mx-auto">המערכת פועלת במעגל תרמו-כימי סגור. לחצו על כל שלב בתהליך כדי ללמוד כיצד הוא פועל.</p></div>
-                <div class="lg:flex lg:gap-8 items-start">
-                    <div class="lg:w-1/2">
-                        <div class="grid grid-cols-2 gap-4"><div id="stage-1-box" class="stage-box cursor-pointer p-4 rounded-lg text-center" onclick="showStage(1)"><div class="text-2xl font-bold text-orange-500">1</div><h4 class="font-bold mt-2 text-primary-warm">שלב 1: יצירת חום</h4></div><div id="stage-2-box" class="stage-box cursor-pointer p-4 rounded-lg text-center" onclick="showStage(2)"><div class="text-2xl font-bold text-yellow-500">2</div><h4 class="font-bold mt-2 text-primary-warm">שלב 2: הפקת חשמל</h4></div><div id="stage-3-box" class="stage-box cursor-pointer p-4 rounded-lg text-center" onclick="showStage(3)"><div class="text-2xl font-bold text-blue-500">3</div><h4 class="font-bold mt-2 text-primary-warm">שלב 3: יצירת קור</h4></div><div id="stage-4-box" class="stage-box cursor-pointer p-4 rounded-lg text-center" onclick="showStage(4)"><div class="text-2xl font-bold text-green-500">4</div><h4 class="font-bold mt-2 text-primary-warm">שלב 4: מיחזור</h4></div></div>
-                        
-                        <div class="bg-white p-4 rounded-lg shadow-sm border border-stone-200 mt-8">
+                
+                <div class="lg:grid lg:grid-cols-2 lg:gap-12">
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5">
+                        <div id="stage-1-box" class="stage-box cursor-pointer p-6 rounded-lg border-r-orange-500" onclick="showStage(1)"><div class="flex justify-between items-center"><h4 class="font-bold text-lg text-primary-warm">שלב 1: יצירת חום</h4><div class="text-3xl font-bold text-orange-500">1</div></div></div>
+                        <div id="stage-2-box" class="stage-box cursor-pointer p-6 rounded-lg border-r-yellow-500" onclick="showStage(2)"><div class="flex justify-between items-center"><h4 class="font-bold text-lg text-primary-warm">שלב 2: הפקת חשמל</h4><div class="text-3xl font-bold text-yellow-500">2</div></div></div>
+                        <div id="stage-3-box" class="stage-box cursor-pointer p-6 rounded-lg border-r-blue-500" onclick="showStage(3)"><div class="flex justify-between items-center"><h4 class="font-bold text-lg text-primary-warm">שלב 3: יצירת קור</h4><div class="text-3xl font-bold text-blue-500">3</div></div></div>
+                        <div id="stage-4-box" class="stage-box cursor-pointer p-6 rounded-lg border-r-green-500" onclick="showStage(4)"><div class="flex justify-between items-center"><h4 class="font-bold text-lg text-primary-warm">שלב 4: מיחזור</h4><div class="text-3xl font-bold text-green-500">4</div></div></div>
+                    </div>
+
+                    <div class="mt-8 lg:mt-0">
+                        <div id="stage-details" class="p-6 bg-white rounded-lg border border-stone-200 shadow-sm mb-8 sticky top-28">
+                            <h4 id="details-title" class="text-2xl font-bold text-accent-warm">בחר שלב כדי לראות פרטים</h4>
+                            <p id="details-text" class="mt-2 text-secondary-warm">כאן יוצג הסבר מפורט על השלב הנבחר.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-stone-200">
                              <svg width="100%" viewBox="0 0 800 550" xmlns="http://www.w3.org/2000/svg">
                                 <defs>
                                     <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#4b5563" /></marker>
@@ -117,10 +130,8 @@
                                         .recycle-label { fill: #b45309; }
                                     </style>
                                 </defs>
-                                <rect x="25" y="25" width="750" height="220" class="cluster-box" />
-                                <text x="400" y="50" text-anchor="middle" class="cluster-label">תהליך ראשי (יצירת חשמל)</text>
-                                <rect x="25" y="270" width="450" height="265" class="recycle-box cluster-box" />
-                                <text x="250" y="295" text-anchor="middle" class="recycle-label cluster-label">תהליך מחזור</text>
+                                <rect x="25" y="25" width="750" height="220" class="cluster-box" /><text x="400" y="50" text-anchor="middle" class="cluster-label">תהליך ראשי (יצירת חשמל)</text>
+                                <rect x="25" y="270" width="450" height="265" class="recycle-box cluster-box" /><text x="250" y="295" text-anchor="middle" class="recycle-label cluster-label">תהליך מחזור</text>
                                 <rect x="50" y="100" width="120" height="60" class="box" /><text x="110" y="135" text-anchor="middle" class="label-text">H₂SO₄ מרוכז</text>
                                 <rect x="200" y="100" width="120" height="60" class="box" /><text x="260" y="135" text-anchor="middle" class="label-text">H₂O (מים)</text>
                                 <rect x="370" y="100" width="120" height="60" class="box" style="fill:#fffbeb" /><text x="430" y="135" text-anchor="middle" class="label-text">כור לחץ גבוה</text>
@@ -137,8 +148,7 @@
                                 <path d="M 655 335 V 415" class="dashed-line" /><path d="M 595 305 H 390 V 450 " fill="none" class="dashed-line"/>
                             </svg>
                         </div>
-                        </div>
-                    <div id="stage-details" class="lg:w-1/2 mt-8 lg:mt-0 p-6 bg-white rounded-lg border border-stone-200 shadow-sm"><h4 id="details-title" class="text-2xl font-bold text-accent-warm">בחר שלב כדי לראות פרטים</h4><p id="details-text" class="mt-2 text-secondary-warm">כאן יוצג הסבר מפורט על השלב הנבחר.</p></div>
+                    </div>
                 </div>
             </section>
              <section id="strategy">
