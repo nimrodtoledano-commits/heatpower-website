@@ -14,21 +14,47 @@
         .text-secondary { color: #8b949e; } 
         .text-accent { color: #58a6ff; }
         .navbar { position: fixed; top: 0; left: 0; width: 100%; background-color: rgba(1, 4, 9, 0.7); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid #30363d; }
-        .page-hero { padding-top: 10rem; padding-bottom: 6rem; md:padding-top: 12rem; md:padding-bottom: 8rem; text-align: center; background-image: linear-gradient(rgba(1, 4, 9, 0.7), rgba(1, 4, 9, 0.7)), url('hero-simulation.jpg'); background-size: cover; background-position: center; }
+        .page-hero { text-align: center; background-image: linear-gradient(rgba(1, 4, 9, 0.7), rgba(1, 4, 9, 0.7)), url('hero-simulation.jpg'); background-size: cover; background-position: center; }
+        .table-responsive { overflow-x: auto; }
         input[type="range"]::-webkit-slider-runnable-track { background: #30363d; }
         input[type="range"]::-moz-range-track { background: #30363d; }
         input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; margin-top: -6px; background-color: #58a6ff; height: 24px; width: 24px; border-radius: 50%; cursor: pointer; }
         input[type="range"]::-moz-range-thumb { background-color: #58a6ff; height: 20px; width: 20px; border-radius: 50%; border: none; cursor: pointer; }
-        .info-icon { position: relative; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; margin-left: 8px; color: #8b949e; border: 1px solid #484f58; border-radius: 9999px; width: 20px; height: 20px; font-style: normal; font-weight: bold; }
-        .info-icon .tooltip-text { visibility: hidden; width: 280px; background-color: #161b22; color: #fff; text-align: center; border-radius: 6px; padding: 8px; position: absolute; z-index: 10; bottom: 125%; left: 50%; margin-left: -140px; opacity: 0; transition: opacity 0.3s; font-weight: normal; }
-        .info-icon:hover .tooltip-text { visibility: visible; opacity: 1; }
+        .info-icon { position: relative; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; margin-right: 8px; color: #8b949e; border: 1px solid #484f58; border-radius: 9999px; width: 20px; height: 20px; font-style: normal; font-weight: bold; background: none; }
+        .info-icon .tooltip-text { 
+            visibility: hidden; 
+            width: 280px; 
+            background-color: #161b22; 
+            color: #fff; text-align: center; 
+            border-radius: 6px; 
+            padding: 8px; 
+            position: absolute; 
+            z-index: 10; 
+            bottom: 125%; 
+            left: 50%; 
+            transform: translateX(-50%);
+            opacity: 0; 
+            transition: opacity 0.3s; 
+            font-weight: normal; 
+        }
+        .info-icon:hover .tooltip-text, .info-icon:focus .tooltip-text { 
+            visibility: visible; 
+            opacity: 1; 
+        }
+        @media (max-width: 480px) {
+            .info-icon .tooltip-text {
+                width: auto;
+                left: 16px;
+                right: 16px;
+                transform: translateX(0);
+            }
+        }
     </style>
 </head>
-<body>
+<body class="bg-slate-900">
    <header class="navbar">
-    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <nav class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
         <div class="text-3xl font-bold text-accent tracking-wider">HeatPower</div>
-        
         <ul class="hidden lg:flex items-center text-md font-semibold space-x-6 space-x-reverse">
             <li><a href="index.html" class="text-gray-300 hover:text-accent transition-colors">דף הבית</a></li>
             <li><a href="presentation.html" class="text-gray-300 hover:text-accent transition-colors">ההזדמנות</a></li>
@@ -37,63 +63,140 @@
             <li><a href="feasibility.html" class="text-gray-300 hover:text-accent transition-colors">בדיקת היתכנות</a></li>
             <li><a href="business-plan.html" class="text-gray-300 hover:text-accent transition-colors">התוכנית העסקית</a></li>
             <li><a href="investors.html" class="text-gray-300 hover:text-accent transition-colors">ניתוח מחיר</a></li>
-            <li><a href="simulation1.html" class="text-gray-300 hover:text-accent transition-colors">סימולטור אנרגיה</a></li>
+            <li><a href="simulation1.html" class="text-white hover:text-accent transition-colors">סימולטור אנרגיה</a></li>
             <li><a href="simulation2.html" class="text-gray-300 hover:text-accent transition-colors">סימולטור כלכלי</a></li>
             <li><a href="our-story.html" class="text-gray-300 hover:text-accent transition-colors">הסיפור שלנו</a></li>
         </ul>
-
         <div class="lg:hidden">
-            <button id="mobile-menu-button" class="text-white focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
+            <button id="mobile-menu-button" class="text-white focus:outline-none"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg></button>
         </div>
     </nav>
-
-    <div id="mobile-menu" class="hidden lg:hidden bg-slate-800">
-        <a href="index.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">דף הבית</a>
-        <a href="presentation.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">ההזדמנות</a>
-        <a href="market-analysis.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">שוק ומתחרים</a>
-        <a href="technology.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">הפיתוח הטכנולוגי</a>
-        <a href="feasibility.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">בדיקת היתכנות</a>
-        <a href="business-plan.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">התוכנית העסקית</a>
-        <a href="investors.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">ניתוח מחיר</a>
-        <a href="simulation1.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">סימולטור אנרגיה</a>
-        <a href="simulation2.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">סימולטור כלכלי</a>
-        <a href="our-story.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">הסיפור שלנו</a>
+    <div id="mobile-menu" class="hidden lg:hidden bg-slate-800/95 backdrop-blur-sm">
+        <a href="index.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">דף הבית</a>
+        <a href="presentation.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">ההזדמנות</a>
+        <a href="market-analysis.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">שוק ומתחרים</a>
+        <a href="technology.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">הפיתוח הטכנולוגי</a>
+        <a href="feasibility.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">בדיקת היתכנות</a>
+        <a href="business-plan.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">התוכנית העסקית</a>
+        <a href="investors.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">ניתוח מחיר</a>
+        <a href="simulation1.html" class="block py-3 px-6 text-white bg-slate-700">סימולטור אנרגיה</a>
+        <a href="simulation2.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">סימולטור כלכלי</a>
+        <a href="our-story.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">הסיפור שלנו</a>
     </div>
 </header>
     <main>
-        <section class="page-hero">
-            <div class="max-w-4xl mx-auto px-6">
+        <section class="page-hero pt-32 pb-16 md:pt-48 md:pb-24">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6">
                 <h1 class="text-4xl md:text-7xl font-extrabold text-primary leading-tight">סימולטור מאזן אנרגיה</h1>
-                <p class="mt-4 text-lg md:text-2xl text-secondary">חקור כיצד פרמטרים שונים משפיעים על ביצועי המערכת.</p>
+                <p class="mt-4 text-lg md:text-2xl text-secondary">אפליקציה זו מדגימה את מאזן האנרגיה של המערכת. החישובים מבוססים על מחזור פעולה של <strong>1 מול</strong> חומצה גופרתית ($H_2SO_4$).</p>
             </div>
         </section>
-        <div class="container mx-auto px-6 py-12 md:py-20">
+        <div class="container mx-auto px-4 sm:px-6 py-12 md:py-20">
             <div class="flex flex-col lg:flex-row gap-8">
                 <aside class="w-full lg:w-1/3 bg-slate-800/50 border border-slate-700 p-6 rounded-lg self-start">
                     <h2 class="text-2xl font-bold mb-6 text-accent">🔧 כוונן פרמטרים</h2>
-                    <div class="space-y-6">
-                        <div><label for="temp_slider" class="block font-semibold mb-2 flex items-center"><span class="info-icon">ⓘ<span class="tooltip-text">קובע את טמפרטורת היעד של הקיטור.</span></span>טמפרטורת קיטור</label><div class="flex items-center space-x-4 space-x-reverse"><input type="range" id="temp_slider" min="150" max="400" value="300" step="5" class="w-full h-2 rounded-lg appearance-none cursor-pointer"><span id="temp_value" class="font-bold text-orange-400 w-20 text-center text-lg">300°C</span></div></div>
-                        <div><label for="eta_reaction_slider" class="block font-semibold mb-2 flex items-center"><span class="info-icon">ⓘ<span class="tooltip-text">אחוז החום מהתגובה שמועבר לקיטור.</span></span>יעילות המרת חום</label><div class="flex items-center space-x-4 space-x-reverse"><input type="range" id="eta_reaction_slider" min="50" max="100" value="95" step="1" class="w-full h-2 rounded-lg appearance-none cursor-pointer"><span id="eta_reaction_value" class="font-bold text-teal-400 w-20 text-center text-lg">95%</span></div></div>
-                        <div><label for="eta_turbine_slider" class="block font-semibold mb-2 flex items-center"><span class="info-icon">ⓘ<span class="tooltip-text">אחוז האנרגיה בקיטור שהופך לחשמל.</span></span>יעילות טורבינה</label><div class="flex items-center space-x-4 space-x-reverse"><input type="range" id="eta_turbine_slider" min="20" max="50" value="30" step="1" class="w-full h-2 rounded-lg appearance-none cursor-pointer"><span id="eta_turbine_value" class="font-bold text-teal-400 w-20 text-center text-lg">30%</span></div></div>
-                        <div><label for="ambient_temp_slider" class="block font-semibold mb-2 flex items-center"><span class="info-icon">ⓘ<span class="tooltip-text">הטמפרטורה שממנה שואבים חום.</span></span>טמפ' סביבה</label><div class="flex items-center space-x-4 space-x-reverse"><input type="range" id="ambient_temp_slider" min="-10" max="40" value="25" step="1" class="w-full h-2 rounded-lg appearance-none cursor-pointer"><span id="ambient_temp_value" class="font-bold text-orange-400 w-20 text-center text-lg">25°C</span></div><div class="mt-2 text-sm"><span class="text-gray-400">מקדם ביצועים (COP):</span><span id="calculated_cop_value" class="font-bold text-teal-400 text-lg"> 4.00</span></div></div>
-                        <div><label for="eta_pump_slider" class="block font-semibold mb-2 flex items-center"><span class="info-icon">ⓘ<span class="tooltip-text">יעילות המשאבה הכימית.</span></span>יעילות משאבה</label><div class="flex items-center space-x-4 space-x-reverse"><input type="range" id="eta_pump_slider" min="50" max="95" value="75" step="1" class="w-full h-2 rounded-lg appearance-none cursor-pointer"><span id="eta_pump_value" class="font-bold text-teal-400 w-20 text-center text-lg">75%</span></div></div>
+                    <div class="space-y-8">
+                        <div>
+                            <label for="temp_slider" class="block font-semibold mb-2 flex items-center">טמפרטורת קיטור <button class="info-icon" aria-label="מידע על טמפרטורת קיטור">ⓘ<span class="tooltip-text">קובע את טמפרטורת היעד של הקיטור. לחץ גבוה יותר מאפשר טמפרטורה גבוהה יותר.</span></button></label>
+                            <div class="flex flex-col sm:flex-row items-center sm:space-x-4 sm:space-x-reverse">
+                                <input type="range" id="temp_slider" min="150" max="400" value="200" step="5" class="w-full h-2.5 rounded-lg appearance-none cursor-pointer">
+                                <span id="temp_value" class="font-bold text-orange-400 w-24 text-center text-lg mt-2 sm:mt-0">200°C</span>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="eta_reaction_slider" class="block font-semibold mb-2 flex items-center">יעילות המרת חום התגובה <button class="info-icon" aria-label="מידע על יעילות המרת חום התגובה">ⓘ<span class="tooltip-text">אחוז החום מהתגובה הכימית שמועבר למחליף החום.</span></button></label>
+                            <div class="flex flex-col sm:flex-row items-center sm:space-x-4 sm:space-x-reverse">
+                                <input type="range" id="eta_reaction_slider" min="50" max="100" value="95" step="1" class="w-full h-2.5 rounded-lg appearance-none cursor-pointer">
+                                <span id="eta_reaction_value" class="font-bold text-teal-400 w-24 text-center text-lg mt-2 sm:mt-0">95%</span>
+                            </div>
+                        </div>
+                         <div>
+                            <label for="eta_thermal_slider" class="block font-semibold mb-2 flex items-center">יעילות תרמית (מחליף חום) <button class="info-icon" aria-label="מידע על יעילות תרמית">ⓘ<span class="tooltip-text">יעילות זו מתארת את כמות החום שעוברת בפועל למים, תוך התחשבות באובדן חום לסביבה ממחליף החום.</span></button></label>
+                            <div class="flex flex-col sm:flex-row items-center sm:space-x-4 sm:space-x-reverse">
+                                <input type="range" id="eta_thermal_slider" min="80" max="100" value="95" step="1" class="w-full h-2.5 rounded-lg appearance-none cursor-pointer">
+                                <span id="eta_thermal_value" class="font-bold text-teal-400 w-24 text-center text-lg mt-2 sm:mt-0">95%</span>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="eta_turbine_slider" class="block font-semibold mb-2 flex items-center">יעילות טורבינה וגנרטור <button class="info-icon" aria-label="מידע על יעילות טורבינה">ⓘ<span class="tooltip-text">אחוז האנרגיה בקיטור שהופך לחשמל.</span></button></label>
+                            <div class="flex flex-col sm:flex-row items-center sm:space-x-4 sm:space-x-reverse">
+                                <input type="range" id="eta_turbine_slider" min="20" max="50" value="30" step="1" class="w-full h-2.5 rounded-lg appearance-none cursor-pointer">
+                                <span id="eta_turbine_value" class="font-bold text-teal-400 w-24 text-center text-lg mt-2 sm:mt-0">30%</span>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="ambient_temp_slider" class="block font-semibold mb-2 flex items-center">טמפרטורת סביבה <button class="info-icon" aria-label="מידע על טמפרטורת סביבה">ⓘ<span class="tooltip-text">הטמפרטורה שממנה משאבת החום שואבת אנרגיה.</span></button></label>
+                             <div class="flex flex-col sm:flex-row items-center sm:space-x-4 sm:space-x-reverse">
+                                <input type="range" id="ambient_temp_slider" min="-10" max="40" value="25" step="1" class="w-full h-2.5 rounded-lg appearance-none cursor-pointer">
+                                <span id="ambient_temp_value" class="font-bold text-orange-400 w-24 text-center text-lg mt-2 sm:mt-0">25°C</span>
+                             </div>
+                            <div class="mt-2 text-sm text-center sm:text-right"><span class="text-secondary">מקדם ביצועים (COP): </span><span id="calculated_cop_value" class="font-bold text-teal-400 text-lg"></span></div>
+                        </div>
                     </div>
                 </aside>
                 <div class="w-full lg:w-2/3 space-y-8">
                     <div class="bg-slate-800/50 border border-slate-700 p-6 rounded-lg">
                         <h3 class="text-2xl font-bold mb-4 text-primary">📊 סיכום ביצועים</h3>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div><p class="text-secondary flex items-center"><span class="info-icon">ⓘ<span class="tooltip-text">סך החשמל שהמערכת ייצרה, בניכוי צריכה עצמית.</span></span>רווח אנרגיה חשמלית נקי</p><div class="flex items-baseline"><span id="net_energy_value" class="text-3xl md:text-4xl font-bold text-green-400"></span><span id="net_energy_delta" class="mr-2 text-md font-semibold text-green-300"></span></div></div>
-                            <div><p class="text-secondary flex items-center"><span class="info-icon">ⓘ<span class="tooltip-text">אחוז האנרגיה הכימית שהפך לחשמל נקי.</span></span>יעילות מערכת כוללת</p><span id="system_efficiency_value" class="text-3xl md:text-4xl font-bold text-blue-400"></span></div>
-                            <div><p class="text-secondary flex items-center"><span class="info-icon">ⓘ<span class="tooltip-text">כמות החום ש"נקצרה" מהסביבה.</span></span>אנרגיה סביבתית (קירור)</p><span id="cooling_power_value" class="text-3xl md:text-4xl font-bold text-cyan-400"></span></div>
-                            <div><p class="text-secondary flex items-center"><span class="info-icon">ⓘ<span class="tooltip-text">הלחץ הנדרש בכור להשגת הטמפרטורה.</span></span>לחץ נדרש בכור</p><span id="pressure_value" class="text-3xl md:text-4xl font-bold text-orange-400"></span></div>
+                            <div>
+                                <p class="text-secondary flex items-center">רווח אנרגיה חשמלית נקי</p>
+                                <div class="flex items-baseline"><span id="net_energy_value" class="text-3xl md:text-4xl font-bold text-green-400"></span><span id="net_energy_delta" class="mr-2 text-md font-semibold"></span></div>
+                            </div>
+                            <div>
+                                <p class="text-secondary flex items-center">יעילות מערכת כוללת</p>
+                                <span id="system_efficiency_value" class="text-3xl md:text-4xl font-bold text-blue-400"></span>
+                            </div>
+                            <div>
+                                <p class="text-secondary flex items-center">אנרגיה סביבתית (קירור)</p>
+                                <span id="cooling_power_value" class="text-3xl md:text-4xl font-bold text-cyan-400"></span>
+                            </div>
+                            <div>
+                                <p class="text-secondary flex items-center">לחץ נדרש בכור</p>
+                                <span id="pressure_value" class="text-3xl md:text-4xl font-bold text-orange-400"></span>
+                            </div>
+                            <div class="sm:col-span-2 bg-slate-700/50 p-4 rounded-md">
+                                <p class="text-sm text-blue-300">כמות הקיטור שנוצרה במחזור: <strong id="steam_mass_value" class="text-base text-blue-200"></strong></p>
+                            </div>
                         </div>
                     </div>
                     <div class="bg-slate-800/50 border border-slate-700 p-6 rounded-lg">
-                        <h3 class="text-2xl font-bold mb-4 text-primary">🔢 פירוט מאזן האנרגיה (לפי 1 מול H₂SO₄)</h3>
-                        <div class="table-responsive"><table class="w-full text-left"><thead><tr class="border-b-2 border-slate-700 text-secondary"><th class="py-2 font-semibold">שלב</th><th class="py-2 font-semibold">ערך (kJ)</th><th class="py-2 font-semibold">% מהקלט</th></tr></thead><tbody id="balance_table_body"></tbody></table></div>
+                        <h3 class="text-2xl font-bold mb-4 text-primary">🔢 פירוט מאזן האנרגיה</h3>
+                        <div class="table-responsive"><table class="w-full text-right min-w-[340px]"><thead><tr class="border-b-2 border-slate-700 text-secondary"><th class="py-2 font-semibold">שלב</th><th class="py-2 font-semibold">ערך (kJ)</th><th class="py-2 font-semibold">% מהקלט</th></tr></thead><tbody id="balance_table_body"></tbody></table></div>
+                    </div>
+                     <div class="bg-slate-800/50 border border-slate-700 p-6 rounded-lg">
+                        <h3 class="text-2xl font-bold mb-4 text-primary">תרשים המערכת</h3>
+                        <div class="bg-white p-4 rounded-lg overflow-x-auto">
+                           <svg width="100%" viewBox="0 0 800 550" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#4b5563" /></marker>
+                                    <style>
+                                        .box { fill: #f3f4f6; stroke: #9ca3af; stroke-width: 2; rx: 8; }
+                                        .label-text { font-family: 'Assistant', sans-serif; font-size: 16px; fill: #1f2937; }
+                                        .path-line { stroke: #4b5563; stroke-width: 2; marker-end: url(#arrow); }
+                                        .dashed-line { stroke: #6b7280; stroke-width: 2; stroke-dasharray: 8 4; marker-end: url(#arrow); }
+                                        .cluster-box { fill: rgba(59, 130, 246, 0.1); rx: 16; }
+                                        .cluster-label { font-size: 18px; font-weight: bold; fill: #1d4ed8; }
+                                        .recycle-box { fill: rgba(245, 158, 11, 0.1); }
+                                        .recycle-label { fill: #b45309; }
+                                    </style>
+                                </defs>
+                                <rect x="25" y="25" width="750" height="220" class="cluster-box" /><text x="400" y="50" text-anchor="middle" class="cluster-label">תהליך ראשי (יצירת חשמל)</text>
+                                <rect x="25" y="270" width="450" height="265" class="recycle-box cluster-box" /><text x="250" y="295" text-anchor="middle" class="recycle-label cluster-label">תהליך מחזור</text>
+                                <rect x="50" y="100" width="120" height="60" class="box" /><text x="110" y="135" text-anchor="middle" class="label-text">H₂SO₄ מרוכז</text>
+                                <rect x="200" y="100" width="120" height="60" class="box" /><text x="260" y="135" text-anchor="middle" class="label-text">H₂O (מים)</text>
+                                <rect x="370" y="100" width="120" height="60" class="box" style="fill:#fdba74" /><text x="430" y="135" text-anchor="middle" class="label-text">כור לחץ גבוה</text>
+                                <rect x="580" y="100" width="150" height="60" class="box" style="fill:#86efac" /><text x="655" y="135" text-anchor="middle" class="label-text">טורבינה + גנרטור</text>
+                                <rect x="595" y="275" width="120" height="60" class="box" style="fill:#fde047" /><text x="655" y="310" text-anchor="middle" class="label-text">חשמל (ברוטו)</text>
+                                <rect x="50" y="350" width="130" height="60" class="box" /><text x="115" y="385" text-anchor="middle" class="label-text">תמיסה מדוללת</text>
+                                <rect x="270" y="350" width="120" height="60" class="box" /><text x="330" y="385" text-anchor="middle" class="label-text">מאדה</text>
+                                <rect x="270" y="450" width="120" height="60" class="box" style="fill:#f9a8d4;"/><text x="330" y="485" text-anchor="middle" class="label-text">משאבת חום</text>
+                                <path d="M 170 130 H 370" class="path-line" /><path d="M 320 130 H 370" class="path-line" /><path d="M 490 130 H 580" class="path-line" /><path d="M 655 160 V 275" class="path-line" />
+                                <path d="M 430 160 V 320 C 430 330 420 340 410 340 H 100 C 90 340 80 350 80 360 V 350" fill="none" class="path-line" />
+                                <path d="M 180 380 H 270" class="path-line" /><path d="M 330 450 V 410" class="path-line" /><text x="360" y="430" class="label-text" style="font-size:14px; fill: #be185d">חום</text>
+                                <rect x="580" y="415" width="150" height="60" class="box" style="stroke-width:3; stroke:#16a34a" /><text x="655" y="450" text-anchor="middle" class="label-text">רווח חשמל נקי</text>
+                                <path d="M 655 335 V 415" class="dashed-line" /><path d="M 595 305 H 390 V 450 " fill="none" class="dashed-line"/>
+                           </svg>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -101,15 +204,40 @@
     </main>
     <footer class="bg-gray-900 text-gray-500 text-center py-6 border-t border-gray-700"><p>&copy; 2025 HeatPower. כל הזכויות שמורות.</p></footer>
     <script>
-        const sliders = { temp: document.getElementById('temp_slider'), eta_reaction: document.getElementById('eta_reaction_slider'), eta_turbine: document.getElementById('eta_turbine_slider'), ambient_temp: document.getElementById('ambient_temp_slider'), eta_pump: document.getElementById('eta_pump_slider') };
-        const values = { temp: document.getElementById('temp_value'), eta_reaction: document.getElementById('eta_reaction_value'), eta_turbine: document.getElementById('eta_turbine_value'), ambient_temp: document.getElementById('ambient_temp_value'), eta_pump: document.getElementById('eta_pump_value') };
-        const outputs = { net_energy_value: document.getElementById('net_energy_value'), net_energy_delta: document.getElementById('net_energy_delta'), system_efficiency_value: document.getElementById('system_efficiency_value'), cooling_power_value: document.getElementById('cooling_power_value'), pressure_value: document.getElementById('pressure_value'), steam_mass_value: document.getElementById('steam_mass_value'), calculated_cop_value: document.getElementById('calculated_cop_value'), balance_table_body: document.getElementById('balance_table_body') };
-        const CONSTANTS = { Q_reaction: 95000, H2O_vap_heat: 2260, H2SO4_vol_per_mol: 5.33e-5, ATM_TO_PA: 101325 };
-        function calculateAndDisplay() { const T_steam = parseFloat(sliders.temp.value); const eta_reaction = parseFloat(sliders.eta_reaction.value) / 100; const eta_turbine = parseFloat(sliders.eta_turbine.value) / 100; const T_ambient = parseFloat(sliders.ambient_temp.value); const eta_pump = parseFloat(sliders.eta_pump.value) / 100; values.temp.textContent = `${T_steam}°C`; values.eta_reaction.textContent = `${sliders.eta_reaction.value}%`; values.eta_turbine.textContent = `${sliders.eta_turbine.value}%`; values.ambient_temp.textContent = `${T_ambient}°C`; values.eta_pump.textContent = `${sliders.eta_pump.value}%`; const cop_hp = Math.max(2.0, (1/15) * T_ambient + (7/3)); outputs.calculated_cop_value.textContent = cop_hp.toFixed(2); const A = 5.40221, B = 1838.675, C = -31.737; const P_bar = Math.pow(10, A - (B / (C + T_steam))); const P_atm = P_bar * 0.986923; const E_g_steam = (4.184 * (100 - 25)) + CONSTANTS.H2O_vap_heat + (2.08 * (T_steam - 100)); const Q_usable = CONSTANTS.Q_reaction * eta_reaction; const m_steam = Q_usable / E_g_steam; const V_h2o_pumped = (m_steam / 1000) * 1e-3; const V_total_pumped = CONSTANTS.H2SO4_vol_per_mol + V_h2o_pumped; const delta_P_pa = (P_atm > 1) ? (P_atm - 1) * CONSTANTS.ATM_TO_PA : 0; const W_hydraulic = V_total_pumped * delta_P_pa; const E_pump_cost = W_hydraulic / eta_pump; const E_electric_gross = Q_usable * eta_turbine; const Q_recycle = m_steam * CONSTANTS.H2O_vap_heat; const E_recycle_cost = Q_recycle / cop_hp; const E_net = E_electric_gross - E_recycle_cost - E_pump_cost; const eta_system = (E_net / CONSTANTS.Q_reaction) * 100; const Q_cooling = Q_recycle - E_recycle_cost; outputs.net_energy_value.textContent = `${(E_net / 1000).toLocaleString('he-IL', { maximumFractionDigits: 2 })} kJ`; outputs.net_energy_delta.textContent = `(${eta_system.toFixed(2)}%)`; outputs.system_efficiency_value.textContent = `${eta_system.toFixed(2)}%`; outputs.cooling_power_value.textContent = `${(Q_cooling / 1000).toLocaleString('he-IL', { maximumFractionDigits: 2 })} kJ`; outputs.pressure_value.textContent = `${P_atm.toLocaleString('he-IL', {maximumFractionDigits: 1})} אטמ'`; outputs.net_energy_value.classList.toggle('text-red-400', E_net <= 0); outputs.net_energy_value.classList.toggle('text-green-400', E_net > 0); const tableData = [ { label: "1. אנרגיה כימית זמינה", value: CONSTANTS.Q_reaction, percent: 100 }, { label: "2. אנרגיה תרמית שמישה", value: Q_usable, percent: (Q_usable / CONSTANTS.Q_reaction) * 100 }, { label: "3. חשמל מופק (ברוטו)", value: E_electric_gross, percent: (E_electric_gross / CONSTANTS.Q_reaction) * 100 }, { label: "4. חשמל נצרך (מחזור)", value: -E_recycle_cost, percent: (E_recycle_cost / CONSTANTS.Q_reaction) * 100 }, { label: '5. חשמל נצרך (משאבה)', value: -E_pump_cost, percent: (E_pump_cost / CONSTANTS.Q_reaction) * 100 }, { label: "<strong>6. רווח חשמל נקי</strong>", value: E_net, percent: eta_system } ]; outputs.balance_table_body.innerHTML = tableData.map(row => `<tr class="border-b border-slate-700 text-secondary"><td class="py-3 pr-2">${row.label}</td><td class="py-3 font-mono text-primary">${(row.value / 1000).toLocaleString('he-IL', { maximumFractionDigits: 2 })}</td><td class="py-3 font-mono text-primary">${row.percent.toFixed(1)}%</td></tr>`).join(''); }
-        Object.values(sliders).forEach(slider => { slider.addEventListener('input', calculateAndDisplay); });
+        const sliders = { temp: document.getElementById('temp_slider'), eta_reaction: document.getElementById('eta_reaction_slider'), eta_thermal: document.getElementById('eta_thermal_slider'), eta_turbine: document.getElementById('eta_turbine_slider'), ambient_temp: document.getElementById('ambient_temp_slider') };
+        const values = { temp: document.getElementById('temp_value'), eta_reaction: document.getElementById('eta_reaction_value'), eta_thermal: document.getElementById('eta_thermal_value'), eta_turbine: document.getElementById('eta_turbine_value'), ambient_temp: document.getElementById('ambient_temp_value') };
+        const outputs = { net_energy_value: document.getElementById('net_energy_value'), net_energy_delta: document.getElementById('net_energy_delta'), system_efficiency_value: document.getElementById('system_efficiency_value'), cooling_power_value: document.getElementById('cooling_power_value'), pressure_value: document.getElementById('pressure_value'), steam_mass_value: document.getElementById('steam_mass_value'), balance_table_body: document.getElementById('balance_table_body'), calculated_cop_value: document.getElementById('calculated_cop_value') };
+        const CONSTANTS = { Q_reaction: 95000, H2O_vap_heat: 2260 };
+
+        function calculateAndDisplay() {
+            const T_steam = parseFloat(sliders.temp.value); const eta_reaction = parseFloat(sliders.eta_reaction.value) / 100; const eta_thermal = parseFloat(sliders.eta_thermal.value) / 100; const eta_turbine = parseFloat(sliders.eta_turbine.value) / 100; const T_ambient = parseFloat(sliders.ambient_temp.value);
+            values.temp.textContent = `${T_steam}°C`; values.eta_reaction.textContent = `${sliders.eta_reaction.value}%`; values.eta_thermal.textContent = `${sliders.eta_thermal.value}%`; values.eta_turbine.textContent = `${sliders.eta_turbine.value}%`; values.ambient_temp.textContent = `${T_ambient}°C`;
+            
+            const cop_hp = Math.max(2.0, (1/15) * T_ambient + (7/3));
+            outputs.calculated_cop_value.textContent = cop_hp.toFixed(2);
+            
+            const A = 5.11564, B = 1687.537, C = 230.17; const P_bar = Math.pow(10, A - (B / (C + T_steam))); const P_atm = P_bar * 0.986923;
+            const E_g_steam = (4.184 * (100 - 25)) + CONSTANTS.H2O_vap_heat + (2.08 * (T_steam - 100)); const Q_usable = CONSTANTS.Q_reaction * eta_reaction * eta_thermal; const m_steam = Q_usable / E_g_steam;
+            const E_electric_gross = Q_usable * eta_turbine; const Q_recycle = m_steam * CONSTANTS.H2O_vap_heat; const E_recycle_cost = Q_recycle / cop_hp;
+            const E_net = E_electric_gross - E_recycle_cost; const eta_system = (E_net / CONSTANTS.Q_reaction) * 100; const Q_cooling = Q_recycle - E_recycle_cost;
+            
+            outputs.net_energy_value.textContent = `${(E_net / 1000).toLocaleString('he-IL', { maximumFractionDigits: 2 })} kJ`;
+            outputs.net_energy_delta.textContent = `(${eta_system.toFixed(2)}%)`;
+            outputs.system_efficiency_value.textContent = `${eta_system.toFixed(2)}%`;
+            outputs.cooling_power_value.textContent = `${(Q_cooling / 1000).toLocaleString('he-IL', { maximumFractionDigits: 2 })} kJ`;
+            outputs.pressure_value.textContent = `${P_atm.toFixed(1)} אטמ'`;
+            outputs.steam_mass_value.textContent = `${m_steam.toFixed(2)} גרם`;
+            
+            outputs.net_energy_value.classList.toggle('text-red-400', E_net <= 0);
+            outputs.net_energy_value.classList.toggle('text-green-400', E_net > 0);
+            
+            const tableData = [ { label: "1. אנרגיה כימית זמינה", value: CONSTANTS.Q_reaction, percent: 100 }, { label: "2. אנרגיה תרמית שמישה", value: Q_usable, percent: (Q_usable / CONSTANTS.Q_reaction) * 100 }, { label: "3. חשמל מופק (ברוטו)", value: E_electric_gross, percent: (E_electric_gross / CONSTANTS.Q_reaction) * 100 }, { label: "4. חשמל נצרך (מחזור)", value: -E_recycle_cost, percent: (E_recycle_cost / CONSTANTS.Q_reaction) * 100 }, { label: "<strong>5. רווח חשמל נקי</strong>", value: E_net, percent: eta_system } ];
+            outputs.balance_table_body.innerHTML = tableData.map(row => `<tr class="border-b border-slate-700 text-secondary"><td class="py-3 pr-2">${row.label}</td><td class="py-3 font-mono text-primary">${(row.value / 1000).toLocaleString('he-IL', { maximumFractionDigits: 2 })}</td><td class="py-3 font-mono text-primary">${row.percent.toFixed(1)}%</td></tr>`).join('');
+        }
+        
+        Object.values(sliders).forEach(slider => slider.addEventListener('input', calculateAndDisplay));
         document.addEventListener('DOMContentLoaded', calculateAndDisplay);
-    </script>
-    <script>
+
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
             var menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');

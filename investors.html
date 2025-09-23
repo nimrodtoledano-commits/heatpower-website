@@ -20,14 +20,13 @@
         .text-primary { color: #f0f6fc; } .text-secondary { color: #8b949e; } .text-accent { color: #58a6ff; }
         .border-accent { border-color: #58a6ff; }
         .navbar { position: fixed; top: 0; left: 0; width: 100%; background-color: rgba(13, 17, 23, 0.7); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid #30363d; }
-        .page-hero { padding-top: 10rem; padding-bottom: 6rem; md:padding-top: 12rem; md:padding-bottom: 8rem; text-align: center; background-image: linear-gradient(rgba(13, 17, 23, 0.7), rgba(13, 17, 23, 0.7)), url('hero-investors.jpg'); background-size: cover; background-position: center; }
+        .page-hero { text-align: center; background-image: linear-gradient(rgba(13, 17, 23, 0.7), rgba(13, 17, 23, 0.7)), url('hero-investors.jpg'); background-size: cover; background-position: center; }
         .section-heading { border-bottom: 1px solid #30363d; padding-bottom: 1.5rem; margin-bottom: 3rem; md:margin-bottom: 4rem; }
-        .chart-container { position: relative; width: 100%; max-width: 450px; margin: auto; height: 450px; }
     </style>
 </head>
 <body class="bg-slate-900">
    <header class="navbar">
-    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <nav class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
         <div class="text-3xl font-bold text-accent tracking-wider">HeatPower</div>
         
         <ul class="hidden lg:flex items-center text-md font-semibold space-x-6 space-x-reverse">
@@ -37,7 +36,7 @@
             <li><a href="technology.html" class="text-gray-300 hover:text-accent transition-colors">הפיתוח הטכנולוגי</a></li>
             <li><a href="feasibility.html" class="text-gray-300 hover:text-accent transition-colors">בדיקת היתכנות</a></li>
             <li><a href="business-plan.html" class="text-gray-300 hover:text-accent transition-colors">התוכנית העסקית</a></li>
-            <li><a href="investors.html" class="text-gray-300 hover:text-accent transition-colors">ניתוח מחיר</a></li>
+            <li><a href="investors.html" class="text-white hover:text-accent transition-colors">ניתוח מחיר</a></li>
             <li><a href="simulation1.html" class="text-gray-300 hover:text-accent transition-colors">סימולטור אנרגיה</a></li>
             <li><a href="simulation2.html" class="text-gray-300 hover:text-accent transition-colors">סימולטור כלכלי</a></li>
             <li><a href="our-story.html" class="text-gray-300 hover:text-accent transition-colors">הסיפור שלנו</a></li>
@@ -50,27 +49,27 @@
         </div>
     </nav>
 
-    <div id="mobile-menu" class="hidden lg:hidden bg-slate-800">
-        <a href="index.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">דף הבית</a>
-        <a href="presentation.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">ההזדמנות</a>
-        <a href="market-analysis.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">שוק ומתחרים</a>
-        <a href="technology.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">הפיתוח הטכנולוגי</a>
-        <a href="feasibility.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">בדיקת היתכנות</a>
-        <a href="business-plan.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">התוכנית העסקית</a>
-        <a href="investors.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">ניתוח מחיר</a>
-        <a href="simulation1.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">סימולטור אנרגיה</a>
-        <a href="simulation2.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">סימולטור כלכלי</a>
-        <a href="our-story.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">הסיפור שלנו</a>
+    <div id="mobile-menu" class="hidden lg:hidden bg-slate-800/95 backdrop-blur-sm">
+        <a href="index.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">דף הבית</a>
+        <a href="presentation.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">ההזדמנות</a>
+        <a href="market-analysis.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">שוק ומתחרים</a>
+        <a href="technology.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">הפיתוח הטכנולוגי</a>
+        <a href="feasibility.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">בדיקת היתכנות</a>
+        <a href="business-plan.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">התוכנית העסקית</a>
+        <a href="investors.html" class="block py-3 px-6 text-white bg-slate-700">ניתוח מחיר</a>
+        <a href="simulation1.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">סימולטור אנרגיה</a>
+        <a href="simulation2.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">סימולטור כלכלי</a>
+        <a href="our-story.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">הסיפור שלנו</a>
     </div>
 </header>
     <main>
-        <section class="page-hero">
-            <div class="max-w-4xl mx-auto px-6">
+        <section class="page-hero pt-32 pb-16 md:pt-48 md:pb-24">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6">
                 <h1 class="text-4xl md:text-7xl font-extrabold text-primary leading-tight">מידע למשקיעים</h1>
                 <p class="mt-4 text-lg md:text-2xl text-secondary">ניתוח פיננסי של פלטפורמת האנרגיה HeatPower.</p>
             </div>
         </section>
-        <div class="container mx-auto px-6 py-16 space-y-16 md:py-24 md:space-y-24">
+        <div class="container mx-auto px-4 sm:px-6 py-16 space-y-16 md:py-24 md:space-y-24">
             <section id="costs">
                 <div class="max-w-7xl mx-auto">
                     <div class="section-heading text-center">
@@ -80,28 +79,32 @@
                     <div class="grid md:grid-cols-2 gap-12 items-center">
                         <div class="bg-slate-800/50 border border-slate-700 p-6 md:p-8 rounded-lg">
                             <h4 class="text-2xl font-bold text-primary text-center">תרשים חלוקת השקעה (אב-טיפוס)</h4>
-                            <div class="chart-container"><canvas id="totalInvestmentChart"></canvas></div>
+                            <div class="relative w-full max-w-md mx-auto aspect-square mt-4">
+                                <canvas id="totalInvestmentChart"></canvas>
+                            </div>
                         </div>
                         <div class="bg-slate-800/50 border border-slate-700 p-6 md:p-8 rounded-lg">
                              <h4 class="text-2xl font-bold text-primary text-center">פירוט עלויות רכיבי חומרה</h4>
                              
-                             <div class="grid grid-cols-2 gap-4 my-6 text-center">
-                                 <div class="bg-slate-700/50 p-4 rounded-lg border border-slate-600">
-                                     <span class="text-sm font-semibold text-secondary">סה"כ עלות (אב-טיפוס)</span>
-                                     <p class="text-2xl font-bold text-accent">$540,000</p>
-                                 </div>
-                                 <div class="bg-slate-700/50 p-4 rounded-lg border border-slate-600">
-                                     <span class="text-sm font-semibold text-secondary">סה"כ עלות (ייצור סדרתי)</span>
-                                     <p class="text-2xl font-bold text-green-400">$305,500</p>
-                                 </div>
+                             <div class="grid grid-cols-2 gap-4 mt-6 mb-4 text-center">
+                                   <div class="bg-slate-700/50 p-4 rounded-lg border border-slate-600">
+                                       <span class="text-sm font-semibold text-secondary">סה"כ עלות (אב-טיפוס)</span>
+                                       <p class="text-2xl font-bold text-accent">$540,000</p>
+                                   </div>
+                                   <div class="bg-slate-700/50 p-4 rounded-lg border border-slate-600">
+                                       <span class="text-sm font-semibold text-secondary">סה"כ עלות (ייצור סדרתי)</span>
+                                       <p class="text-2xl font-bold text-green-400">$305,500</p>
+                                   </div>
                              </div>
 
-                             <div class="text-center mb-4">
-                                <button id="cost-toggle-btn" class="font-bold py-2 px-6 rounded-full border-2 border-accent text-accent transition-colors hover:bg-accent hover:text-white focus:outline-none">
-                                    הצג עלויות ייצור סדרתי
-                                </button>
+                             <div class="text-center">
+                                 <button id="cost-toggle-btn" class="font-bold py-2 px-6 rounded-full border-2 border-accent text-accent transition-colors hover:bg-accent hover:text-white focus:outline-none">
+                                     הצג עלויות ייצור סדרתי
+                                 </button>
+                             </div>
+                            <div class="relative w-full max-w-md mx-auto aspect-square mt-6">
+                                <canvas id="componentDoughnutChart"></canvas>
                             </div>
-                            <div class="chart-container" style="height: 300px;"><canvas id="componentDoughnutChart"></canvas></div>
                         </div>
                     </div>
                 </div>
@@ -156,12 +159,12 @@
                         label: `עלות ($)`, 
                         data: data, 
                         backgroundColor: ['#1e3a8a', '#1d4ed8', '#3b82f6'], 
-                        borderColor: '#1f2937', 
-                        borderWidth: 4 
+                        borderColor: '#0d1117', 
+                        borderWidth: 5 
                     }] 
                 }, 
                 options: { 
-                    responsive: true, maintainAspectRatio: false,
+                    responsive: true, maintainAspectRatio: true,
                     plugins: { 
                         legend: { position: 'bottom', labels: { color: '#d1d5db', font: { size: 14 } } }, 
                         title: { display: true, text: `סה"כ גיוס: $${investmentData.total.toLocaleString()}`, color: '#f0f6fc', font: { size: 20 } } 
@@ -195,12 +198,12 @@
                         label: 'עלות ($)',
                         data: data,
                         backgroundColor: colors,
-                        borderColor: '#1f2937',
-                        borderWidth: 4
+                        borderColor: '#0d1117',
+                        borderWidth: 5
                     }]
                 },
                 options: {
-                    responsive: true, maintainAspectRatio: false,
+                    responsive: true, maintainAspectRatio: true,
                     plugins: {
                         legend: { position: 'bottom', labels: { color: '#d1d5db', font: { size: 14 } } },
                         title: { display: true, text: titleText, color: '#f0f6fc', font: { size: 20 } }

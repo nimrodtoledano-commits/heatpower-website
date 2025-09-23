@@ -33,9 +33,17 @@
             border-bottom: 1px solid #e5e5e0; 
         }
         .page-hero-warm {
-            padding-top: 10rem; padding-bottom: 6rem; text-align: center;
+            padding-top: 8rem; /* Adjusted for mobile */
+            padding-bottom: 4rem; /* Adjusted for mobile */
+            text-align: center;
             background-image: url('hero-tech.jpg');
             background-size: cover; background-position: center; 
+        }
+        @media (min-width: 768px) {
+            .page-hero-warm {
+                padding-top: 10rem;
+                padding-bottom: 6rem;
+            }
         }
         .stage-box { 
             transition: all 0.3s ease-in-out; 
@@ -49,8 +57,7 @@
             border-color: #d97706; 
             border-right-width: 6px;
         }
-        .navbar a { color: #5a5a5a; }
-        .navbar .font-bold { color: #2d2d2d; }
+        /* Removed redundant navbar styles from here, handled by Tailwind classes */
     </style>
 </head>
 <body>
@@ -66,51 +73,52 @@
     </script>
 
   <header class="navbar">
-    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-        <div class="text-3xl font-bold text-accent tracking-wider">HeatPower</div>
+    <nav class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+        <div class="text-3xl font-bold text-accent-warm tracking-wider">HeatPower</div>
         
         <ul class="hidden lg:flex items-center text-md font-semibold space-x-6 space-x-reverse">
-            <li><a href="index.html" class="text-gray-300 hover:text-accent transition-colors">דף הבית</a></li>
-            <li><a href="presentation.html" class="text-gray-300 hover:text-accent transition-colors">ההזדמנות</a></li>
-            <li><a href="market-analysis.html" class="text-gray-300 hover:text-accent transition-colors">שוק ומתחרים</a></li>
-            <li><a href="technology.html" class="text-gray-300 hover:text-accent transition-colors">הפיתוח הטכנולוגי</a></li>
-            <li><a href="feasibility.html" class="text-gray-300 hover:text-accent transition-colors">בדיקת היתכנות</a></li>
-            <li><a href="business-plan.html" class="text-gray-300 hover:text-accent transition-colors">התוכנית העסקית</a></li>
-            <li><a href="investors.html" class="text-gray-300 hover:text-accent transition-colors">ניתוח מחיר</a></li>
-            <li><a href="simulation1.html" class="text-gray-300 hover:text-accent transition-colors">סימולטור אנרגיה</a></li>
-            <li><a href="simulation2.html" class="text-gray-300 hover:text-accent transition-colors">סימולטור כלכלי</a></li>
-            <li><a href="our-story.html" class="text-gray-300 hover:text-accent transition-colors">הסיפור שלנו</a></li>
+            <li><a href="index.html" class="text-secondary-warm hover:text-accent-warm transition-colors">דף הבית</a></li>
+            <li><a href="presentation.html" class="text-secondary-warm hover:text-accent-warm transition-colors">ההזדמנות</a></li>
+            <li><a href="market-analysis.html" class="text-secondary-warm hover:text-accent-warm transition-colors">שוק ומתחרים</a></li>
+            <li><a href="technology.html" class="text-secondary-warm hover:text-accent-warm transition-colors">הפיתוח הטכנולוגי</a></li>
+            <li><a href="feasibility.html" class="text-secondary-warm hover:text-accent-warm transition-colors">בדיקת היתכנות</a></li>
+            <li><a href="business-plan.html" class="text-secondary-warm hover:text-accent-warm transition-colors">התוכנית העסקית</a></li>
+            <li><a href="investors.html" class="text-secondary-warm hover:text-accent-warm transition-colors">ניתוח מחיר</a></li>
+            <li><a href="simulation1.html" class="text-secondary-warm hover:text-accent-warm transition-colors">סימולטור אנרגיה</a></li>
+            <li><a href="simulation2.html" class="text-secondary-warm hover:text-accent-warm transition-colors">סימולטור כלכלי</a></li>
+            <li><a href="our-story.html" class="text-secondary-warm hover:text-accent-warm transition-colors">הסיפור שלנו</a></li>
         </ul>
 
         <div class="lg:hidden">
-            <button id="mobile-menu-button" class="text-white focus:outline-none">
+            <button id="mobile-menu-button" class="text-primary-warm focus:outline-none">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </div>
     </nav>
 
-    <div id="mobile-menu" class="hidden lg:hidden bg-slate-800">
-        <a href="index.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">דף הבית</a>
-        <a href="presentation.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">ההזדמנות</a>
-        <a href="market-analysis.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">שוק ומתחרים</a>
-        <a href="technology.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">הפיתוח הטכנולוגי</a>
-        <a href="feasibility.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">בדיקת היתכנות</a>
-        <a href="business-plan.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">התוכנית העסקית</a>
-        <a href="investors.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">ניתוח מחיר</a>
-        <a href="simulation1.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">סימולטור אנרגיה</a>
-        <a href="simulation2.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">סימולטור כלכלי</a>
-        <a href="our-story.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">הסיפור שלנו</a>
+    <div id="mobile-menu" class="hidden lg:hidden bg-stone-50/95 backdrop-blur-sm shadow-md">
+        <a href="index.html" class="block py-3 px-6 text-secondary-warm hover:bg-stone-200">דף הבית</a>
+        <a href="presentation.html" class="block py-3 px-6 text-secondary-warm hover:bg-stone-200">ההזדמנות</a>
+        <a href="market-analysis.html" class="block py-3 px-6 text-secondary-warm hover:bg-stone-200">שוק ומתחרים</a>
+        <a href="technology.html" class="block py-3 px-6 text-secondary-warm hover:bg-stone-200">הפיתוח הטכנולוגי</a>
+        <a href="feasibility.html" class="block py-3 px-6 text-secondary-warm hover:bg-stone-200">בדיקת היתכנות</a>
+        <a href="business-plan.html" class="block py-3 px-6 text-secondary-warm hover:bg-stone-200">התוכנית העסקית</a>
+        <a href="investors.html" class="block py-3 px-6 text-secondary-warm hover:bg-stone-200">ניתוח מחיר</a>
+        <a href="simulation1.html" class="block py-3 px-6 text-secondary-warm hover:bg-stone-200">סימולטור אנרגיה</a>
+        <a href="simulation2.html" class="block py-3 px-6 text-secondary-warm hover:bg-stone-200">סימולטור כלכלי</a>
+        <a href="our-story.html" class="block py-3 px-6 text-secondary-warm hover:bg-stone-200">הסיפור שלנו</a>
     </div>
 </header>
     <main class="main-content-area">
         <section class="page-hero-warm">
             <h1 class="text-4xl md:text-6xl font-extrabold text-white px-4" style="text-shadow: 0px 2px 5px rgba(0,0,0,0.5);">הטכנולוגיה מאחורי המנוע הכימי</h1>
         </section>
-        <div class="py-12 md:py-20 container mx-auto px-6 space-y-12 md:space-y-20">
+        
+        <div class="py-16 md:py-20 container mx-auto px-4 sm:px-6 space-y-16 md:space-y-20">
             <section id="system">
                 <div class="text-center mb-12"><h2 class="text-3xl md:text-4xl font-bold text-primary-warm">איך זה עובד? הצצה למנוע האנרגטי</h2><p class="mt-4 text-lg text-secondary-warm max-w-3xl mx-auto">המערכת פועלת במעגל תרמו-כימי סגור. לחצו על כל שלב בתהליך כדי ללמוד כיצד הוא פועל.</p></div>
                 
-                <div class="lg:grid lg:grid-cols-2 lg:gap-12">
+                <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-start">
                     
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5">
                         <div id="stage-1-box" class="stage-box cursor-pointer p-6 rounded-lg border-r-orange-500" onclick="showStage(1)"><div class="flex justify-between items-center"><h4 class="font-bold text-lg text-primary-warm">שלב 1: יצירת חום</h4><div class="text-3xl font-bold text-orange-500">1</div></div></div>
@@ -120,7 +128,7 @@
                     </div>
 
                     <div class="mt-8 lg:mt-0">
-                        <div id="stage-details" class="p-6 bg-white rounded-lg border border-stone-200 shadow-sm mb-8 sticky top-28">
+                        <div id="stage-details" class="p-6 bg-white rounded-lg border border-stone-200 shadow-sm mb-8 lg:sticky top-28">
                             <h4 id="details-title" class="text-2xl font-bold text-accent-warm">בחר שלב כדי לראות פרטים</h4>
                             <p id="details-text" class="mt-2 text-secondary-warm">כאן יוצג הסבר מפורט על השלב הנבחר.</p>
                         </div>
