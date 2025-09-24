@@ -3,32 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HeatPower | למשקיעים</title>
+    <title>HeatPower | ניתוח מחיר והשקעה</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { 
-            font-family: 'Assistant', sans-serif; 
-            background-color: #0d1117;
-            background-image: radial-gradient(at 15% 20%, hsla(212, 45%, 15%, 0.7) 0px, transparent 50%), radial-gradient(at 85% 80%, hsla(180, 50%, 20%, 0.6) 0px, transparent 50%);
-            color: #e6edf3; 
-            scroll-behavior: smooth; 
-        }
+        body { font-family: 'Assistant', sans-serif; background-color: #0d1117; background-image: radial-gradient(at 15% 20%, hsla(212, 45%, 15%, 0.7) 0px, transparent 50%), radial-gradient(at 85% 80%, hsla(180, 50%, 20%, 0.6) 0px, transparent 50%); color: #e6edf3; scroll-behavior: smooth; }
         .text-primary { color: #f0f6fc; } .text-secondary { color: #8b949e; } .text-accent { color: #58a6ff; }
         .border-accent { border-color: #58a6ff; }
         .navbar { position: fixed; top: 0; left: 0; width: 100%; background-color: rgba(13, 17, 23, 0.7); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid #30363d; }
         .page-hero { text-align: center; background-image: linear-gradient(rgba(13, 17, 23, 0.7), rgba(13, 17, 23, 0.7)), url('hero-investors.jpg'); background-size: cover; background-position: center; }
         .section-heading { border-bottom: 1px solid #30363d; padding-bottom: 1.5rem; margin-bottom: 3rem; md:margin-bottom: 4rem; }
+        .table-responsive { overflow-x: auto; }
+        .table-responsive table { border-collapse: collapse; width: 100%; }
+        .table-responsive th, .table-responsive td { padding: 0.75rem 1rem; border: 1px solid #30363d; white-space: nowrap; }
+        .table-responsive th { background-color: #161b22; }
     </style>
 </head>
 <body class="bg-slate-900">
    <header class="navbar">
     <nav class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
         <div class="text-3xl font-bold text-accent tracking-wider">HeatPower</div>
-        
         <ul class="hidden lg:flex items-center text-md font-semibold space-x-6 space-x-reverse">
             <li><a href="index.html" class="text-gray-300 hover:text-accent transition-colors">דף הבית</a></li>
             <li><a href="presentation.html" class="text-gray-300 hover:text-accent transition-colors">ההזדמנות</a></li>
@@ -41,14 +38,10 @@
             <li><a href="simulation2.html" class="text-gray-300 hover:text-accent transition-colors">סימולטור כלכלי</a></li>
             <li><a href="our-story.html" class="text-gray-300 hover:text-accent transition-colors">הסיפור שלנו</a></li>
         </ul>
-
         <div class="lg:hidden">
-            <button id="mobile-menu-button" class="text-white focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
+            <button id="mobile-menu-button" class="text-white focus:outline-none"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg></button>
         </div>
     </nav>
-
     <div id="mobile-menu" class="hidden lg:hidden bg-slate-800/95 backdrop-blur-sm">
         <a href="index.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">דף הבית</a>
         <a href="presentation.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">ההזדמנות</a>
@@ -65,172 +58,112 @@
     <main>
         <section class="page-hero pt-32 pb-16 md:pt-48 md:pb-24">
             <div class="max-w-4xl mx-auto px-4 sm:px-6">
-                <h1 class="text-4xl md:text-7xl font-extrabold text-primary leading-tight">מידע למשקיעים</h1>
-                <p class="mt-4 text-lg md:text-2xl text-secondary">ניתוח פיננסי של פלטפורמת האנרגיה HeatPower.</p>
+                <h1 class="text-4xl md:text-7xl font-extrabold text-primary leading-tight">ניתוח פיננסי</h1>
+                <p class="mt-4 text-lg md:text-2xl text-secondary">ניתוח מקיף של עלויות, צרכי מימון ומיפוי ספקים עבור המיזם.</p>
             </div>
         </section>
         <div class="container mx-auto px-4 sm:px-6 py-16 space-y-16 md:py-24 md:space-y-24">
-            <section id="costs">
-                <div class="max-w-7xl mx-auto">
-                    <div class="section-heading text-center">
-                        <h2 class="text-3xl md:text-4xl font-bold text-primary">גיוס ראשוני: הקמת אב-טיפוס ($1M)</h2>
-                        <p class="mt-4 text-lg text-secondary">ההשקעה הנדרשת מיועדת להקמת אב-טיפוס פונקציונלי מלא והגעה לפיילוט ראשוני. בניית קו ייצור תדרוש גיוס נוסף בהמשך.</p>
-                    </div>
-                    <div class="grid md:grid-cols-2 gap-12 items-center">
-                        <div class="bg-slate-800/50 border border-slate-700 p-6 md:p-8 rounded-lg">
-                            <h4 class="text-2xl font-bold text-primary text-center">תרשים חלוקת השקעה (אב-טיפוס)</h4>
-                            <div class="relative w-full max-w-md mx-auto aspect-square mt-4">
-                                <canvas id="totalInvestmentChart"></canvas>
+            
+            <section id="executive-summary">
+                 <div class="max-w-4xl mx-auto text-center bg-slate-800/50 border border-slate-700 p-8 md:p-10 rounded-lg">
+                    <h2 class="text-3xl font-bold text-primary">תקציר מנהלים</h2>
+                    <p class="mt-4 text-lg text-secondary leading-relaxed text-right">דוח זה מציג ניתוח מקיף של עלויות ומיפוי ספקים עבור המיזם. מטרתו לספק בסיס נתונים מהימן לבניית מודל פיננסי, תוך התמקדות באיסוף נתוני תמחור ריאליים מהשוק. הממצאים מצביעים על מספר גורמי עלות קריטיים: פרמיית כישרונות בכוח אדם, "מצוק עלויות הון" במעבר לייצור, והתלות בין השקעה באיכות להפחתת עלויות ביטוח. ניתוח זה מהווה חלק מ<a href="business-plan.html" class="font-bold text-accent hover:underline">התוכנית העסקית המלאה</a>.</p>
+                 </div>
+            </section>
+            
+            <section id="cost-analysis">
+                <div class="section-heading text-center"><h2 class="text-3xl md:text-4xl font-bold text-primary">ניתוח עלויות פיתוח וייצור</h2></div>
+                <div class="space-y-12">
+                    <div class="bg-slate-800/50 border border-slate-700 p-6 md:p-8 rounded-lg">
+                        <h3 class="text-2xl font-bold text-accent mb-6">שלב ב': הקמת תשתית ופיתוח אב טיפוס</h3>
+                        <div class="grid lg:grid-cols-5 gap-8">
+                            <div class="lg:col-span-3 space-y-8">
+                                <div>
+                                    <h4 class="text-xl font-semibold mb-4 text-primary">הוצאות חד-פעמיות</h4>
+                                    <div class="table-responsive"><table class="min-w-[600px]"><thead class="text-secondary"><tr><th>פריט</th><th>עלות מקסימלית (USD)</th></tr></thead><tbody class="text-primary"><tr><td>הקמת חברה והסכם מייסדים</td><td>$4,000</td></tr><tr><td>כור לחץ מעבדתי (5-10 ליטר)</td><td>$50,000</td></tr><tr><td>מיקרו-טורבינה וגנרטור</td><td>$20,000</td></tr><tr><td>משאבת חום ומערכת אידוי</td><td>$150,000</td></tr><tr><td>מערכת בקרה (PLC/SCADA)</td><td>$100,000</td></tr></tbody></table></div>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-semibold mb-4 text-primary">הוצאות קבועות (חודשי)</h4>
+                                    <div class="table-responsive"><table class="min-w-[600px]"><thead class="text-secondary"><tr><th>פריט</th><th>עלות מעסיק מקסימלית (USD)</th></tr></thead><tbody class="text-primary"><tr><td>מהנדס/ת כימיה</td><td>$9,000</td></tr><tr><td>מהנדס/ת מכונות</td><td>$8,850</td></tr><tr><td>שכירות מעבדה</td><td>$2,400</td></tr><tr><td>רישיונות תוכנה (HYSYS, SW, COMSOL)</td><td>$7,550</td></tr></tbody></table></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="bg-slate-800/50 border border-slate-700 p-6 md:p-8 rounded-lg">
-                             <h4 class="text-2xl font-bold text-primary text-center">פירוט עלויות רכיבי חומרה</h4>
-                             
-                             <div class="grid grid-cols-2 gap-4 mt-6 mb-4 text-center">
-                                   <div class="bg-slate-700/50 p-4 rounded-lg border border-slate-600">
-                                       <span class="text-sm font-semibold text-secondary">סה"כ עלות (אב-טיפוס)</span>
-                                       <p class="text-2xl font-bold text-accent">$540,000</p>
-                                   </div>
-                                   <div class="bg-slate-700/50 p-4 rounded-lg border border-slate-600">
-                                       <span class="text-sm font-semibold text-secondary">סה"כ עלות (ייצור סדרתי)</span>
-                                       <p class="text-2xl font-bold text-green-400">$305,500</p>
-                                   </div>
-                             </div>
-
-                             <div class="text-center">
-                                 <button id="cost-toggle-btn" class="font-bold py-2 px-6 rounded-full border-2 border-accent text-accent transition-colors hover:bg-accent hover:text-white focus:outline-none">
-                                     הצג עלויות ייצור סדרתי
-                                 </button>
-                             </div>
-                            <div class="relative w-full max-w-md mx-auto aspect-square mt-6">
-                                <canvas id="componentDoughnutChart"></canvas>
+                            <div class="lg:col-span-2 space-y-6">
+                                <div class="bg-slate-700/50 p-6 rounded-lg text-center">
+                                    <h4 class="text-lg font-semibold text-secondary">סה"כ עלויות וצפי מימון (שלב ב')</h4>
+                                    <p class="flex justify-between mt-4"><span>הוצאות חד-פעמיות:</span> <strong class="text-white">$324,000</strong></p>
+                                    <p class="flex justify-between"><span>עלות חודשית (Burn Rate):</span> <strong class="text-white">$27,800</strong></p>
+                                    <hr class="my-3 border-slate-600">
+                                    <p class="text-4xl font-bold text-accent mt-2">$1M</p>
+                                    <p class="text-sm text-secondary">סבב Pre-Seed ל-18 חודשי פעילות</p>
+                                </div>
+                                <div class="bg-slate-900/50 p-4 rounded-lg">
+                                     <h4 class="text-lg font-semibold mb-2 text-center text-primary">תרשים חלוקת השקעה</h4>
+                                     <div class="relative w-full max-w-sm mx-auto aspect-square"><canvas id="investmentChart"></canvas></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+
+            <section id="cost-notes">
+                 <div class="max-w-4xl mx-auto space-y-6">
+                    <div class="section-heading text-center"><h2 class="text-3xl md:text-4xl font-bold text-primary">הערות חשובות על ניתוח העלויות</h2></div>
+                    <div class="bg-slate-800/50 border border-slate-700 p-6 rounded-lg">
+                        <h4 class="text-xl font-bold text-primary mb-2">הערכות מחמירות</h4>
+                        <p class="text-secondary">הניתוח מתבסס בכוונה על הערכות עלות מחמירות והצעות המחיר הגבוהות ביותר שנמצאו בשוק. הדבר נעשה כדי להבטיח שהמודל הפיננסי יציב וערוך גם לתרחישים הפחות אופטימיים. הסבירות היא שברכש מרוכז ומשא ומתן, ניתן יהיה להפחית עלויות אלו.</p>
+                    </div>
+                    <div class="bg-slate-800/50 border border-slate-700 p-6 rounded-lg">
+                        <h4 class="text-xl font-bold text-primary mb-2">צפי לירידת עלויות בייצור סדרתי</h4>
+                        <p class="text-secondary">עלויות החומרה המוצגות הן לשלב אב-הטיפוס ודורשות שימוש בחומרים עמידים ויקרים. עלויות אלו צפויות לצנוח באופן דרמטי (50% ויותר) במעבר לייצור סדרתי, הודות לאופטימיזציה של חומרים (שימוש בחומרים "סלחניים" יותר) ותהליכים הנדסיים.</p>
+                    </div>
+                 </div>
+            </section>
+
             <section id="price-analysis">
-                <div class="max-w-5xl mx-auto">
-                    <div class="section-heading text-center"><h2 class="text-3xl md:text-4xl font-bold text-primary">נספח: ניתוח מחיר מכונה ללקוח</h2></div>
-                    <div class="space-y-8">
-                        <div class="bg-slate-800/50 border border-slate-700 p-6 md:p-8 rounded-lg"><h4 class="text-xl font-bold text-primary">הערה על עלויות הייצור</h4><p class="mt-3 text-secondary leading-relaxed">מחיר הייצור המוצג מבוסס על הערכות מחמירות, מתוך הנחת עבודה של שימוש בחומרים אקזוטיים ועמידים במיוחד לקורוזיה הנדרשים בשלב אב-הטיפוס. עלויות אלו צפויות לצנוח באופן דרמטי של 50% ויותר במעבר לייצור סדרתי, הודות לאופטימיזציה של חומרים ותהליכים הנדסיים.</p></div>
-                        <div class="bg-slate-800/50 border border-slate-700 p-6 md:p-8 rounded-lg"><h4 class="text-xl font-bold text-primary">שלב 1: עלות ייצור סדרתי (COGS)</h4><p class="mt-2 text-secondary">על פי תרשים הרכיבים, סך עלויות החומרה בייצור סדרתי הוא <span class="font-bold text-accent text-lg">$305,500</span>.</p></div>
-                        <div class="bg-slate-800/50 border border-slate-700 p-6 md:p-8 rounded-lg"><h4 class="text-xl font-bold text-primary">שלב 2: הוספת מרווח רווח גולמי</h4><p class="mt-2 text-secondary mb-4">מרווח רווח של 50% מקובל בתעשייה.</p><div class="text-center"><div class="inline-block bg-slate-700/50 p-4 rounded-lg border-2 border-accent"><p class="font-semibold text-accent">50% מרווח (סביר)</p><p class="text-3xl font-bold text-white mt-1">$611,000</p></div></div></div>
-                        <div class="text-center bg-slate-800/50 border-2 border-accent p-6 md:p-8 rounded-lg"><h4 class="text-xl md:text-2xl font-bold text-primary mb-4">הערכה סופית: מחיר מומלץ ללקוח</h4><p class="text-4xl md:text-5xl font-extrabold text-accent my-2">$600,000 - $650,000</p><p class="text-md text-secondary mt-2">טווח מחירים זה מבטיח מרווח רווח בריא לחברה והחזר השקעה אטרקטיבי ומהיר ללקוח.</p></div>
+                <div class="section-heading text-center"><h2 class="text-3xl md:text-4xl font-bold text-primary">ניתוח מחיר מכונה ללקוח (ROI)</h2></div>
+                <div class="max-w-5xl mx-auto space-y-8">
+                    <div class="bg-slate-800/50 border border-slate-700 p-6 md:p-8 rounded-lg"><h4 class="text-xl font-bold text-primary">שלב 1: עלות ייצור סדרתי (COGS)</h4><p class="mt-2 text-secondary">עלויות החומרה בייצור סדרתי (לאחר אופטימיזציה) מוערכות בכ- <span class="font-bold text-accent text-lg">$305,500</span>.</p></div>
+                    <div class="bg-slate-800/50 border border-slate-700 p-6 md:p-8 rounded-lg"><h4 class="text-xl font-bold text-primary">שלב 2: הוספת מרווח רווח גולמי</h4><p class="mt-2 text-secondary mb-4">מרווח רווח של 50% מקובל בתעשייה כדי לכסות עלויות שיווק, מכירה, תמיכה ופיתוח עתידי.</p><div class="text-center"><div class="inline-block bg-slate-700/50 p-4 rounded-lg border-2 border-accent"><p class="font-semibold text-accent">מחיר לאחר הוספת 50% מרווח</p><p class="text-3xl font-bold text-white mt-1">$611,000</p></div></div></div>
+                    <div class="text-center bg-slate-800/50 border-2 border-accent p-6 md:p-8 rounded-lg"><h4 class="text-xl md:text-2xl font-bold text-primary mb-4">הערכה סופית: מחיר מומלץ ללקוח</h4><p class="text-4xl md:text-5xl font-extrabold text-accent my-2">$600,000 - $650,000</p><p class="text-md text-secondary mt-2">טווח מחירים זה מבטיח מרווח רווח בריא לחברה והחזר השקעה אטרקטיבי ומהיר ללקוח.</p></div>
+                    <div class="mt-12 text-center">
+                        <a href="simulation2.html" class="bg-accent text-white font-bold py-3 px-6 md:py-4 md:px-8 rounded-full text-lg md:text-xl shadow-lg transform hover:scale-105 transition-transform hover:bg-blue-600">בחן את הכדאיות בסימולטור הכלכלי</a>
                     </div>
                 </div>
-                 <div class="mt-16 md:mt-24 text-center">
-                    <a href="simulation2.html" class="bg-accent text-white font-bold py-3 px-6 md:py-4 md:px-8 rounded-full text-lg md:text-xl shadow-lg transform hover:scale-105 transition-transform hover:bg-blue-600">בחן את הכדאיות בסימולטור הכלכלי</a>
+            </section>
+            
+            <section id="sheets-preview">
+                <div class="max-w-5xl mx-auto">
+                    <div class="section-heading text-center"><h2 class="text-3xl md:text-4xl font-bold text-primary">המודל הפיננסי המלא</h2></div>
+                    <div class="bg-slate-800/50 border border-slate-700 p-2 rounded-lg">
+                        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ1pjgODEbyZiFt9M7jiXYwodjGWzXHP8Vf_llqEoYFhNGKkYUPHLAa42mba0yVoQlw1-vuAJFy3Bx_/pubhtml?widget=true&amp;headers=false" style="width:100%; height: 600px; border-radius: 6px;"></iframe>
+                    </div>
                 </div>
             </section>
         </div>
     </main>
     <footer class="bg-gray-900 text-gray-500 text-center py-6 border-t border-gray-700"><p>&copy; 2025 HeatPower. כל הזכויות שמורות.</p></footer>
-    
     <script>
-        // Data for charts
-        const investmentData = {
-            labels: ['חומרה (אב-טיפוס)', 'כוח אדם (פיתוח)', 'בצ"מ ותקורה'],
-            data: [540000, 290000, 170000],
-            total: 1000000
-        };
-
-        const componentCostData = {
-            labels: ['מערכת ORC', 'משאבת חום', 'מחליפי חום', 'משאבות', 'קונדנסרים', 'חיישנים'],
-            prototypeData: [250000, 80000, 40000, 30000, 20000, 10000],
-            serialData: [187500, 56000, 24000, 21000, 12000, 5000]
-        };
-
-        let totalInvestmentChart;
-        let componentDoughnutChart;
-        let currentCostView = 'prototype';
-
-        // Function to render Total Investment Doughnut Chart (Chart 1)
-        function renderInvestmentChart() { 
-            const chartElement = document.getElementById('totalInvestmentChart'); 
-            if (!chartElement) return; 
-            const ctx = chartElement.getContext('2d'); 
-            const data = investmentData.data;
-            totalInvestmentChart = new Chart(ctx, { 
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            var menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+        document.addEventListener('DOMContentLoaded', () => {
+             const investmentData = { labels: ['חומרה ($324k)', 'כוח אדם ($480k)', 'תקורה ורישיונות ($196k)'], data: [324000, 480000, 196000]};
+             const chartElement = document.getElementById('investmentChart'); 
+             if (!chartElement) return; 
+             const ctx = chartElement.getContext('2d');
+             new Chart(ctx, { 
                 type: 'doughnut', 
-                data: { 
-                    labels: investmentData.labels, 
-                    datasets: [{ 
-                        label: `עלות ($)`, 
-                        data: data, 
-                        backgroundColor: ['#1e3a8a', '#1d4ed8', '#3b82f6'], 
-                        borderColor: '#0d1117', 
-                        borderWidth: 5 
-                    }] 
-                }, 
+                data: { labels: investmentData.labels, datasets: [{ label: `עלות ($)`, data: investmentData.data, backgroundColor: ['#1e3a8a', '#1d4ed8', '#3b82f6'], borderColor: '#1e293b', borderWidth: 5 }] }, 
                 options: { 
                     responsive: true, maintainAspectRatio: true,
                     plugins: { 
                         legend: { position: 'bottom', labels: { color: '#d1d5db', font: { size: 14 } } }, 
-                        title: { display: true, text: `סה"כ גיוס: $${investmentData.total.toLocaleString()}`, color: '#f0f6fc', font: { size: 20 } } 
+                        title: { display: false } 
                     } 
                 } 
             }); 
-        }
-
-        // Function to render Component Breakdown Doughnut Chart (Chart 2)
-        function renderComponentChart(view) {
-            const chartElement = document.getElementById('componentDoughnutChart');
-            if (!chartElement) return;
-            const ctx = chartElement.getContext('2d');
-            const data = (view === 'prototype') ? componentCostData.prototypeData : componentCostData.serialData;
-            const titleText = (view === 'prototype') ? 'עלות רכיבי אב-טיפוס' : 'עלות רכיבים בייצור סדרתי';
-            const colors = (view === 'prototype') ? ['#1e40af', '#1d4ed8', '#2563eb', '#3b82f6', '#60a5fa', '#93c5fd'] : ['#064e3b', '#065f46', '#047857', '#059669', '#10b981', '#34d399'];
-
-            if (componentDoughnutChart) {
-                componentDoughnutChart.data.datasets[0].data = data;
-                componentDoughnutChart.data.datasets[0].backgroundColor = colors;
-                componentDoughnutChart.options.plugins.title.text = titleText;
-                componentDoughnutChart.update();
-                return;
-            }
-
-            componentDoughnutChart = new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: componentCostData.labels,
-                    datasets: [{
-                        label: 'עלות ($)',
-                        data: data,
-                        backgroundColor: colors,
-                        borderColor: '#0d1117',
-                        borderWidth: 5
-                    }]
-                },
-                options: {
-                    responsive: true, maintainAspectRatio: true,
-                    plugins: {
-                        legend: { position: 'bottom', labels: { color: '#d1d5db', font: { size: 14 } } },
-                        title: { display: true, text: titleText, color: '#f0f6fc', font: { size: 20 } }
-                    }
-                }
-            });
-        }
-
-        // Event Listeners
-        document.addEventListener('DOMContentLoaded', () => { 
-            renderInvestmentChart();
-            renderComponentChart('prototype'); 
-
-            const costToggleButton = document.getElementById('cost-toggle-btn');
-            if(costToggleButton) {
-                costToggleButton.addEventListener('click', () => {
-                    currentCostView = (currentCostView === 'prototype') ? 'serial' : 'prototype';
-                    renderComponentChart(currentCostView);
-                    costToggleButton.innerText = (currentCostView === 'prototype') ? 'הצג עלויות ייצור סדרתי' : 'הצג עלויות אב-טיפוס';
-                });
-            }
-        });
-
-        // Mobile Menu Script
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            var menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
         });
     </script>
 </body>
