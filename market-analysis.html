@@ -19,7 +19,6 @@
         .text-primary { color: #f0f6fc; } .text-secondary { color: #8b949e; } .text-accent { color: #58a6ff; }
         .navbar { position: fixed; top: 0; left: 0; width: 100%; background-color: rgba(13, 17, 23, 0.7); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid #30363d; }
         .page-hero { 
-            /* Responsive paddings moved to the class attribute for consistency */
             text-align: center; 
             background-image: linear-gradient(rgba(13, 17, 23, 0.7), rgba(13, 17, 23, 0.7)), url('hero-market.jpg');
             background-size: cover; background-position: center;
@@ -34,9 +33,9 @@
         <div class="text-3xl font-bold text-accent tracking-wider">HeatPower</div>
         
         <ul class="hidden lg:flex items-center text-md font-semibold space-x-6 space-x-reverse">
-            <li><a href="index.html" class="text-gray-300 hover:text-accent transition-colors">דף הבית</a></li>
+             <li><a href="index.html" class="text-gray-300 hover:text-accent transition-colors">דף הבית</a></li>
             <li><a href="presentation.html" class="text-gray-300 hover:text-accent transition-colors">ההזדמנות</a></li>
-            <li><a href="market-analysis.html" class="text-gray-300 hover:text-accent transition-colors">שוק ומתחרים</a></li>
+            <li><a href="market-analysis.html" class="text-white hover:text-accent transition-colors">שוק ומתחרים</a></li>
             <li><a href="technology.html" class="text-gray-300 hover:text-accent transition-colors">הפיתוח הטכנולוגי</a></li>
             <li><a href="feasibility.html" class="text-gray-300 hover:text-accent transition-colors">בדיקת היתכנות</a></li>
             <li><a href="business-plan.html" class="text-gray-300 hover:text-accent transition-colors">התוכנית העסקית</a></li>
@@ -54,17 +53,7 @@
     </nav>
 
     <div id="mobile-menu" class="hidden lg:hidden bg-slate-800/95 backdrop-blur-sm">
-        <a href="index.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">דף הבית</a>
-        <a href="presentation.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">ההזדמנות</a>
-        <a href="market-analysis.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">שוק ומתחרים</a>
-        <a href="technology.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">הפיתוח הטכנולוגי</a>
-        <a href="feasibility.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">בדיקת היתכנות</a>
-        <a href="business-plan.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">התוכנית העסקית</a>
-        <a href="investors.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">ניתוח מחיר</a>
-        <a href="simulation1.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">סימולטור אנרגיה</a>
-        <a href="simulation2.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">סימולטור כלכלי</a>
-        <a href="our-story.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">הסיפור שלנו</a>
-    </div>
+        </div>
 </header>
     <main>
         <section class="page-hero pt-32 pb-16 md:pt-48 md:pb-24">
@@ -82,17 +71,17 @@
                         <div class="bg-slate-800/50 border border-slate-700 p-8 rounded-lg">
                             <h3 class="text-2xl font-bold text-primary mb-4">האתגר ההיסטורי</h3>
                             <ul class="space-y-4 text-secondary list-disc list-inside">
-                                <li><strong>מורכבות תפיסתית:</strong> שילוב השלבים השונים (ייצור קיטור, הנעת טורבינה ומחזור חומצה) נתפס כאתגר הנדסי עצום, למרות שהוא מבוסס על טכנולוגיות מוכחות.</li>
-                                <li><strong>התמקדות תעשייתית:</strong> שימוש בעקרונות אלה נעשה היסטורית רק בתהליכים תעשייתיים גדולים, שם המטרה לא הייתה ייצור חשמל כמוצר עצמאי.</li>
-                                <li><strong>מודלים כלכליים ישנים:</strong> בעבר, תהליך מחזור החומצה נחשב ליקר אנרגטית, מה שהפך את המודל ללא כדאי כלכלית.</li>
+                                <li><strong class="text-primary">מחסום הנדסי:</strong> השילוב של טמפרטורה, לחץ וקורוזיה קיצונית נחשב לאתגר חומרים מהמעלה הראשונה.</li>
+                                <li><strong class="text-primary">מודלים כלכליים שגויים:</strong> ההנחה הרווחת הייתה שפתרון בעיות החומרים דורש שימוש בחומרים בעלות אסטרונומית, מה שהופך את המודל ללא כדאי.</li>
+                                <li><strong class="text-primary">מיקוד תעשייתי שונה:</strong> העקרונות שימשו רק בתהליכים גדולים ומסורבלים, לא כמוצר אנרגיה קומפקטי ועצמאי.</li>
                             </ul>
                         </div>
                         <div class="bg-slate-800/50 border-2 border-accent p-8 rounded-lg">
                             <h3 class="text-2xl font-bold text-accent mb-4">פריצת הדרך שלנו</h3>
                              <ul class="space-y-4 text-secondary list-disc list-inside">
-                                <li><strong>אינטגרציה, לא המצאה:</strong> החדשנות שלנו היא בחיבור רכיבי מדף קיימים (משאבות, טורבינות, מיכלים) למערכת שלמה ויעילה. איננו ממציאים טכנולוגיה חדשה, אלא מיישמים עקרונות ידועים בתצורה חדשה.</li>
-                                <li><strong>מיקוד במוצר:</strong> אנו מתמקדים במוצר קומפקטי, עצמאי ומחזורי, בניגוד לתהליכים המסורבלים של התעשייה הכבדה.</li>
-                                <li><strong>מודל כלכלי חדש:</strong> המודל שלנו מוכיח כיצד ניצול חום סביבתי הופך את תהליך המחזור לא רק לאפשרי, אלא לרווחי, ובכך משנה את התמונה מהיסוד.</li>
+                                <li><strong class="text-primary">מודל כלכלי מאמת:</strong> המודלים האנרגטיים והכלכליים שלנו מראים שההשקעה בפתרון האתגר ההנדסי עדיין רווחית וכדאית.</li>
+                                <li><strong class="text-primary">תוכנית אימות הנדסית:</strong> במקום להסתמך על פתרונות יקרים, בנינו תוכנית מחקר ופיתוח ממוקדת לבחינת חומרים וציפויים מודרניים וכלכליים.</li>
+                                <li><strong class="text-primary">מיקוד במוצר:</strong> אנו מתמקדים באינטגרציה של רכיבי מדף מוכחים ליצירת מוצר קומפקטי, בניגוד לתהליכי הענק של התעשייה הכבדה.</li>
                             </ul>
                         </div>
                     </div>
@@ -107,7 +96,7 @@
                             <thead><tr class="border-b border-slate-600"><th class="py-3 pr-4 text-right text-accent font-semibold">טכנולוגיה</th><th class="py-3 px-4 text-right text-primary font-semibold">תיאור</th><th class="py-3 pl-4 text-right text-primary font-semibold">היתרון שלנו</th></tr></thead>
                             <tbody class="text-secondary">
                                 <tr class="border-b border-slate-700"><td class="py-4 pr-4 align-top font-bold">אגירה תרמוכימית (TCES)</td><td class="py-4 px-4 align-top">מערכות המשתמשות בתגובת חומצה-מים כדי לאגור אנרגיית חום.</td><td class="py-4 pl-4 align-top">בעוד שהן מתמקדות באגירה בלבד, אנו מציעים פתרון מחזורי שלם לייצור אנרגיה רציף.</td></tr>
-                                <tr><td class="py-4 pr-4 align-top font-bold">תאי דלק (Fuel Cells)</td><td class="py-4 px-4 align-top">התקנים הממירים אנרגיה כימית (לרוב מימן) ישירות לחשמל.</td><td class="py-4 pl-4 align-top">המערכת שלנו משתמשת בחומרים זולים וזמינים יותר, ובטכנולוגיה תרמו-מכנית מוכחת (טורבינת קיטור).</td></tr>
+                                <tr><td class="py-4 pr-4 align-top font-bold">תאי דלק (Fuel Cells)</td><td class="py-4 px-4 align-top">התקנים הממירים אנרגיה כימית (לרוב מימן) ישירות לחשמל.</td><td class="py-4 pl-4 align-top">המערכת שלנו משתמשת בחומרים זולים וזמינים יותר, ובטכנולוגיה תרמו-מכנית מוכחת.</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -132,7 +121,7 @@
                             </div>
                             <div>
                                 <h3 class="text-2xl font-bold text-accent mb-2">2. קיטור במחיר מהפכני</h3>
-                                <p class="text-secondary mb-3">בטמפ' סביבה של 25°C, המערכת מספקת קיטור בהספק גבוה בחיסכון של 37% מעלות השוק. בתפוקה נמוכה יותר (במצב עצמאי), המערכת מזינה את עצמה וחוסכת 100% מעלות הקיטור. <a href="simulation2.html" class="font-bold hover:underline">בחן בסימולטור</a>.</p>
+                                <p class="text-secondary mb-3">בטמפ' סביבה של 25°C, המערכת מספקת קיטור בהספק גבוה בחיסכון של 37% מעלות השוק. בתפוקה נמוכה יותר, המערכת מזינה את עצמה וחוסכת 100% מעלות הקיטור. <a href="simulation2.html" class="font-bold hover:underline">בחן בסימולטור</a>.</p>
                                 <p class="font-semibold text-primary">שוקי יעד: תעשיית המזון, טקסטיל, תרופות, כימיקלים.</p>
                             </div>
                         </div>
@@ -158,10 +147,10 @@
                 </div>
             </section>
 
-            <section id="summary">
+             <section id="summary">
                  <div class="max-w-4xl mx-auto text-center bg-slate-800/50 border border-slate-700 p-10 rounded-lg">
                     <h2 class="text-3xl font-bold text-primary">סיכום: הזדמנות ב"אוקיינוס כחול"</h2>
-                    <p class="mt-4 text-xl text-secondary leading-relaxed">בדיקת השוק מראה שהרעיון שלנו ממקם אותנו ב<strong class="text-accent">"שטח כחול" (Blue Ocean)</strong> – שוק חדש שעדיין לא נכבש. יתרון זה, בשילוב עם הוכחת ההיתכנות, יוצר הזדמנות משמעותית לפיתוח טכנולוגיה פורצת דרך, מהירה ליישום ורלוונטית לשווקים רבים.</p>
+                    <p class="mt-4 text-xl text-secondary leading-relaxed">בדיקת השוק מראה שהרעיון שלנו ממקם אותנו ב<strong class="text-accent">"שטח כחול" (Blue Ocean)</strong> – שוק חדש שעדיין לא נכבש. יתרון זה, בשילוב עם תוכנית האימות ההנדסית שלנו, יוצר הזדמנות משמעותית לפיתוח טכנולוגיה פורצת דרך.</p>
                  </div>
             </section>
             
@@ -169,16 +158,14 @@
                  <div class="max-w-4xl mx-auto border-t border-slate-700 pt-12">
                     <h2 class="text-3xl font-bold text-primary mb-6">השלבים הבאים</h2>
                     <div class="flex flex-col md:flex-row gap-6 justify-center">
-                        <a href="feasibility.html" class="bg-transparent border-2 border-accent text-accent font-bold py-3 px-8 rounded-full text-lg transition-colors hover:bg-accent hover:text-white">עיין בבדיקת ההיתכנות</a>
+                        <a href="feasibility.html" class="bg-transparent border-2 border-accent text-accent font-bold py-3 px-8 rounded-full text-lg transition-colors hover:bg-accent hover:text-white">עיין בתוכנית האימות ההנדסית</a>
                         <a href="simulation2.html" class="bg-accent text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg transform hover:scale-105 transition-transform hover:bg-blue-600">בחן את המודל הכלכלי</a>
                     </div>
                 </div>
             </section>
-
         </div>
     </main>
     <footer class="bg-gray-900 text-gray-500 text-center py-6 border-t border-gray-700"><p>&copy; 2025 HeatPower. כל הזכויות שמורות.</p></footer>
-
     <script>
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
             var menu = document.getElementById('mobile-menu');

@@ -3,118 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HeatPower | בדיקת היתכנות</title>
+    <title>HeatPower | בדיקת היתכנות (תוכנית R&D)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { 
-            font-family: 'Assistant', sans-serif; 
-            scroll-behavior: smooth;
-            background-image: radial-gradient(circle at center, #f5f5f0 60%, #d7d4cb 100%);
-            color: #4a4a4a;
-        }
+        body { font-family: 'Assistant', sans-serif; background-image: radial-gradient(circle at center, #f5f5f0 60%, #d7d4cb 100%); color: #4a4a4a; }
         .main-content-area { background-color: transparent; }
         .text-primary-warm { color: #2d2d2d; } 
         .text-secondary-warm { color: #5a5a5a; } 
         .text-accent-warm { color: #d97706; }
         .navbar { position: fixed; top: 0; left: 0; width: 100%; background-color: rgba(245, 245, 240, 0.8); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid #e5e5e0; }
         .page-hero-warm { text-align: center; background-image: linear-gradient(rgba(245, 245, 240, 0.2), rgba(245, 245, 240, 0.2)), url('hero-feasibility.jpg'); background-size: cover; background-position: center; }
-        .highlight-box { background-color: #ffffff; border-left-width: 4px; border-color: #d97706; padding: 1.5rem; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
-        .data-placeholder { background-color: #fefce8; color: #ca8a04; font-weight: bold; padding: 0.1rem 0.5rem; border-radius: 0.25rem; display: inline-block; }
-        
-        .carousel-track { display: flex; transition: transform 0.5s ease-in-out; }
-        .carousel-slide { min-width: 100%; box-sizing: border-box; }
+        .section-heading { border-bottom: 1px solid #d7d4cb; padding-bottom: 1.5rem; margin-bottom: 3rem; }
     </style>
 </head>
-<body>
+<body class="bg-stone-50">
 <header class="navbar">
     <nav class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
         <div class="text-3xl font-bold text-accent-warm tracking-wider">HeatPower</div>
-        
         <ul class="hidden lg:flex items-center text-md font-semibold space-x-6 space-x-reverse">
             <li><a href="index.html" class="text-secondary-warm hover:text-accent-warm transition-colors">דף הבית</a></li>
             <li><a href="presentation.html" class="text-secondary-warm hover:text-accent-warm transition-colors">ההזדמנות</a></li>
             <li><a href="market-analysis.html" class="text-secondary-warm hover:text-accent-warm transition-colors">שוק ומתחרים</a></li>
             <li><a href="technology.html" class="text-secondary-warm hover:text-accent-warm transition-colors">הפיתוח הטכנולוגי</a></li>
-            <li><a href="feasibility.html" class="text-secondary-warm hover:text-accent-warm transition-colors">בדיקת היתכנות</a></li>
+            <li><a href="feasibility.html" class="text-primary-warm hover:text-accent-warm transition-colors">בדיקת היתכנות</a></li>
             <li><a href="business-plan.html" class="text-secondary-warm hover:text-accent-warm transition-colors">התוכנית העסקית</a></li>
             <li><a href="investors.html" class="text-secondary-warm hover:text-accent-warm transition-colors">ניתוח מחיר</a></li>
             <li><a href="simulation1.html" class="text-secondary-warm hover:text-accent-warm transition-colors">סימולטור אנרגיה</a></li>
             <li><a href="simulation2.html" class="text-secondary-warm hover:text-accent-warm transition-colors">סימולטור כלכלי</a></li>
             <li><a href="our-story.html" class="text-secondary-warm hover:text-accent-warm transition-colors">הסיפור שלנו</a></li>
         </ul>
-
         <div class="lg:hidden">
-            <button id="mobile-menu-button" class="text-primary-warm focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
+            <button id="mobile-menu-button" class="text-primary-warm focus:outline-none"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg></button>
         </div>
     </nav>
-
     <div id="mobile-menu" class="hidden lg:hidden bg-stone-50/95 backdrop-blur-sm shadow-md">
-        <a href="index.html" class="block py-3 px-6 text-secondary-warm hover:bg-stone-200">דף הבית</a>
-        <a href="presentation.html" class="block py-3 px-6 text-secondary-warm hover:bg-stone-200">ההזדמנות</a>
-        <a href="market-analysis.html" class="block py-3 px-6 text-secondary-warm hover:bg-stone-200">שוק ומתחרים</a>
-        <a href="technology.html" class="block py-3 px-6 text-secondary-warm hover:bg-stone-200">הפיתוח הטכנולוגי</a>
-        <a href="feasibility.html" class="block py-3 px-6 text-secondary-warm hover:bg-stone-200">בדיקת היתכנות</a>
-        <a href="business-plan.html" class="block py-3 px-6 text-secondary-warm hover:bg-stone-200">התוכנית העסקית</a>
-        <a href="investors.html" class="block py-3 px-6 text-secondary-warm hover:bg-stone-200">ניתוח מחיר</a>
-        <a href="simulation1.html" class="block py-3 px-6 text-secondary-warm hover:bg-stone-200">סימולטור אנרגיה</a>
-        <a href="simulation2.html" class="block py-3 px-6 text-secondary-warm hover:bg-stone-200">סימולטור כלכלי</a>
-        <a href="our-story.html" class="block py-3 px-6 text-secondary-warm hover:bg-stone-200">הסיפור שלנו</a>
-    </div>
+        </div>
 </header>
     <main class="main-content-area">
-        <section class="page-hero-warm pt-32 pb-16 md:pt-40 md:pb-20">
-            <h1 class="text-4xl md:text-6xl font-extrabold text-primary-warm px-4" style="text-shadow: 0px 1px 3px rgba(0,0,0,0.1);">בדיקת היתכנות</h1>
+        <section class="page-hero-warm pt-32 pb-16 md:pt-48 md:pb-24">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-primary-warm" style="text-shadow: 0px 1px 3px rgba(0,0,0,0.1);">בדיקת היתכנות: תוכנית האימות המחקרית (R&D)</h1>
+            </div>
         </section>
-        <div class="py-16 md:py-20 container mx-auto px-4 sm:px-6 max-w-4xl space-y-16">
+        <div class="py-16 md:py-20 container mx-auto px-4 sm:px-6 max-w-5xl space-y-16">
             <section id="intro">
-                <h2 class="text-3xl font-bold text-primary-warm mb-4">מבוא</h2>
-                <p class="text-lg text-secondary-warm leading-relaxed">מסמך זה מציג בדיקת היתכנות ראשונית למערכת חדשנית להמרת אנרגיה כימית לאנרגיה חשמלית. הוא מתבסס על נתונים, ניסויים ותהליכים מוכחים, ומחולק לשני חלקים המייצגים את בדיקות ההיתכנות שתוכננו: האחת ממוקדת ב<strong class="text-primary-warm">הוכחת היתכנות פיזיקלית (שלב א')</strong> והשנייה ב<strong class="text-primary-warm">היתכנות כלכלית-תפעולית (שלב ב')</strong>.</p>
-            </section>
-
-            <section id="phase-a" class="space-y-8">
-                <h2 class="text-3xl font-bold text-primary-warm">שלב א': יצירת כוח גולמי - "האם המנוע עובד?"</h2>
-                <p class="text-lg text-secondary-warm leading-relaxed max-w-3xl">בשלב זה אנו מוכיחים כי ניתן להשתמש בחום שמשתחרר מתגובה כימית של חומצה גופרתית ומים כדי ליצור קיטור בלחץ וטמפרטורה גבוהים. במקום לבצע ניסוי פיזי, נראה שעיקרון זה כבר מיושם בהצלחה במערכת אנרגיה קיימת.</p>
-                
-                <div class="highlight-box bg-white p-6 md:p-8 rounded-lg shadow-md border"><h4 class="text-xl font-bold text-primary-warm mb-3">מקרה בוחן: מערכת אחסון אנרגיה תרמוכימית של חברת "Prometheus"</h4><p class="text-secondary-warm mb-4">חברת "Prometheus" פיתחה מערכת אחסון אנרגיה המבוססת על מחזור של חומצה גופרתית ומים. מערכת זו מדגימה במדויק את תהליך ייצור הקיטור הנדרש.</p><div class="space-y-3"><h5 class="font-semibold text-primary-warm">נתונים טכניים מהמערכת:</h5><ul class="list-disc list-inside space-y-2 text-secondary-warm"><li>במערכת זו, חום משמש לפירוק חומצה גופרתית מדוללת לחומצה מרוכזת ומים (שלב "טעינה"). בתהליך ההפוך - "פריקת" אנרגיה - מוזרמים מים לתוך מיכל המכיל את החומצה המרוכזת.</li><li>תגובת הדילול האקסותרמית מביאה לשחרור אנרגיה תרמית רבה, המאפשרת למערכת לייצר קיטור בטמפרטורות של <strong class="text-primary-warm">מעל 250°C</strong> ובלחץ גבוה. קיטור זה משמש להנעת גנרטורים להפקת חשמל.</li><li>המערכת נועדה לספק חשמל ביישומי "On-Demand Power", מה שמוכיח את מהירות התגובה ואת היכולת לייצר אנרגיה ברגע נתון.</li></ul></div><div class="mt-4"><h5 class="font-semibold text-primary-warm">קישור למקור ידע:</h5><p class="text-secondary-warm">המידע הטכני על המערכת והיתכנותה מתועד היטב במאמרים אקדמיים ודוחות. מקור מומלץ: מאמר מקיף של National Renewable Energy Laboratory (NREL), שכותרתו "Thermal Energy Storage Technology: A Review of Promising Systems".</p></div></div>
-                
-                <div class="bg-green-100 text-green-800 font-semibold p-6 rounded-lg border border-green-200"><h4 class="text-xl font-bold mb-2">סיכום והוכחת היתכנות (שלב א')</h4><p>מקרה הבוחן של מערכת "Prometheus" מוכיח באופן חד-משמעי כי העיקרון הפיזיקלי שבבסיס המערכת <span class="text-green-900 font-bold">אפשרי לחלוטין ומוכח</span>. היכולת ליצור קיטור בלחץ ובטמפרטורה גבוהים באמצעות תגובה של חומצה גופרתית ומים היא עובדה מדעית מיושמת, המספקת בסיס מוצק להמשך הפיתוח.</p></div>
-            </section>
-
-            <section id="phase-b" class="space-y-8">
-                <h2 class="text-3xl font-bold text-primary-warm">שלב ב': מחזור חומרים - "האם המערכת חסכונית?"</h2>
-                <p class="text-lg text-secondary-warm leading-relaxed max-w-3xl">שלב זה בוחן את ההיתכנות הכלכלית-תפעולית של המערכת על ידי הוכחה כי ניתן למחזר את החומצה הגופרתית שהתדללה בחזרה למצבה המקורי. אם המחזור אפשרי, המערכת תהיה יעילה ובת-קיימא, מכיוון ש"הדלק" שלה לא יתכלה.</p>
-                
-                <div class="bg-stone-50 border border-stone-200 rounded-lg p-4 md:p-6 space-y-6">
-                    <div>
-                        <h4 class="text-xl font-bold text-primary-warm mb-4">ניסוי מעבדה: ריכוז חומצה מדוללת</h4>
-                        <p class="text-secondary-warm mb-6">הניסוי הבא, שתוכנן ונערך במעבדה, מוכיח כי ניתן לרכז חומצה גופרתית מדוללת על ידי אידוי מים, וכך לאפשר את מחזורה המלא.</p>
-                        <div class="highlight-box"><h5 class="font-semibold text-primary-warm text-lg mb-3">שלבי הניסוי</h5><ol class="list-decimal list-inside space-y-3 text-secondary-warm text-base"><li><strong>הכנת תמיסה מדוללת:</strong> הכנת תמיסה של חומצה גופרתית בריכוז התחלתי של <span class="data-placeholder">[נתון ניסוי 1] %</span> (במסה).</li><li><strong>תהליך האידוי:</strong> התמיסה הועברה לכלי ואקום מחומם (Rotary Evaporator). המערכת חוממה לטמפרטורה של <span class="data-placeholder">[נתון ניסוי 2] °C</span> תחת ואקום של <span class="data-placeholder">[נתון ניסוי 3] kPa</span>.</li><li><strong>מדידת תוצאות:</strong> משקל המים שהתאדו נמדד, וריכוז החומצה הסופי נבדק באמצעות מדידת צפיפות או טיטרציה.</li><li><strong>תוצאות הניסוי:</strong> הריכוז הסופי של החומצה שהתקבל היה <span class="data-placeholder">[נתון ניסוי 4] %</span>. כמות האנרגיה שהושקעה בתהליך הייתה <span class="data-placeholder">[נתון ניסוי 5]</span> קילוג'אול.</li></ol></div>
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold text-primary-warm mb-4">הפוטנציאל העצום והאתגר שבצידו</h2>
+                    <p class="text-lg text-secondary-warm leading-relaxed max-w-4xl mx-auto">הרעיון בבסיס HeatPower הוא מהפכני: ניצול חום סביבתי זמין להפקת חשמל נקי, קירור, וקיטור זול בו-זמנית. אם הפוטנציאל כל כך גדול, נשאלת השאלה המתבקשת: <strong class="text-primary-warm">"מדוע אף אחד לא עשה זאת עד כה?"</strong></p>
+                    <p class="mt-4 text-lg text-secondary-warm leading-relaxed max-w-4xl mx-auto">התשובה היא שקיימים שני אתגרים הנדסיים משמעותיים, שרבים רואים בהם "קיר" בלתי עביר. אנו רואים בהם אתגרים שניתן לפתור באמצעות גישה מדעית שיטתית, והתוכנית הבאה נועדה להוכיח זאת:</p>
+                </div>
+                <div class="mt-12 grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-accent-warm">
+                        <h3 class="text-2xl font-bold text-primary-warm mb-3">1. האתגר התרמודינמי</h3>
+                        <p class="text-secondary-warm"><strong>המכשול:</strong> ניתוח תיאורטי מראה שהאנרגיה הנדרשת למחזור החומצה גבוהה, ועלולה להותיר מאזן אנרגיה שלילי.</p>
+                        <p class="mt-3 text-secondary-warm"><strong class="text-primary-warm">הביטחון שלנו בפתרון:</strong> המודלים הקיימים אינם לוקחים בחשבון את הארכיטקטורה הייחודית שלנו, המשלבת מיחזור חום פנימי עם משאבת חום מתקדמת. אנו מאמינים כי גישה זו משנה מהיסוד את המשוואה האנרגטית ומאפשרת להגיע לרווח אנרגטי נקי ומשמעותי.</p>
                     </div>
-                    <div>
-                        <h5 class="text-lg font-semibold text-primary-warm mb-4">גלריית תמונות וסרטונים מהניסוי</h5>
-                        <div class="carousel-container bg-black rounded-lg shadow-inner p-2 relative overflow-hidden">
-                            <div class="carousel-track">
-                                <div class="carousel-slide p-2"><div class="aspect-video bg-gray-700 rounded flex items-center justify-center text-gray-400">מקום לתמונה/וידאו #1</div></div>
-                                <div class="carousel-slide p-2"><div class="aspect-video bg-gray-700 rounded flex items-center justify-center text-gray-400">מקום לתמונה/וידאו #2</div></div>
-                                <div class="carousel-slide p-2"><div class="aspect-video bg-gray-700 rounded flex items-center justify-center text-gray-400">מקום לתמונה/וידאו #3</div></div>
-                            </div>
-                            <button class="carousel-button left-2 absolute top-1/2 -translate-y-1/2 bg-black/50 text-white rounded-full w-10 h-10 cursor-pointer z-10 flex items-center justify-center text-3xl pb-1">‹</button>
-                            <button class="carousel-button right-2 absolute top-1/2 -translate-y-1/2 bg-black/50 text-white rounded-full w-10 h-10 cursor-pointer z-10 flex items-center justify-center text-3xl pb-1">›</button>
-                        </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-accent-warm">
+                        <h3 class="text-2xl font-bold text-primary-warm mb-3">2. האתגר ההנדסי המשולב (חומרים ובטיחות)</h3>
+                        <p class="text-secondary-warm"><strong>המכשול:</strong> הסביבה הכימית הקיצונית דורשת חומרים יקרים, והתהליך עצמו טומן בחובו סיכונים בטיחותיים.</p>
+                        <p class="mt-3 text-secondary-warm"><strong class="text-primary-warm">הביטחון שלנו בפתרון:</strong> בטיחות היא תוצאה ישירה של בחירת חומרים נכונה. במקום להסתמך על פתרונות יקרים עד כדי חוסר כדאיות (כמו טנטלום), תוכנית המחקר שלנו מתמקדת בבחינת סגסוגות וציפויים מודרניים וכלכליים תחת תנאי אמת. ניהול סיכונים הנדסי, בדומה לאופן שבו מנוע רכב רותם פיצוצים מבוקרים, הוא חלק בלתי נפרד מהתכנון שלנו.</p>
                     </div>
                 </div>
-                
-                <div class="bg-green-100 text-green-800 font-semibold p-6 rounded-lg border border-green-200"><h4 class="text-xl font-bold mb-2">סיכום והוכחת היתכנות (שלב ב')</h4><p>ניסוי המעבדה שהוצג הוכיח באופן פיזי כי תהליך המחזור הושלם בהצלחה וכי ניתן להחזיר את החומצה הגופרתית לריכוז המקורי הנדרש לפעולת המנוע. הדבר מאשר את ההיתכנות הכלכלית-תפעולית של המערכת ומראה שהיא יכולה לפעול בלולאה סגורה, מה שהופך אותה לבת-קיימא.</p></div>
             </section>
-            
-            <section id="final-summary" class="bg-yellow-50 border-t-4 border-accent-warm p-6 md:p-8 rounded-lg shadow-lg">
-                 <h2 class="text-3xl font-bold text-primary-warm text-center mb-4">סיכום כללי של בדיקת ההיתכנות</h2>
-                 <p class="text-lg text-secondary-warm leading-relaxed">שתי הבדיקות המשולבות במסמך זה מציגות <strong class="text-accent-warm">היתכנות מוצקה</strong> של המערכת המוצעת. <strong>היתכנות פיזיקלית</strong> הוכחה על ידי יישום תעשייתי קיים, ו<strong>היתכנות כלכלית</strong> הוכחה באמצעות ניסוי מעבדה מבוקר. שילוב של הוכחה תעשייתית מוכחת עם הוכחה מעבדתית מבוקרת מספק <span class="font-bold text-primary-warm">בסיס איתן להמשך פיתוח המערכת</span>. הוא מוכיח כי הרעיון אינו בגדר תיאוריה, אלא מבוסס על עקרונות פיזיקליים וכימיים מוכרים וניתן ליישום מעשי.</p>
+
+            <section id="experiment1" class="bg-white p-6 md:p-8 rounded-lg shadow-md border">
+                <h2 class="text-3xl font-bold text-primary-warm mb-6 section-heading">ניסוי מס' 1: הוכחת מאזן אנרגיה חיובי</h2>
+                <div class="mb-8">
+                    <h4 class="text-xl font-semibold text-primary-warm mb-3">סקירת ספרות: מה אנחנו כבר יודעים</h4>
+                    <ul class="list-disc list-inside space-y-2 text-secondary-warm">
+                        <li><strong>אנתלפיית הדילול (Wu & Young, 1980):</strong> מחקרים קלורימטריים מאמתים כמותית את שחרור החום המשמעותי בתגובה, ומספקים את הבסיס האנרגטי של הקונספט.</li>
+                        <li><strong>משאבות חום בטמפרטורה גבוהה (Enertime, Olvondo):</strong> טכנולוגיות מסחריות קיימות מוכיחות כי ניתן "להרים" חום לטמפרטורות הנדרשות לתהליך המחזור.</li>
+                        <li><strong>הפער בידע:</strong> אף מחקר לא בחן את שילוב הרכיבים במערכת סגורה וממוטבת כמו זו המוצעת, ולכן השאלה הקריטית של מאזן האנרגיה הנטו נותרה פתוחה.</li>
+                    </ul>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 items-start">
+                    <div>
+                        <h4 class="text-xl font-semibold text-primary-warm mb-3">מטרת הניסוי</h4>
+                        <p class="text-secondary-warm">להוכיח באופן אמפירי כי התכנון הייחודי של המערכת, המשלב מיחזור חום פנימי עם משאבת חום, מאפשר להשיג מאזן אנרגיה נטו חיובי, כלומר, לייצר יותר חשמל מהקיטור מאשר סך החשמל הנצרך לתהליך המחזור.</p>
+                        <h4 class="text-xl font-semibold text-primary-warm mt-6 mb-3">מדדי הצלחה</h4>
+                        <ul class="list-decimal list-inside text-secondary-warm font-semibold">
+                            <li>השגת רווח אנרגטי נקי של מעל 5%.</li>
+                            <li>הדגמת פעולה יציבה לאורך 100 מחזורים רציפים.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-primary-warm mb-3">מערך הניסוי</h4>
+                        <p class="text-secondary-warm mb-3">תבנה מערכת מעבדתית (Bench-top) סגורה שתכלול:</p>
+                        <ul class="list-disc list-inside space-y-2 text-secondary-warm">
+                            <li>ריאקטור זכוכית בורוסיליקט בנפח 5 ליטר, בעל דופן כפולה למעבר נוזל תרמי.</li>
+                            <li>מחליף חום מיניאטורי מסוג Shell & Tube.</li>
+                            <li>מערכת זיקוק בוואקום עם בקרה דיגיטלית.</li>
+                            <li>משאבת חום קומפקטית עם COP ניתן למדידה.</li>
+                            <li>מערך חיישני טמפרטורה, לחץ וספיקה לניטור רציף של נתוני האנרגיה.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="experiment2" class="bg-white p-6 md:p-8 rounded-lg shadow-md border">
+                <h2 class="text-3xl font-bold text-primary-warm mb-6 section-heading">ניסוי מס' 2: אימות חומרים ובטיחות</h2>
+                 <div class="mb-8">
+                    <h4 class="text-xl font-semibold text-primary-warm mb-3">סקירת ספרות: מה אנחנו כבר יודעים</h4>
+                    <ul class="list-disc list-inside space-y-2 text-secondary-warm">
+                        <li><strong>קורוזיה בסגסוגות-על (Keiser et al., 2007):</strong> מחקרים מראים שגם סגסוגות יקרות כמו Hastelloy סובלות מקורוזיה משמעותית בתנאים הקיצוניים של טמפרטורה וריכוז חומצה.</li>
+                        <li>**עמידות טנטלום:** ידוע שטנטלום עמיד מאוד אך עלותו הופכת אותו לבלתי כלכלי.</li>
+                        <li>**סיכוני מימן (Metso):** תהליכי קורוזיה בסביבת חומצה גופרתית עלולים לייצר גז מימן דליק, מה שמהווה סיכון בטיחותי ידוע.</li>
+                        <li><strong>הפער בידע:</strong> קיים חוסר בנתונים לגבי עמידות של ציפויים מודרניים (כמו קרמיקה) וסגסוגות חדשות תחת **עומס מחזורי** (חימום וקירור לסירוגין), המדמה את תנאי הפעולה האמיתיים במערכת שלנו.</li>
+                    </ul>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 items-start">
+                    <div>
+                         <h4 class="text-xl font-semibold text-primary-warm mb-3">מטרת הניסוי</h4>
+                        <p class="text-secondary-warm">לזהות חומר מבנה או ציפוי המציע את האיזון הטוב ביותר בין עמידות לקורוזיה, עלות כלכלית וקלות ייצור. במקביל, להדגים תפעול בטוח של המערכת וניהול הסיכונים שהוגדרו.</p>
+                        <h4 class="text-xl font-semibold text-primary-warm mt-6 mb-3">מדדי הצלחה</h4>
+                        <ul class="list-decimal list-inside text-secondary-warm font-semibold">
+                            <li>זיהוי חומר עם קצב קורוזיה נמוך מ-0.1 מ"מ/שנה.</li>
+                             <li>השלמת 500 שעות פעולה ללא אירועי בטיחות חריגים.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-primary-warm mb-3">מערך הניסוי</h4>
+                        <p class="text-secondary-warm mb-3">בתוך הריאקטור מניסוי מס' 1 יוכנסו "קופונים" (דגימות) של חומרים מועמדים:</p>
+                        <ul class="list-disc list-inside space-y-2 text-secondary-warm">
+                            <li>סגסוגת Hastelloy C-2000.</li>
+                            <li>פלדת אל-חלד מצופה בטפלון (PTFE).</li>
+                            <li>פלדה מצופה בציפוי קרמי מבוסס סיליקון קרביד (SiC).</li>
+                            <li>במקביל, המערכת תצויד בחיישן מימן ובמערכת שטיפת חנקן למצבי חירום.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+             <section id="conclusion" class="text-center">
+                 <div class="max-w-4xl mx-auto border-t border-stone-300 pt-12">
+                    <h2 class="text-3xl font-bold text-primary-warm mb-6">מסקנות והשלבים הבאים</h2>
+                    <p class="text-lg text-secondary-warm mb-8 max-w-3xl mx-auto">השלמה מוצלחת של שני ניסויים אלו תסיר את הסיכון מהאתגרים הטכנולוגיים והמדעיים המרכזיים של המיזם. עם נתונים אמפיריים המוכיחים מאזן אנרגיה חיובי, ועם פתרון חומרים בר-קיימא ובטוח, יהיה בידינו בסיס איתן להתקדם לגיוס הון משמעותי (סבב Seed) ולבניית אב-טיפוס הנדסי בקנה מידה מלא.</p>
+                    <a href="business-plan.html" class="bg-accent-warm text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg transform hover:scale-105 transition-duration-300">לעבר התוכנית העסקית</a>
+                </div>
             </section>
         </div>
     </main>
@@ -124,44 +152,6 @@
             var menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
         });
-
-        // Carousel Script
-        const initCarousel = (carousel) => {
-            const track = carousel.querySelector('.carousel-track');
-            if (!track) return;
-
-            const slides = Array.from(track.children);
-            const nextButton = carousel.querySelector('.right-2');
-            const prevButton = carousel.querySelector('.left-2');
-            let currentIndex = 0;
-
-            const updateSliderPosition = (transition = true) => {
-                if (slides.length === 0) return;
-                const slideWidth = slides[0].getBoundingClientRect().width;
-                track.style.transition = transition ? 'transform 0.5s ease-in-out' : 'none';
-                track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
-            };
-
-            nextButton.addEventListener('click', () => {
-                currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
-                updateSliderPosition();
-            });
-
-            prevButton.addEventListener('click', () => {
-                currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
-                updateSliderPosition();
-            });
-
-            window.addEventListener('resize', () => updateSliderPosition(false));
-            
-            // Initial position
-            updateSliderPosition(false);
-        };
-        
-        const carousel = document.querySelector('.carousel-container');
-        if (carousel) {
-            initCarousel(carousel);
-        }
     </script>
 </body>
 </html>
