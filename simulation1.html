@@ -20,36 +20,10 @@
         input[type="range"]::-webkit-slider-runnable-track { background: #30363d; }
         input[type="range"]::-moz-range-track { background: #30363d; }
         input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; margin-top: -6px; background-color: #58a6ff; height: 24px; width: 24px; border-radius: 50%; cursor: pointer; }
-        input[type="range"]::-moz-range-thumb { background-color: #58a6ff; height: 20px; width: 20px; border-radius: 50%; border: none; cursor: pointer; }
         .info-icon { position: relative; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; margin-right: 8px; color: #8b949e; border: 1px solid #484f58; border-radius: 9999px; width: 20px; height: 20px; font-style: normal; font-weight: bold; background: none; }
-        .info-icon .tooltip-text { 
-            visibility: hidden; 
-            width: 280px; 
-            background-color: #161b22; 
-            color: #fff; text-align: center; 
-            border-radius: 6px; 
-            padding: 8px; 
-            position: absolute; 
-            z-index: 10; 
-            bottom: 125%; 
-            left: 50%; 
-            transform: translateX(-50%);
-            opacity: 0; 
-            transition: opacity 0.3s; 
-            font-weight: normal; 
-        }
-        .info-icon:hover .tooltip-text, .info-icon:focus .tooltip-text { 
-            visibility: visible; 
-            opacity: 1; 
-        }
-        @media (max-width: 480px) {
-            .info-icon .tooltip-text {
-                width: auto;
-                left: 16px;
-                right: 16px;
-                transform: translateX(0);
-            }
-        }
+        .info-icon .tooltip-text { visibility: hidden; width: 280px; background-color: #161b22; color: #fff; text-align: right; border-radius: 6px; padding: 8px; position: absolute; z-index: 10; bottom: 125%; left: 50%; transform: translateX(-50%); opacity: 0; transition: opacity 0.3s; font-weight: normal; }
+        .info-icon:hover .tooltip-text, .info-icon:focus .tooltip-text { visibility: visible; opacity: 1; }
+        @media (max-width: 480px) { .info-icon .tooltip-text { width: auto; left: 16px; right: 16px; transform: translateX(0); } }
     </style>
 </head>
 <body class="bg-slate-900">
@@ -89,195 +63,146 @@
         <section class="page-hero pt-32 pb-16 md:pt-48 md:pb-24">
             <div class="max-w-4xl mx-auto px-4 sm:px-6">
                 <h1 class="text-4xl md:text-7xl font-extrabold text-primary leading-tight">סימולטור מאזן אנרגיה</h1>
-                <p class="mt-4 text-lg md:text-2xl text-secondary">אפליקציה זו מדגימה את מאזן האנרגיה של המערכת. החישובים מבוססים על מחזור פעולה של <strong>1 מול</strong> חומצה גופרתית ($H_2SO_4$).</p>
+                <p class="mt-4 text-lg md:text-2xl text-secondary">סימולציה המדגימה את מאזן האנרגיה של המערכת, תוך התחשבות בנתונים תרמודינמיים ויעילות רכיבים משתנה.</p>
             </div>
         </section>
         <div class="container mx-auto px-4 sm:px-6 py-12 md:py-20">
             <div class="flex flex-col lg:flex-row gap-8">
-                <aside class="w-full lg:w-1/3 bg-slate-800/50 border border-slate-700 p-6 rounded-lg self-start">
+                <aside class="w-full lg:w-1/3 bg-slate-800/50 border border-slate-700 p-6 rounded-lg self-start lg:sticky lg:top-28">
                     <h2 class="text-2xl font-bold mb-6 text-accent">🔧 כוונן פרמטרים</h2>
                     <div class="space-y-8">
                         <div>
-                            <label for="temp_slider" class="block font-semibold mb-2 flex items-center">טמפרטורת קיטור <button class="info-icon" aria-label="מידע על טמפרטורת קיטור">ⓘ<span class="tooltip-text">קובע את טמפרטורת היעד של הקיטור. לחץ גבוה יותר מאפשר טמפרטורה גבוהה יותר.</span></button></label>
-                            <div class="flex flex-col sm:flex-row items-center sm:space-x-4 sm:space-x-reverse">
-                                <input type="range" id="temp_slider" min="150" max="400" value="200" step="5" class="w-full h-2.5 rounded-lg appearance-none cursor-pointer">
-                                <span id="temp_value" class="font-bold text-orange-400 w-24 text-center text-lg mt-2 sm:mt-0">200°C</span>
-                            </div>
-                        </div>
-                        <div>
-                            <label for="eta_reaction_slider" class="block font-semibold mb-2 flex items-center">יעילות המרת חום התגובה <button class="info-icon" aria-label="מידע על יעילות המרת חום התגובה">ⓘ<span class="tooltip-text">אחוז החום מהתגובה הכימית שמועבר למחליף החום.</span></button></label>
+                            <label for="eta_reaction_slider" class="block font-semibold mb-2 flex items-center">יעילות העברת חום <button class="info-icon" aria-label="מידע על יעילות העברת חום">ⓘ<span class="tooltip-text">אחוז החום מתגובת הדילול שמנוצל בפועל לתהליך האידוי. השאר אובד לסביבה.</span></button></label>
                             <div class="flex flex-col sm:flex-row items-center sm:space-x-4 sm:space-x-reverse">
                                 <input type="range" id="eta_reaction_slider" min="50" max="100" value="95" step="1" class="w-full h-2.5 rounded-lg appearance-none cursor-pointer">
                                 <span id="eta_reaction_value" class="font-bold text-teal-400 w-24 text-center text-lg mt-2 sm:mt-0">95%</span>
                             </div>
                         </div>
-                         <div>
-                            <label for="eta_thermal_slider" class="block font-semibold mb-2 flex items-center">יעילות תרמית (מחליף חום) <button class="info-icon" aria-label="מידע על יעילות תרמית">ⓘ<span class="tooltip-text">יעילות זו מתארת את כמות החום שעוברת בפועל למים, תוך התחשבות באובדן חום לסביבה ממחליף החום.</span></button></label>
+                        <div>
+                            <label for="steam_temp_slider" class="block font-semibold mb-2 flex items-center">טמפרטורת קיטור <button class="info-icon" aria-label="מידע על טמפרטורת קיטור">ⓘ<span class="tooltip-text">טמפרטורה גבוהה יותר מעלה את לחץ הקיטור ואת יעילות הטורבינה, ומשפיעה על רווח האנרגיה הנקי.</span></button></label>
                             <div class="flex flex-col sm:flex-row items-center sm:space-x-4 sm:space-x-reverse">
-                                <input type="range" id="eta_thermal_slider" min="80" max="100" value="95" step="1" class="w-full h-2.5 rounded-lg appearance-none cursor-pointer">
-                                <span id="eta_thermal_value" class="font-bold text-teal-400 w-24 text-center text-lg mt-2 sm:mt-0">95%</span>
+                                <input type="range" id="steam_temp_slider" min="100" max="250" value="180" step="1" class="w-full h-2.5 rounded-lg appearance-none cursor-pointer">
+                                <span id="steam_temp_value" class="font-bold text-orange-400 w-24 text-center text-lg mt-2 sm:mt-0">180°C</span>
                             </div>
                         </div>
                         <div>
-                            <label for="eta_turbine_slider" class="block font-semibold mb-2 flex items-center">יעילות טורבינה וגנרטור <button class="info-icon" aria-label="מידע על יעילות טורבינה">ⓘ<span class="tooltip-text">אחוז האנרגיה בקיטור שהופך לחשמל.</span></button></label>
+                            <label for="ambient_temp_slider" class="block font-semibold mb-2 flex items-center">טמפרטורת סביבה <button class="info-icon" aria-label="מידע על טמפרטורת סביבה">ⓘ<span class="tooltip-text">טמפרטורת המקור הקר. יעילות משאבת החום (COP) עולה ככל שהסביבה חמה יותר.</span></button></label>
                             <div class="flex flex-col sm:flex-row items-center sm:space-x-4 sm:space-x-reverse">
-                                <input type="range" id="eta_turbine_slider" min="20" max="50" value="30" step="1" class="w-full h-2.5 rounded-lg appearance-none cursor-pointer">
-                                <span id="eta_turbine_value" class="font-bold text-teal-400 w-24 text-center text-lg mt-2 sm:mt-0">30%</span>
-                            </div>
-                        </div>
-                        <div>
-                            <label for="ambient_temp_slider" class="block font-semibold mb-2 flex items-center">טמפרטורת סביבה <button class="info-icon" aria-label="מידע על טמפרטורת סביבה">ⓘ<span class="tooltip-text">הטמפרטורה שממנה משאבת החום שואבת אנרגיה.</span></button></label>
-                             <div class="flex flex-col sm:flex-row items-center sm:space-x-4 sm:space-x-reverse">
                                 <input type="range" id="ambient_temp_slider" min="-10" max="60" value="25" step="1" class="w-full h-2.5 rounded-lg appearance-none cursor-pointer">
                                 <span id="ambient_temp_value" class="font-bold text-orange-400 w-24 text-center text-lg mt-2 sm:mt-0">25°C</span>
-                             </div>
-                            <div class="mt-2 text-sm text-center sm:text-right"><span class="text-secondary">מקדם ביצועים (COP): </span><span id="calculated_cop_value" class="font-bold text-teal-400 text-lg"></span></div>
+                            </div>
                         </div>
+                    </div>
+                    <div class="mt-8 border-t border-slate-700 pt-6">
+                         <p class="text-sm text-secondary mb-4">רוצה להבין לעומק את האתגרים והניסויים שנועדו לאמת את הנתונים האלה? תוכנית המחקר המלאה נמצאת כאן.</p>
+                         <a href="feasibility.html" class="block text-center bg-transparent border-2 border-accent text-accent font-bold py-2 px-4 rounded-full text-md transition-colors hover:bg-accent hover:text-white w-full">צפה בתוכנית האימות המחקרית</a>
                     </div>
                 </aside>
                 <div class="w-full lg:w-2/3 space-y-8">
                     <div class="bg-slate-800/50 border border-slate-700 p-6 rounded-lg">
                         <h3 class="text-2xl font-bold mb-4 text-primary">📊 סיכום ביצועים</h3>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div>
-                                <p class="text-secondary flex items-center">רווח אנרגיה חשמלית נקי</p>
-                                <div class="flex items-baseline"><span id="net_energy_value" class="text-3xl md:text-4xl font-bold text-green-400"></span><span id="net_energy_delta" class="mr-2 text-md font-semibold"></span></div>
-                            </div>
-                            <div>
-                                <p class="text-secondary flex items-center">יעילות מערכת כוללת</p>
-                                <span id="system_efficiency_value" class="text-3xl md:text-4xl font-bold text-blue-400"></span>
-                            </div>
-                            <div>
-                                <p class="text-secondary flex items-center">אנרגיה סביבתית (קירור)</p>
-                                <span id="cooling_power_value" class="text-3xl md:text-4xl font-bold text-cyan-400"></span>
-                            </div>
-                            <div>
-                                <p class="text-secondary flex items-center">לחץ נדרש בכור</p>
-                                <span id="pressure_value" class="text-3xl md:text-4xl font-bold text-orange-400"></span>
-                            </div>
-                            <div class="sm:col-span-2 bg-slate-700/50 p-4 rounded-md">
-                                <p class="text-sm text-blue-300">כמות הקיטור שנוצרה במחזור: <strong id="steam_mass_value" class="text-base text-blue-200"></strong></p>
-                            </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                            <div><p class="text-secondary flex items-center">רווח אנרגיה נקי<button class="info-icon" aria-label="מידע על רווח אנרגיה">ⓘ<span class="tooltip-text">ההפרש בין החשמל המיוצר בטורבינה לחשמל הנצרך ע"י משאבת החום. ערך חיובי = עודף אנרגיה.</span></button></p><span id="net_energy_value" class="text-3xl font-bold text-green-400"></span></div>
+                            <div><p class="text-secondary flex items-center">יעילות כוללת<button class="info-icon" aria-label="מידע על יעילות כוללת">ⓘ<span class="tooltip-text">היחס (באחוזים) בין רווח האנרגיה הנקי לאנרגיה הכימית שהושקעה (70 kJ).</span></button></p><span id="system_efficiency_value" class="text-3xl font-bold text-blue-400"></span></div>
+                            <div><p class="text-secondary flex items-center">מקדם ביצועים (COP)<button class="info-icon" aria-label="מידע על מקדם ביצועים">ⓘ<span class="tooltip-text">יעילות משאבת החום (QH/Win). תלוי בהפרש הטמפרטורות בין הסביבה למאדה.</span></button></p><span id="calculated_cop_value" class="text-3xl font-bold text-teal-400"></span></div>
+                            <div><p class="text-secondary flex items-center">יעילות טורבינה<button class="info-icon" aria-label="מידע על יעילות טורבינה">ⓘ<span class="tooltip-text">אחוז האנרגיה בקיטור שהופך לעבודה חשמלית. עולה עם טמפרטורת הקיטור.</span></button></p><span id="turbine_efficiency_value" class="text-3xl font-bold text-purple-400"></span></div>
+                            <div><p class="text-secondary flex items-center">אנרגיה סביבתית (QC)<button class="info-icon" aria-label="מידע על אנרגיה סביבתית">ⓘ<span class="tooltip-text">כמות החום שמשאבת החום "שואבת" מהסביבה כדי לסייע באידוי.</span></button></p><span id="cooling_power_value" class="text-3xl font-bold text-cyan-400"></span></div>
+                            <div><p class="text-secondary flex items-center">לחץ קיטור (משוער)<button class="info-icon" aria-label="מידע על לחץ קיטור">ⓘ<span class="tooltip-text">הלחץ בכניסה לטורבינה. נקבע על פי טמפרטורת הקיטור שנבחרה.</span></button></p><span id="steam_pressure_value" class="text-3xl font-bold text-orange-400"></span></div>
                         </div>
                     </div>
                     <div class="bg-slate-800/50 border border-slate-700 p-6 rounded-lg">
                         <h3 class="text-2xl font-bold mb-4 text-primary">🔢 פירוט מאזן האנרגיה</h3>
-                        <div class="table-responsive"><table class="w-full text-right min-w-[340px]"><thead><tr class="border-b-2 border-slate-700 text-secondary"><th class="py-2 font-semibold">שלב</th><th class="py-2 font-semibold">ערך (kJ)</th><th class="py-2 font-semibold">% מהקלט</th></tr></thead><tbody id="balance_table_body"></tbody></table></div>
+                        <div class="table-responsive"><table class="w-full text-right min-w-[340px]"><thead><tr class="border-b-2 border-slate-700 text-secondary"><th class="py-2 font-semibold">שלב</th><th class="py-2 font-semibold">ערך (kJ)</th><th class="py-2 font-semibold">% מהקלט הכימי</th></tr></thead><tbody id="balance_table_body"></tbody></table></div>
                     </div>
                      <div class="bg-slate-800/50 border border-slate-700 p-6 rounded-lg">
                         <h3 class="text-2xl font-bold mb-4 text-primary">יעילות המערכת כתלות בטמפרטורת הסביבה</h3>
-                        <div class="relative h-96">
-                           <canvas id="efficiencyChart"></canvas>
-                        </div>
+                        <div class="relative h-96"><canvas id="efficiencyChart"></canvas></div>
                     </div>
+                    <div id="scientific-appendix" class="bg-slate-800/50 border border-slate-700 p-6 rounded-lg space-y-8">
+                        </div>
                 </div>
             </div>
         </div>
     </main>
     <footer class="bg-gray-900 text-gray-500 text-center py-6 border-t border-gray-700"><p>&copy; 2025 HeatPower. כל הזכויות שמורות.</p></footer>
     <script>
-        const sliders = { temp: document.getElementById('temp_slider'), eta_reaction: document.getElementById('eta_reaction_slider'), eta_thermal: document.getElementById('eta_thermal_slider'), eta_turbine: document.getElementById('eta_turbine_slider'), ambient_temp: document.getElementById('ambient_temp_slider') };
-        const values = { temp: document.getElementById('temp_value'), eta_reaction: document.getElementById('eta_reaction_value'), eta_thermal: document.getElementById('eta_thermal_value'), eta_turbine: document.getElementById('eta_turbine_value'), ambient_temp: document.getElementById('ambient_temp_value') };
-        const outputs = { net_energy_value: document.getElementById('net_energy_value'), net_energy_delta: document.getElementById('net_energy_delta'), system_efficiency_value: document.getElementById('system_efficiency_value'), cooling_power_value: document.getElementById('cooling_power_value'), pressure_value: document.getElementById('pressure_value'), steam_mass_value: document.getElementById('steam_mass_value'), balance_table_body: document.getElementById('balance_table_body'), calculated_cop_value: document.getElementById('calculated_cop_value') };
-        const CONSTANTS = { Q_reaction: 95000, H2O_vap_heat: 2260 };
+        const sliders = { eta_reaction: document.getElementById('eta_reaction_slider'), steam_temp: document.getElementById('steam_temp_slider'), ambient_temp: document.getElementById('ambient_temp_slider') };
+        const values = { eta_reaction: document.getElementById('eta_reaction_value'), steam_temp: document.getElementById('steam_temp_value'), ambient_temp: document.getElementById('ambient_temp_value') };
+        const outputs = { net_energy_value: document.getElementById('net_energy_value'), system_efficiency_value: document.getElementById('system_efficiency_value'), steam_pressure_value: document.getElementById('steam_pressure_value'), turbine_efficiency_value: document.getElementById('turbine_efficiency_value'), calculated_cop_value: document.getElementById('calculated_cop_value'), cooling_power_value: document.getElementById('cooling_power_value'), balance_table_body: document.getElementById('balance_table_body'), appendix_container: document.getElementById('scientific-appendix') };
+        
+        const thermoData = [ { temp: 100, pressure: 1.013, hf: 419.06, hg: 2676.0, eta_turbine: 0.20 }, { temp: 120, pressure: 1.985, hf: 503.71, hg: 2706.3, eta_turbine: 0.22 }, { temp: 150, pressure: 4.76, hf: 632.18, hg: 2746.5, eta_turbine: 0.26 }, { temp: 180, pressure: 10.03, hf: 762.64, hg: 2778.1, eta_turbine: 0.30 }, { temp: 200, pressure: 15.54, hf: 852.26, hg: 2792.8, eta_turbine: 0.33 }, { temp: 250, pressure: 39.73, hf: 1085.6, hg: 2801.4, eta_turbine: 0.38 } ];
+        const CONSTANTS = { Q_DILUTION_MOLAR: 70000, MOLAR_RATIO_H2O: 7, H2O_MOLAR_MASS_KG: 0.018015, T_EVAPORATION_K: 373.15, CARNOT_EFFICIENCY_FACTOR: 0.804, COP_MAX: 8.0, };
         let efficiencyChartInstance;
 
+        function interpolate(x, x0, y0, x1, y1) { if (x === x0) return y0; if (x === x1) return y1; return y0 + (x - x0) * (y1 - y0) / (x1 - x0); }
+        function getThermoData(temp) { if (temp <= thermoData[0].temp) return thermoData[0]; if (temp >= thermoData[thermoData.length - 1].temp) return thermoData[thermoData.length - 1]; for (let i = 0; i < thermoData.length - 1; i++) { const p0 = thermoData[i]; const p1 = thermoData[i + 1]; if (temp >= p0.temp && temp <= p1.temp) { return { temp: temp, pressure: interpolate(temp, p0.temp, p0.pressure, p1.temp, p1.pressure), hf: interpolate(temp, p0.temp, p0.hf, p1.temp, p1.hf), hg: interpolate(temp, p0.temp, p0.hg, p1.temp, p1.hg), eta_turbine: interpolate(temp, p0.temp, p0.eta_turbine, p1.temp, p1.eta_turbine) }; } } }
+
         function calculateAndDisplay() {
-            const T_steam = parseFloat(sliders.temp.value); const eta_reaction = parseFloat(sliders.eta_reaction.value) / 100; const eta_thermal = parseFloat(sliders.eta_thermal.value) / 100; const eta_turbine = parseFloat(sliders.eta_turbine.value) / 100; const T_ambient = parseFloat(sliders.ambient_temp.value);
-            values.temp.textContent = `${T_steam}°C`; values.eta_reaction.textContent = `${sliders.eta_reaction.value}%`; values.eta_thermal.textContent = `${sliders.eta_thermal.value}%`; values.eta_turbine.textContent = `${sliders.eta_turbine.value}%`; values.ambient_temp.textContent = `${T_ambient}°C`;
-            const cop_hp = Math.max(2.0, (1/15) * T_ambient + (7/3));
-            outputs.calculated_cop_value.textContent = cop_hp.toFixed(2);
-            const A = 5.11564, B = 1687.537, C = 230.17; const P_bar = Math.pow(10, A - (B / (C + T_steam))); const P_atm = P_bar * 0.986923;
-            const E_g_steam = (4.184 * (100 - 25)) + CONSTANTS.H2O_vap_heat + (2.08 * (T_steam - 100)); const Q_usable = CONSTANTS.Q_reaction * eta_reaction * eta_thermal; const m_steam = Q_usable / E_g_steam;
-            const E_electric_gross = Q_usable * eta_turbine; const Q_recycle = m_steam * CONSTANTS.H2O_vap_heat; const E_recycle_cost = Q_recycle / cop_hp;
-            const E_net = E_electric_gross - E_recycle_cost; const eta_system = (E_net / CONSTANTS.Q_reaction) * 100; const Q_cooling = Q_recycle - E_recycle_cost;
-            outputs.net_energy_value.textContent = `${(E_net / 1000).toLocaleString('he-IL', { maximumFractionDigits: 2 })} kJ`;
-            outputs.net_energy_delta.textContent = `(${eta_system.toFixed(2)}%)`;
+            const eta_reaction = parseFloat(sliders.eta_reaction.value) / 100; const steam_temp_c = parseFloat(sliders.steam_temp.value); const ambient_temp_c = parseFloat(sliders.ambient_temp.value);
+            values.eta_reaction.textContent = `${sliders.eta_reaction.value}%`; values.steam_temp.textContent = `${steam_temp_c.toFixed(0)}°C`; values.ambient_temp.textContent = `${ambient_temp_c.toFixed(0)}°C`;
+            const currentThermo = getThermoData(steam_temp_c);
+            const ambient_temp_k = ambient_temp_c + 273.15; const delta_t_k = CONSTANTS.T_EVAPORATION_K - ambient_temp_k;
+            let cop_hp = 0; if (delta_t_k > 0) { const carnot_cop = CONSTANTS.T_EVAPORATION_K / delta_t_k; cop_hp = Math.min(carnot_cop * CONSTANTS.CARNOT_EFFICIENCY_FACTOR, CONSTANTS.COP_MAX); }
+            
+            const Q_dilution_usable = CONSTANTS.Q_DILUTION_MOLAR * eta_reaction;
+            const Qvap_total = CONSTANTS.MOLAR_RATIO_H2O * (currentThermo.hg - currentThermo.hf) * 1000 * CONSTANTS.H2O_MOLAR_MASS_KG;
+            const QH = Qvap_total - Q_dilution_usable;
+            const E_hp_cost = (QH > 0 && cop_hp > 0) ? QH / cop_hp : 0;
+            const E_electric_gross = Qvap_total * currentThermo.eta_turbine;
+            const E_net = E_electric_gross - E_hp_cost;
+            const eta_system = (E_net / CONSTANTS.Q_DILUTION_MOLAR) * 100;
+            const Q_cooling = (QH > 0 && E_hp_cost > 0) ? QH - E_hp_cost : 0;
+
+            outputs.net_energy_value.textContent = `${(E_net / 1000).toFixed(2)} kJ`;
             outputs.system_efficiency_value.textContent = `${eta_system.toFixed(2)}%`;
-            outputs.cooling_power_value.textContent = `${(Q_cooling / 1000).toLocaleString('he-IL', { maximumFractionDigits: 2 })} kJ`;
-            outputs.pressure_value.textContent = `${P_atm.toFixed(1)} אטמ'`;
-            outputs.steam_mass_value.textContent = `${m_steam.toFixed(2)} גרם`;
-            outputs.net_energy_value.classList.toggle('text-red-400', E_net <= 0);
-            outputs.net_energy_value.classList.toggle('text-green-400', E_net > 0);
-            const tableData = [ { label: "1. אנרגיה כימית זמינה", value: CONSTANTS.Q_reaction, percent: 100 }, { label: "2. אנרגיה תרמית שמישה", value: Q_usable, percent: (Q_usable / CONSTANTS.Q_reaction) * 100 }, { label: "3. חשמל מופק (ברוטו)", value: E_electric_gross, percent: (E_electric_gross / CONSTANTS.Q_reaction) * 100 }, { label: "4. חשמל נצרך (מחזור)", value: -E_recycle_cost, percent: (E_recycle_cost / CONSTANTS.Q_reaction) * 100 }, { label: "<strong>5. רווח חשמל נקי</strong>", value: E_net, percent: eta_system } ];
-            outputs.balance_table_body.innerHTML = tableData.map(row => `<tr class="border-b border-slate-700 text-secondary"><td class="py-3 pr-2">${row.label}</td><td class="py-3 font-mono text-primary">${(row.value / 1000).toLocaleString('he-IL', { maximumFractionDigits: 2 })}</td><td class="py-3 font-mono text-primary">${row.percent.toFixed(1)}%</td></tr>`).join('');
+            outputs.steam_pressure_value.textContent = `${currentThermo.pressure.toFixed(2)} bar`;
+            outputs.turbine_efficiency_value.textContent = `${(currentThermo.eta_turbine * 100).toFixed(1)}%`;
+            outputs.calculated_cop_value.textContent = cop_hp.toFixed(2);
+            outputs.cooling_power_value.textContent = `${(Q_cooling / 1000).toFixed(2)} kJ`;
+            outputs.net_energy_value.classList.toggle('text-red-400', E_net <= 0); outputs.net_energy_value.classList.toggle('text-green-400', E_net > 0);
+
+            const tableData = [ { label: "1. אנרגיה כימית (ΔHdil)", value: CONSTANTS.Q_DILUTION_MOLAR, percent: 100 }, { label: "2. אנרגיה שמישה (דילול)", value: Q_dilution_usable, percent: (Q_dilution_usable / CONSTANTS.Q_DILUTION_MOLAR) * 100 }, { label: "3. סך אנרגיית אידוי (Qvap)", value: Qvap_total, percent: (Qvap_total / CONSTANTS.Q_DILUTION_MOLAR) * 100 }, { label: "4. חום נדרש מ-HP (QH)", value: QH, percent: (QH / CONSTANTS.Q_DILUTION_MOLAR) * 100 }, { label: "5. חשמל מופק (Wout)", value: E_electric_gross, percent: (E_electric_gross / CONSTANTS.Q_DILUTION_MOLAR) * 100 }, { label: "6. חשמל נצרך (Win)", value: -E_hp_cost, percent: (E_hp_cost / CONSTANTS.Q_DILUTION_MOLAR) * 100 }, { label: `<strong class="text-primary">7. רווח חשמל נקי</strong>`, value: E_net, percent: eta_system } ];
+            outputs.balance_table_body.innerHTML = tableData.map(row => `<tr class="border-b border-slate-700 text-secondary"><td class="py-3 pr-2">${row.label}</td><td class="py-3 font-mono text-primary">${(row.value / 1000).toFixed(2)}</td><td class="py-3 font-mono text-primary">${row.percent.toFixed(1)}%</td></tr>`).join('');
+        }
+        
+        function injectAppendix() {
+            const proofHTML = `
+                <h3 class="text-2xl font-bold mb-4 text-primary">נספח מדעי: הבסיס החישובי של המודל</h3>
+                <div class="space-y-6 text-secondary leading-relaxed"><div><h4 class="text-lg font-semibold text-primary">נתונים והנחות יסוד:</h4><ul class="list-disc list-inside mt-2 space-y-1"><li><strong>יחס מחזור:</strong> 1 מול H₂SO₄ ל-7 מול H₂O</li><li><strong>אנרגיית דילול (ΔH<sub>dil</sub>):</strong> 70 kJ</li><li><strong>יעילות טורבינה (η<sub>turb</sub>):</strong> מחושב דינמית (מקרה בוחן זה מניח 30%)</li><li><strong>מקדם ביצועים (COP):</strong> מחושב דינמית (מקרה בוחן זה מניח 4)</li></ul></div><div><h4 class="text-lg font-semibold text-primary">שלב 1: קביעת סך האנרגיה הדרושה לאידוי (Q<sub>vap, total</sub>)</h4><p>בכל מחזור, יש לאדות 7 מול מים. אנתלפיית האידוי למים היא כ-40.65 kJ/mol.</p><div class="mt-2 p-3 bg-slate-900/50 rounded-md font-mono text-sm text-cyan-300">7 mol × 40.65 kJ/mol = 284.55 kJ</div></div><div><h4 class="text-lg font-semibold text-primary">שלב 2: אנרגיה נדרשת ממשאבת חום (Q<sub>H</sub>)</h4><p>זהו ההפרש בין האנרגיה הכוללת לאידוי לאנרגיה המתקבלת מהדילול הכימי.</p><div class="mt-2 p-3 bg-slate-900/50 rounded-md font-mono text-sm text-cyan-300">Q<sub>H</sub> = Q<sub>vap, total</sub> - ΔH<sub>dil</sub> = 284.55 kJ - 70 kJ = 214.55 kJ</div></div><div><h4 class="text-lg font-semibold text-primary">שלב 3: עבודה נדרשת להפעלת משאבת החום (W<sub>in</sub>)</h4><p>העבודה החשמלית שמשאבת החום צורכת כדי לספק את החום הנדרש.</p><div class="mt-2 p-3 bg-slate-900/50 rounded-md font-mono text-sm text-cyan-300">W<sub>in</sub> = Q<sub>H</sub> / COP = 214.55 kJ / 4 = 53.64 kJ</div></div><div><h4 class="text-lg font-semibold text-primary">שלב 4: עבודה מיוצרת מהטורבינה (W<sub>out</sub>)</h4><p>הטורבינה מנצלת את כלל אנרגיית האידוי (Q<sub>vap, total</sub>) להפקת חשמל.</p><div class="mt-2 p-3 bg-slate-900/50 rounded-md font-mono text-sm text-cyan-300">W<sub>out</sub> = Q<sub>vap, total</sub> × η<sub>turb</sub> = 284.55 kJ × 0.30 = 85.37 kJ</div></div><div><h4 class="text-lg font-bold text-primary">שלב 5: מאזן אנרגיה נטו</h4><p>ההפרש בין העבודה המיוצרת לעבודה הנצרכת.</p><div class="mt-2 p-4 bg-slate-900/50 rounded-md font-mono text-lg text-green-400"><strong>W<sub>net</sub> = W<sub>out</sub> - W<sub>in</sub> = 85.37 kJ - 53.64 kJ = 31.73 kJ</strong></div></div></div>`;
+            const summaryHTML = `<div class="mt-8 border-t border-slate-700 pt-6"><h3 class="text-2xl font-bold mb-4 text-primary">הקשר בין טמפרטורת הקיטור ליעילות</h3><p class="text-secondary leading-relaxed">הסימולטור ממדל עיקרון מרכזי במערכות קיטור: ככל שטמפרטורת הקיטור (ולחצו) עולה, יעילות הטורבינה (η<sub>turb</sub>) משתפרת באופן משמעותי. שיפור זה ביעילות לרוב מפצה על שינויים בדרישות האנרגיה לאידוי, ובסך הכל מוביל לרווח אנרגיה נקי גבוה יותר. הטבלה התרמודינמית המובנית במודל מדגימה כיצד יעילות הטורבינה המשוערת עולה מ-20% ב-100°C ל-38% ב-250°C.</p></div>`;
+            if (outputs.appendix_container) { outputs.appendix_container.innerHTML = proofHTML + summaryHTML; }
         }
 
         function renderEfficiencyVsAmbientChart() {
-            const ctx = document.getElementById('efficiencyChart').getContext('2d');
-            
-            const defaultParams = { T_steam: 200, eta_reaction: 0.95, eta_thermal: 0.95, eta_turbine: 0.30 };
+            const ctx = document.getElementById('efficiencyChart');
+            if (!ctx) return;
+            const context = ctx.getContext('2d');
+            const defaultParams = { T_steam: 180, eta_reaction: 0.95, eta_thermal: 0.95, eta_turbine: 0.30 }; // eta_turbine is dynamic
             const ambientTemps = Array.from({length: (60 - (-10)) / 5 + 1}, (_, i) => -10 + i * 5);
             const efficiencies = ambientTemps.map(T_ambient => {
                 const cop_hp = Math.max(2.0, (1/15) * T_ambient + (7/3));
-                const E_g_steam = (4.184 * (100 - 25)) + CONSTANTS.H2O_vap_heat + (2.08 * (defaultParams.T_steam - 100));
-                const Q_usable = CONSTANTS.Q_reaction * defaultParams.eta_reaction * defaultParams.eta_thermal;
-                const m_steam = Q_usable / E_g_steam;
-                const E_electric_gross = Q_usable * defaultParams.eta_turbine;
-                const Q_recycle = m_steam * CONSTANTS.H2O_vap_heat;
-                const E_recycle_cost = Q_recycle / cop_hp;
-                const E_net = E_electric_gross - E_recycle_cost;
-                return (E_net / CONSTANTS.Q_reaction) * 100;
+                const currentThermo = getThermoData(defaultParams.T_steam);
+                const Q_dilution_usable = CONSTANTS.Q_DILUTION_MOLAR * defaultParams.eta_reaction;
+                const Qvap_total = CONSTANTS.MOLAR_RATIO_H2O * (currentThermo.hg - currentThermo.hf) * 1000 * CONSTANTS.H2O_MOLAR_MASS_KG;
+                const QH = Qvap_total - Q_dilution_usable;
+                const E_hp_cost = (QH > 0 && cop_hp > 0) ? QH / cop_hp : 0;
+                const E_electric_gross = Qvap_total * currentThermo.eta_turbine;
+                const E_net = E_electric_gross - E_hp_cost;
+                return (E_net / CONSTANTS.Q_DILUTION_MOLAR) * 100;
             });
 
-            if (efficiencyChartInstance) {
-                efficiencyChartInstance.destroy();
-            }
-
-            efficiencyChartInstance = new Chart(ctx, {
+            if (efficiencyChartInstance) { efficiencyChartInstance.destroy(); }
+            efficiencyChartInstance = new Chart(context, {
                 type: 'line',
-                data: {
-                    labels: ambientTemps.map(t => `${t}°C`),
-                    datasets: [{
-                        label: 'יעילות המערכת (%)',
-                        data: efficiencies,
-                        borderColor: '#22c55e',
-                        backgroundColor: 'rgba(34, 197, 94, 0.1)',
-                        tension: 0.3,
-                        fill: true,
-                        borderWidth: 3,
-                        pointBackgroundColor: '#f0f6fc',
-                        pointBorderColor: '#22c55e',
-                        pointHoverRadius: 7,
-                        pointRadius: 5
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: {
-                            title: { display: true, text: 'יעילות המערכת (%)', color: '#8b949e' },
-                            ticks: { color: '#8b949e', callback: (value) => value.toFixed(1) + '%' },
-                            grid: { color: 'rgba(139, 148, 158, 0.2)' }
-                        },
-                        x: {
-                            title: { display: true, text: 'טמפרטורת סביבה (°C)', color: '#8b949e' },
-                            ticks: { color: '#8b949e' },
-                            grid: { color: 'rgba(139, 148, 158, 0.2)' }
-                        }
-                    },
-                    plugins: {
-                        legend: { display: false },
-                        tooltip: {
-                            enabled: true,
-                            backgroundColor: '#161b22',
-                            titleFont: { weight: 'bold' },
-                            bodyFont: { size: 14 },
-                            callbacks: {
-                                label: function(context) {
-                                    return `יעילות: ${context.parsed.y.toFixed(2)}%`;
-                                }
-                            }
-                        }
-                    }
-                }
+                data: { labels: ambientTemps.map(t => `${t}°C`), datasets: [{ label: 'יעילות המערכת (%)', data: efficiencies, borderColor: '#22c55e', backgroundColor: 'rgba(34, 197, 94, 0.1)', tension: 0.3, fill: true, borderWidth: 3, pointBackgroundColor: '#f0f6fc', pointBorderColor: '#22c55e', pointHoverRadius: 7, pointRadius: 5 }] },
+                options: { responsive: true, maintainAspectRatio: false, scales: { y: { title: { display: true, text: 'יעילות המערכת (%)', color: '#8b949e' }, ticks: { color: '#8b949e', callback: (value) => value.toFixed(1) + '%' }, grid: { color: 'rgba(139, 148, 158, 0.2)' } }, x: { title: { display: true, text: 'טמפרטורת סביבה (°C)', color: '#8b949e' }, ticks: { color: '#8b949e' }, grid: { color: 'rgba(139, 148, 158, 0.2)' } } }, plugins: { legend: { display: false }, tooltip: { enabled: true, backgroundColor: '#161b22', titleFont: { weight: 'bold' }, bodyFont: { size: 14 }, callbacks: { label: function(context) { return `יעילות: ${context.parsed.y.toFixed(2)}%`; } } } } }
             });
         }
         
         Object.values(sliders).forEach(slider => slider.addEventListener('input', calculateAndDisplay));
         document.addEventListener('DOMContentLoaded', () => {
             calculateAndDisplay();
+            injectAppendix();
             renderEfficiencyVsAmbientChart();
         });
 

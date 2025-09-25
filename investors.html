@@ -84,10 +84,10 @@
                                 </div>
                                 <div>
                                     <h4 class="text-xl font-semibold mb-4 text-primary">הוצאות קבועות (חודשי)</h4>
-                                    <div class="table-responsive"><table class="min-w-[600px]"><thead class="text-secondary"><tr><th>פריט</th><th>עלות מעסיק מקסימלית (USD)</th></tr></thead><tbody class="text-primary"><tr><td>מהנדס/ת כימיה</td><td>$9,000</td></tr><tr><td>מהנדס/ת מכונות</td><td>$8,850</td></tr><tr><td>שכירות מעבדה</td><td>$2,400</td></tr><tr><td>רישיונות תוכנה (HYSYS, SW, COMSOL)</td><td>$7,550</td></tr></tbody></table></div>
+                                    <div class="table-responsive"><table class="min-w-[600px]"><thead class="text-secondary"><tr><th>פריט</th><th>עלות מעסיק מקסימלית (USD)</th></tr></thead><tbody class="text-primary"><tr><td>מהנדס/ת כימיה</td><td>$9,000</td></tr><tr><td>מהנדס/ת מכונות</td><td>$8,850</td></tr><tr><td>שכירות מעבדה</td><td>$2,400</td></tr><tr><td>רישיונות תוכנה</td><td>$7,550</td></tr></tbody></table></div>
                                 </div>
                             </div>
-                            <div class="lg:col-span-2 space-y-6">
+                            <div class="lg:col-span-2 flex flex-col gap-y-6">
                                 <div class="bg-slate-700/50 p-6 rounded-lg text-center">
                                     <h4 class="text-lg font-semibold text-secondary">סה"כ עלויות וצפי מימון (שלב ב')</h4>
                                     <p class="flex justify-between mt-4"><span>הוצאות חד-פעמיות:</span> <strong class="text-white">$324,000</strong></p>
@@ -98,7 +98,7 @@
                                 </div>
                                 <div class="bg-slate-900/50 p-4 rounded-lg">
                                      <h4 class="text-lg font-semibold mb-2 text-center text-primary">תרשים חלוקת השקעה</h4>
-                                     <div class="relative w-full max-w-sm mx-auto aspect-square"><canvas id="investmentChart"></canvas></div>
+                                     <div class="relative w-full mx-auto aspect-square"><canvas id="investmentChart"></canvas></div>
                                 </div>
                             </div>
                         </div>
@@ -135,8 +135,10 @@
             <section id="sheets-preview">
                 <div class="max-w-5xl mx-auto">
                     <div class="section-heading text-center"><h2 class="text-3xl md:text-4xl font-bold text-primary">המודל הפיננסי המלא</h2></div>
-                    <div class="bg-slate-800/50 border border-slate-700 p-2 rounded-lg overflow-x-auto">
-                        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ1pjgODEbyZiFt9M7jiXYwodjGWzXHP8Vf_llqEoYFhNGKkYUPHLAa42mba0yVoQlw1-vuAJFy3Bx_/pubhtml?widget=true&amp;headers=false" style="width:100%; height: 600px; border-radius: 6px; min-width: 700px;"></iframe>
+                    <div class="bg-slate-800/50 border border-slate-700 rounded-lg overflow-hidden">
+                        <div class="overflow-x-auto">
+                           <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ1pjgODEbyZiFt9M7jiXYwodjGWzXHP8Vf_llqEoYFhNGKkYUPHLAa42mba0yVoQlw1-vuAJFy3Bx_/pubhtml?widget=true&amp;headers=false" style="width:100%; height: 600px; min-width: 700px; border: none;"></iframe>
+                        </div>
                     </div>
                     <div class="mt-4 text-center">
                         <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ1pjgODEbyZiFt9M7jiXYwodjGWzXHP8Vf_llqEoYFhNGKkYUPHLAa42mba0yVoQlw1-vuAJFy3Bx_/pubhtml" target="_blank" rel="noopener noreferrer" class="inline-block bg-transparent border-2 border-accent text-accent font-bold py-2 px-6 rounded-full text-md transition-colors hover:bg-accent hover:text-white">
