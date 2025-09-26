@@ -13,7 +13,7 @@
         .text-primary { color: #f0f6fc; } .text-secondary { color: #8b949e; } .text-accent { color: #58a6ff; }
         .navbar { position: fixed; top: 0; left: 0; width: 100%; background-color: rgba(13, 17, 23, 0.7); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid #30363d; }
         .page-hero { text-align: center; background-image: linear-gradient(rgba(13, 17, 23, 0.7), rgba(13, 17, 23, 0.7)), url('hero-business-plan.jpg'); background-size: cover; background-position: center; }
-        .section-heading { border-bottom: 1px solid #30363d; padding-bottom: 1.5rem; margin-bottom: 3rem; md:margin-bottom: 4rem; }
+        .section-heading { border-bottom: 1px solid #30363d; padding-bottom: 1.5rem; margin-bottom: 3rem; }
     </style>
 </head>
 <body class="bg-slate-900">
@@ -36,18 +36,7 @@
                 <button id="mobile-menu-button" class="text-white focus:outline-none"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg></button>
             </div>
         </nav>
-        <div id="mobile-menu" class="hidden lg:hidden bg-slate-800/95 backdrop-blur-sm">
-            <a href="index.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">דף הבית</a>
-            <a href="presentation.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">ההזדמנות</a>
-            <a href="market-analysis.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">שוק ומתחרים</a>
-            <a href="technology.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">הפיתוח הטכנולוגי</a>
-            <a href="feasibility.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">בדיקת היתכנות</a>
-            <a href="business-plan.html" class="block py-3 px-6 text-white bg-slate-700">התוכנית העסקית</a>
-            <a href="investors.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">ניתוח מחיר</a>
-            <a href="simulation1.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">סימולטור אנרגיה</a>
-            <a href="simulation2.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">סימולטור כלכלי</a>
-            <a href="our-story.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">הסיפור שלנו</a>
-        </div>
+        <div id="mobile-menu" class="hidden lg:hidden bg-slate-800/95 backdrop-blur-sm"></div>
     </header>
     <main>
         <section class="page-hero pt-32 pb-16 md:pt-48 md:pb-24">
@@ -58,6 +47,7 @@
             <section id="project-plan">
                 <div class="max-w-5xl mx-auto">
                     <div class="section-heading text-center"><h2 class="text-3xl md:text-4xl font-bold text-primary">מפת הדרכים: פיתוח הרעיון למוצר</h2></div>
+                    
                     <div class="hidden md:block relative">
                         <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-slate-700"></div>
                         <div class="relative mb-16 grid grid-cols-2 gap-x-12">
@@ -67,53 +57,97 @@
                                     <li>רעיון בסיסי וחישובים ראשוניים</li>
                                     <li>אימות היתכנות תיאורטית וניסויית</li>
                                     <li>בניית מודלים וניתוח שוק</li>
-                                    <li>גיבוש תוכנית עסקית מפורטת לפיתוח אב טיפוס</li>
+                                    <li>גיבוש תוכנית עסקית מפורטת המציגה אסטרטגיית חדירה דו-שלבית לשוק</li>
                                 </ul>
-                                <div class="mt-4 bg-slate-700/50 p-3 rounded-md border-r-4 border-accent"><p class="text-sm text-secondary"><strong>מימון נדרש:</strong> שלב זה מבוסס הון עצמי (Bootstrap).</p></div>
+                                <div class="mt-4 bg-slate-700/50 p-3 rounded-md border-r-4 border-accent"><p class="text-sm text-secondary"><strong>מימון:</strong> הון עצמי (Bootstrap)</p></div>
                             </div>
                             <div class="absolute left-1/2 transform -translate-x-1/2 top-0 bg-accent h-9 w-9 rounded-full border-8 border-slate-900 z-10"></div>
                         </div>
                         <div class="relative mb-16 grid grid-cols-2 gap-x-12">
                             <div class="col-start-2 text-right">
-                                 <h3 class="text-2xl font-bold text-accent mb-2">שלב ב': הקמת תשתית ופיתוח אב טיפוס</h3>
-                                 <ul class="list-disc list-inside text-secondary space-y-1 text-lg">
+                                <h3 class="text-2xl font-bold text-accent mb-2">שלב ב': פיתוח MVP מסחרי וגיוס Pre-Seed</h3>
+                                <ul class="list-disc list-inside text-secondary space-y-1 text-lg">
                                     <li>גיוס מימון ראשוני (Pre-Seed)</li>
-                                    <li>הקמה משפטית, עסקית וגיוס צוות</li>
-                                    <li>בחירת פלטפורמת פיתוח והזמנת רכיבים</li>
-                                    <li>בניית אב טיפוס והבנת יכולות ומגבלות</li>
-                                 </ul>
-                                 <div class="mt-4 bg-slate-700/50 p-3 rounded-md border-r-4 border-accent"><p class="text-sm text-secondary"><strong>סבב גיוס:</strong> Pre-Seed, <strong>$1M</strong></p></div>
+                                    <li>הקמה משפטית, עסקית וגיוס צוות ליבה</li>
+                                    <li>פיתוח ובניית מוצר מינימלי בר-קיימא (MVP) של "מגבר הקיטור"</li>
+                                    <li>ה-MVP משמש הן להוכחת היתכנות הטכנולוגיה המרכזית והן כמוצר מסחרי עצמאי</li>
+                                </ul>
+                                <div class="mt-4 bg-slate-700/50 p-3 rounded-md border-r-4 border-accent"><p class="text-sm text-secondary"><strong>סבב גיוס:</strong> Pre-Seed, <strong>$1M</strong></p></div>
                             </div>
                             <div class="absolute left-1/2 transform -translate-x-1/2 top-0 bg-accent h-9 w-9 rounded-full border-8 border-slate-900 z-10"></div>
                         </div>
                         <div class="relative mb-16 grid grid-cols-2 gap-x-12">
                             <div class="text-right">
-                                <h3 class="text-2xl font-bold text-accent mb-2">שלב ג': מוצר MVP ופיתוח שוק</h3>
-                                 <ul class="list-disc list-inside text-secondary space-y-1 text-lg">
-                                    <li>יציאה לשוק עם לקוחות ראשונים לקבלת משוב</li>
-                                    <li>תיקוף התאמת המוצר לשוק (Product-Market Fit)</li>
-                                    <li>שיפור אב הטיפוס והגשת פטנט</li>
-                                    <li>סבב גיוס מימון שני (Seed)</li>
-                                 </ul>
-                                 <div class="mt-4 bg-slate-700/50 p-3 rounded-md border-r-4 border-accent"><p class="text-sm text-secondary"><strong>סבב גיוס:</strong> Seed, <strong>$1.5M - $3M</strong></p></div>
+                                <h3 class="text-2xl font-bold text-accent mb-2">שלב ג': כניסה לשוק עם המוצר הראשון ומימון הדור הבא</h3>
+                                <ul class="list-disc list-inside text-secondary space-y-1 text-lg">
+                                    <li>יציאה לשוק עם "מגבר הקיטור" ומכירתו ללקוחות ראשונים (Early Adopters)</li>
+                                    <li>תיקוף התאמת המוצר לשוק (Product-Market Fit) על בסיס משוב מלקוחות משלמים</li>
+                                    <li>יצירת תזרים מזומנים ראשוני מהמכירות למימון חלקי של הפעילות</li>
+                                    <li>הגשת בקשה לפטנט על הטכנולוגיה המרכזית</li>
+                                    <li>התחלת מו"פ על המערכת המלאה (עם טורבינה), הממומן מההכנסות ומהגיוס</li>
+                                </ul>
+                                <div class="mt-4 bg-slate-700/50 p-3 rounded-md border-r-4 border-accent"><p class="text-sm text-secondary"><strong>סבב גיוס:</strong> Seed, <strong>$1.5M - $3M</strong></p></div>
                             </div>
                             <div class="absolute left-1/2 transform -translate-x-1/2 top-0 bg-accent h-9 w-9 rounded-full border-8 border-slate-900 z-10"></div>
                         </div>
                         <div class="relative grid grid-cols-2 gap-x-12">
                             <div class="col-start-2 text-right">
-                                <h3 class="text-2xl font-bold text-accent mb-2">שלב ד': ייצור, השקה וצמיחה</h3>
+                                <h3 class="text-2xl font-bold text-accent mb-2">שלב ד': צמיחה והשקת קו מוצרים מלא</h3>
                                 <ul class="list-disc list-inside text-secondary space-y-1 text-lg">
-                                    <li>תכנון תהליכי ייצור והקמת פס ייצור</li>
-                                    <li>בניית מערכי מכירות ושיווק</li>
-                                    <li>השקה רשמית והפצה לשוק</li>
+                                    <li>תכנון תהליכי ייצור והקמת פס ייצור (תחילה ל"מגבר" ולאחר מכן למערכת המלאה)</li>
+                                    <li>בניית מערכי מכירות ושיווק גלובליים</li>
+                                    <li>השקה רשמית של המערכת המלאה (עם טורבינה) כמוצר פרימיום</li>
+                                    <li>צמיחה והפצה של שני קווי המוצרים במקביל, המציעים פתרונות שונים ללקוחות שונים</li>
                                 </ul>
-                                <div class="mt-4 bg-slate-700/50 p-3 rounded-md border-r-4 border-accent"><p class="text-sm text-secondary"><strong>סבב גיוס:</strong> Series A, <strong>$12M+</strong></p></div>
+                                <div class="mt-4 bg-slate-700/50 p-3 rounded-md border-r-4 border-accent"><p class="text-sm text-secondary"><strong>סבב גיוס:</strong> Series A, <strong>$12M+</strong>, או <strong>מימון עצמי</strong> על בסיס צמיחה במכירות "מגבר הקיטור"</p></div>
                             </div>
                             <div class="absolute left-1/2 transform -translate-x-1/2 top-0 bg-accent h-9 w-9 rounded-full border-8 border-slate-900 z-10"></div>
                         </div>
                     </div>
+                    
                     <div class="md:hidden space-y-8">
+                        <div class="border-r-4 border-accent pr-4">
+                            <h3 class="text-xl font-bold text-accent mb-2">שלב א': מחקר, פיתוח ותכנון אסטרטגי</h3>
+                            <ul class="list-disc list-inside text-secondary space-y-1">
+                                <li>רעיון בסיסי וחישובים ראשוניים</li>
+                                <li>אימות היתכנות תיאורטית וניסויית</li>
+                                <li>בניית מודלים וניתוח שוק</li>
+                                <li>גיבוש תוכנית עסקית מפורטת המציגה אסטרטגיית חדירה דו-שלבית לשוק</li>
+                            </ul>
+                            <div class="mt-4 bg-slate-700/50 p-3 rounded-md"><p class="text-sm text-secondary"><strong>מימון:</strong> הון עצמי (Bootstrap)</p></div>
                         </div>
+                        <div class="border-r-4 border-accent pr-4">
+                             <h3 class="text-xl font-bold text-accent mb-2">שלב ב': פיתוח MVP מסחרי וגיוס Pre-Seed</h3>
+                             <ul class="list-disc list-inside text-secondary space-y-1">
+                                 <li>גיוס מימון ראשוני (Pre-Seed)</li>
+                                 <li>הקמה משפטית, עסקית וגיוס צוות ליבה</li>
+                                 <li>פיתוח ובניית מוצר מינימלי בר-קיימא (MVP) של "מגבר הקיטור"</li>
+                                 <li>ה-MVP משמש הן להוכחת היתכנות הטכנולוגיה המרכזית והן כמוצר מסחרי עצמאי</li>
+                             </ul>
+                             <div class="mt-4 bg-slate-700/50 p-3 rounded-md"><p class="text-sm text-secondary"><strong>סבב גיוס:</strong> Pre-Seed, <strong>$1M</strong></p></div>
+                        </div>
+                         <div class="border-r-4 border-accent pr-4">
+                            <h3 class="text-xl font-bold text-accent mb-2">שלב ג': כניסה לשוק עם המוצר הראשון ומימון הדור הבא</h3>
+                             <ul class="list-disc list-inside text-secondary space-y-1">
+                                 <li>יציאה לשוק עם "מגבר הקיטור" ומכירתו ללקוחות ראשונים (Early Adopters)</li>
+                                 <li>תיקוף התאמת המוצר לשוק (Product-Market Fit) על בסיס משוב מלקוחות משלמים</li>
+                                 <li>יצירת תזרים מזומנים ראשוני מהמכירות למימון חלקי של הפעילות</li>
+                                 <li>הגשת בקשה לפטנט על הטכנולוגיה המרכזית</li>
+                                 <li>התחלת מו"פ על המערכת המלאה (עם טורבינה), הממומן מההכנסות ומהגיוס</li>
+                             </ul>
+                             <div class="mt-4 bg-slate-700/50 p-3 rounded-md"><p class="text-sm text-secondary"><strong>סבב גיוס:</strong> Seed, <strong>$1.5M - $3M</strong></p></div>
+                        </div>
+                        <div class="border-r-4 border-accent pr-4">
+                            <h3 class="text-xl font-bold text-accent mb-2">שלב ד': צמיחה והשקת קו מוצרים מלא</h3>
+                            <ul class="list-disc list-inside text-secondary space-y-1">
+                                <li>תכנון תהליכי ייצור והקמת פס ייצור (תחילה ל"מגבר" ולאחר מכן למערכת המלאה)</li>
+                                <li>בניית מערכי מכירות ושיווק גלובליים</li>
+                                <li>השקה רשמית של המערכת המלאה (עם טורבינה) כמוצר פרימיום</li>
+                                <li>צמיחה והפצה של שני קווי המוצרים במקביל, המציעים פתרונות שונים ללקוחות שונים</li>
+                            </ul>
+                            <div class="mt-4 bg-slate-700/50 p-3 rounded-md"><p class="text-sm text-secondary"><strong>סבב גיוס:</strong> Series A, <strong>$12M+</strong>, או <strong>מימון עצמי</strong> על בסיס צמיחה במכירות "מגבר הקיטור"</p></div>
+                        </div>
+                    </div>
                 </div>
             </section>
             
@@ -145,15 +179,15 @@
             </section>
 
             <section id="funding-options">
-                <div class="max-w-5xl mx-auto"><div class="section-heading text-center"><h2 class="text-3xl md:text-4xl font-bold text-primary">אפשרויות מימון</h2></div><div class="grid md:grid-cols-3 gap-8 mb-12"><div class="bg-slate-800/50 border border-slate-700 p-6 rounded-lg text-center"><h3 class="text-2xl font-bold text-primary">מענקים</h3><p class="mt-2 text-secondary">רשות החדשנות, מענקים ממשלתיים.</p></div><div class="bg-slate-800/50 border border-slate-700 p-6 rounded-lg text-center"><h3 class="text-2xl font-bold text-primary">משקיע אסטרטגי</h3><p class="mt-2 text-secondary">מביא איתו ניסיון וקשרים בנוסף לתקציב.</p></div><div class="bg-slate-800/50 border border-slate-700 p-6 rounded-lg text-center"><h3 class="text-2xl font-bold text-primary">מעבדת פיתוח</h3><p class="mt-2 text-secondary">תקציב וליווי הנדסי תמורת אחוזים.</p></div></div><div class="table-responsive bg-slate-800/50 border border-slate-700 rounded-lg p-4"><table class="w-full min-w-[600px]"><thead><tr class="border-b border-slate-600"><th class="py-3 pr-4 text-right text-accent font-semibold text-lg">אפשרות</th><th class="py-3 px-4 text-right text-green-400 font-semibold text-lg">יתרונות</th><th class="py-3 pl-4 text-right text-red-400 font-semibold text-lg">חסרונות</th></tr></thead><tbody class="text-secondary align-top"><tr class="border-b border-slate-700"><td class="py-4 pr-4 font-bold">מענקים</td><td class="py-4 px-4">מימון ללא דילול, "תו תקן" ממשלתי.</td><td class="py-4 pl-4">בירוקרטיה ארוכה, התאמה לקריטריונים נוקשים.</td></tr><tr class="border-b border-slate-700"><td class="py-4 pr-4 font-bold">משקיע אסטרטגי</td><td class="py-4 px-4">"כסף חכם" - ניסיון, קשרים וליווי.</td><td class="py-4 pl-4">דילול משמעותי באחזקות, מעורבות ניהולית.</td></tr><tr><td class="py-4 pr-4 font-bold">מעבדת פיתוח</td><td class="py-4 px-4">ליווי הנדסי, משרד ויועצים, תקציב מהיר.</td><td class="py-4 pl-4">דילול (בדרך כלל נמוך יותר ממשקיע), התחייבות לתוכנית.</td></tr></tbody></table></div></div>
+                <div class="max-w-5xl mx-auto"><div class="section-heading text-center"><h2 class="text-3xl md:text-4xl font-bold text-primary">אפשרויות מימון</h2></div><div class="grid md:grid-cols-3 gap-8 mb-12"><div class="bg-slate-800/50 border border-slate-700 p-6 rounded-lg text-center"><h3 class="text-2xl font-bold text-primary">מענקים</h3><p class="mt-2 text-secondary">רשות החדשנות, מענקים ממשלתיים.</p></div><div class="bg-slate-800/50 border border-slate-700 p-6 rounded-lg text-center"><h3 class="text-2xl font-bold text-primary">משקיע אסטרטגי</h3><p class="mt-2 text-secondary">מביא איתו ניסיון וקשרים בנוסף לתקציב.</p></div><div class="bg-slate-800/50 border border-slate-700 p-6 rounded-lg text-center"><h3 class="text-2xl font-bold text-primary">מעבדת פיתוח</h3><p class="mt-2 text-secondary">תקציב וליווי הנדסי תמורת אחוזים.</p></div></div><div class="overflow-x-auto bg-slate-800/50 border border-slate-700 rounded-lg p-4"><table class="w-full min-w-[600px]"><thead><tr class="border-b border-slate-600"><th class="py-3 pr-4 text-right text-accent font-semibold text-lg">אפשרות</th><th class="py-3 px-4 text-right text-green-400 font-semibold text-lg">יתרונות</th><th class="py-3 pl-4 text-right text-red-400 font-semibold text-lg">חסרונות</th></tr></thead><tbody class="text-secondary align-top"><tr class="border-b border-slate-700"><td class="py-4 pr-4 font-bold">מענקים</td><td class="py-4 px-4">מימון ללא דילול, "תו תקן" ממשלתי.</td><td class="py-4 pl-4">בירוקרטיה ארוכה, התאמה לקריטריונים נוקשים.</td></tr><tr class="border-b border-slate-700"><td class="py-4 pr-4 font-bold">משקיע אסטרטגי</td><td class="py-4 px-4">"כסף חכם" - ניסיון, קשרים וליווי.</td><td class="py-4 pl-4">דילול משמעותי באחזקות, מעורבות ניהולית.</td></tr><tr><td class="py-4 pr-4 font-bold">מעבדת פיתוח</td><td class="py-4 px-4">ליווי הנדסי, משרד ויועצים, תקציב מהיר.</td><td class="py-4 pl-4">דילול (בדרך כלל נמוך יותר ממשקיע), התחייבות לתוכנית.</td></tr></tbody></table></div></div>
             </section>
             
             <section id="next-steps" class="text-center">
                  <div class="max-w-4xl mx-auto border-t border-slate-700 pt-12">
-                    <h2 class="text-3xl font-bold text-primary mb-6">השלב הבא: ניתוח פיננסי</h2>
-                    <p class="text-lg text-secondary mb-8 max-w-2xl mx-auto">כעת, לאחר שהבנו את מפת הדרכים האסטרטגית, השלב הבא הוא לצלול לתוך המספרים. עיין בניתוח העלויות המפורט ובמודל הפיננסי המלא.</p>
-                    <a href="investors.html" class="bg-accent text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg transform hover:scale-105 transition-transform hover:bg-blue-600">לניתוח המחיר המפורט</a>
-                </div>
+                     <h2 class="text-3xl font-bold text-primary mb-6">השלב הבא: ניתוח פיננסי</h2>
+                     <p class="text-lg text-secondary mb-8 max-w-2xl mx-auto">כעת, לאחר שהבנו את מפת הדרכים האסטרטגית, השלב הבא הוא לצלול לתוך המספרים. עיין בניתוח העלויות המפורט ובמודל הפיננסי המלא.</p>
+                     <a href="investors.html" class="bg-accent text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg transform hover:scale-105 transition-transform hover:bg-blue-600">לניתוח המחיר המפורט</a>
+                 </div>
             </section>
         </div>
     </main>
@@ -161,7 +195,20 @@
     <script>
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
             var menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+            var desktopLinks = document.querySelector('header .hidden.lg\\:flex.items-center');
+            if (menu.classList.contains('hidden')) {
+                if (desktopLinks) { 
+                    menu.innerHTML = desktopLinks.innerHTML.replace(/<li/g, '<a').replace(/<\/li/g, '</a>').replace(/ class="[^"]*"/g, ' class="block py-3 px-6 text-gray-300 hover:bg-slate-700"');
+                     const currentPageLink = menu.querySelector('a[href="business-plan.html"]');
+                    if (currentPageLink) {
+                        currentPageLink.classList.add('text-white', 'bg-slate-700');
+                        currentPageLink.classList.remove('text-gray-300');
+                    }
+                }
+                menu.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+            }
         });
     </script>
 </body>
