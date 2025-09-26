@@ -10,25 +10,43 @@
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Assistant', sans-serif; background-color: #010409; color: #e6edf3; overflow-x: hidden; scroll-behavior: smooth; }
-        #hero-section { height: 100vh; width: 100vw; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
-        #bg-image-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
-        #bg-image-tag { width: 100%; height: 100%; object-fit: cover; object-position: center 80%; }
-        /* Lightened the gradient overlay */
-        #bg-image-container::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(1, 4, 9, 1) 5%, rgba(1, 4, 9, 0.4) 40%, rgba(1, 4, 9, 0.1) 100%); }
-        #stars-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; background-repeat: repeat; background-image: url('star-trails.png'); background-size: 800px; opacity: 0.25; animation: move-stars 150s linear infinite; mask-image: linear-gradient(to bottom, black 10%, transparent 25%); -webkit-mask-image: linear-gradient(to bottom, black 10%, transparent 25%); }
-        @keyframes move-stars { from { background-position: 0 0; } to { background-position: -10000px 2000px; } }
-        /* Lowered the stars animation on mobile */
-        @media (max-width: 768px) {
-            #stars-container {
-                mask-image: linear-gradient(to bottom, black 25%, transparent 50%);
-                -webkit-mask-image: linear-gradient(to bottom, black 25%, transparent 50%);
-            }
+        #hero-section {
+            height: 100vh;
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
         }
-        .hero-content { position: relative; z-index: 4; padding: 2rem; }
+        #bg-video-tag {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: 0;
+            transform: translate(-50%, -50%) scale(1.4); 
+            object-fit: cover;
+            /* New rule to prioritize the bottom of the video */
+            object-position: bottom;
+        }
+        #overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Lighter, more subtle gradient */
+            background: linear-gradient(to top, rgba(1, 4, 9, 0.8) 0%, rgba(1, 4, 9, 0.2) 30%, transparent 60%);
+            z-index: 1;
+        }
+        .hero-content { position: relative; z-index: 2; padding: 2rem; }
         .navbar { position: fixed; top: 0; left: 0; width: 100%; background-color: rgba(1, 4, 9, 0.7); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid #30363d;}
-        .scroll-down-arrow { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 4; color: white; font-size: 3rem; animation: bounce 2s infinite; }
+        .scroll-down-arrow { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 2; color: white; font-size: 3rem; animation: bounce 2s infinite; }
         @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); } 40% { transform: translateX(-50%) translateY(-20px); } 60% { transform: translateX(-50%) translateY(-10px); } }
-        .text-accent { color: #58a6ff; } /* Changed to the blue accent for consistency */
+        .text-accent { color: #58a6ff; }
         .text-primary { color: #f3f4f6; } 
         .text-secondary { color: #d1d5db; }
         .floating-card { background-color: rgba(15, 23, 42, 0.6); backdrop-filter: blur(8px); border: 1px solid rgba(59, 130, 246, 0.2); transition: all 0.3s ease; box-shadow: 0 0 15px rgba(88, 166, 255, 0.1); }
@@ -39,7 +57,6 @@
     <header class="navbar">
         <nav class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center relative">
             <div class="text-3xl font-bold text-accent tracking-wider">HeatPower</div>
-            
             <div class="hidden lg:flex absolute left-1/2 -translate-x-1/2">
                 <ul class="flex items-center text-md font-semibold space-x-6 space-x-reverse">
                     <li><a href="index.html" class="text-white hover:text-accent transition-colors">דף הבית</a></li>
@@ -54,28 +71,18 @@
                     <li><a href="our-story.html" class="text-gray-300 hover:text-accent transition-colors">הסיפור שלנו</a></li>
                 </ul>
             </div>
-
             <div class="lg:hidden">
                 <button id="mobile-menu-button" class="text-white focus:outline-none"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg></button>
             </div>
         </nav>
-        <div id="mobile-menu" class="hidden lg:hidden bg-slate-800/95 backdrop-blur-sm">
-            <a href="index.html" class="block py-3 px-6 text-white bg-slate-700">דף הבית</a>
-            <a href="presentation.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">ההזדמנות</a>
-            <a href="market-analysis.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">שוק ומתחרים</a>
-            <a href="technology.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">הפיתוח הטכנולוגי</a>
-            <a href="feasibility.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">בדיקת היתכנות</a>
-            <a href="business-plan.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">התוכנית העסקית</a>
-            <a href="investors.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">ניתוח מחיר</a>
-            <a href="simulation1.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">סימולטור אנרגיה</a>
-            <a href="simulation2.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">סימולטור כלכלי</a>
-            <a href="our-story.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">הסיפור שלנו</a>
-        </div>
+        <div id="mobile-menu" class="hidden lg:hidden bg-slate-800/95 backdrop-blur-sm"></div>
     </header>
     <main>
         <section id="hero-section">
-            <div id="bg-image-container"><img id="bg-image-tag" src="background.jpg" alt="שמי לילה במדבר עם כוכבים ומדורה"></div>
-            <div id="stars-container"></div>
+            <video id="bg-video-tag" autoplay loop muted playsinline>
+                <source src="background-video.mp4" type="video/mp4">
+            </video>
+            <div id="overlay"></div>
             <div class="hero-content">
                 <h1 class="text-6xl md:text-8xl font-extrabold text-white tracking-widest" style="text-shadow: 0 0 20px rgba(88, 166, 255, 0.5);">HeatPower</h1>
                 <blockquote class="mt-8 max-w-3xl mx-auto"><p class="text-xl md:text-2xl text-gray-300 italic leading-relaxed">"כמה אנרגיה עודפת מקיפה אותנו ואנו לא יודעים לנצל אותה לכלום... <br>זהו משבר האנרגיה האמיתי."</p></blockquote>
@@ -99,7 +106,21 @@
     <script>
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
             var menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+            var desktopLinks = document.querySelector('header .hidden.lg\\:flex.items-center');
+            if (menu.classList.contains('hidden')) {
+                if (desktopLinks) { 
+                    menu.innerHTML = desktopLinks.innerHTML.replace(/<li/g, '<a').replace(/<\/li/g, '</a>').replace(/ class="[^"]*"/g, ' class="block py-3 px-6 text-gray-300 hover:bg-slate-700"');
+                     // Highlight current page in mobile menu
+                    const currentPageLink = menu.querySelector('a[href="index.html"]');
+                    if (currentPageLink) {
+                        currentPageLink.classList.add('text-white', 'bg-slate-700');
+                        currentPageLink.classList.remove('text-gray-300');
+                    }
+                }
+                menu.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+            }
         });
     </script>
 </body>
