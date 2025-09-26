@@ -14,35 +14,16 @@
         .text-secondary { color: #8b949e; } 
         .text-accent { color: #58a6ff; }
         .navbar { position: fixed; top: 0; left: 0; width: 100%; background-color: rgba(1, 4, 9, 0.7); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid #30363d; }
-        .page-hero {
-            padding-top: 10rem; /* Reduced padding for mobile */
-            padding-bottom: 6rem; /* Reduced padding for mobile */
-            text-align: center;
-            background-image: linear-gradient(rgba(1, 4, 9, 0.7), rgba(1, 4, 9, 0.7)), url('hero-presentation.jpg?v=1');
-            background-size: cover;
-            background-position: center;
-        }
-        @media (min-width: 768px) { /* md: */
-            .page-hero {
-                padding-top: 12rem;
-                padding-bottom: 8rem;
-            }
-        }
-        .section-heading { border-bottom: 1px solid #30363d; padding-bottom: 1.5rem; margin-bottom: 3rem; md:margin-bottom: 4rem; }
+        .page-hero { padding-top: 10rem; padding-bottom: 6rem; text-align: center; background-image: linear-gradient(rgba(1, 4, 9, 0.7), rgba(1, 4, 9, 0.7)), url('hero-presentation.jpg?v=1'); background-size: cover; background-position: center; }
+        @media (min-width: 768px) { .page-hero { padding-top: 12rem; padding-bottom: 8rem; } }
+        .section-heading { border-bottom: 1px solid #30363d; padding-bottom: 1.5rem; margin-bottom: 3rem; }
         .table-responsive { overflow-x: auto; }
-        .source-text { font-size: 0.75rem; color: #8b949e; text-align: right; margin-top: 0.5rem; }
-        .case-study-grid { display: grid; grid-template-columns: repeat(1, minmax(0, 1fr)); gap: 2rem; align-items: center; }
-        @media (min-width: 1024px) { 
-            .case-study-grid { grid-template-columns: 1fr 1.5fr; }
-            .case-study-grid.image-first .lg\:order-last { order: -1; }
-        }
     </style>
 </head>
 <body class="bg-slate-900">
-    <header class="navbar">
+     <header class="navbar">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="text-3xl font-bold text-accent tracking-wider">HeatPower</div>
-            
             <ul class="hidden lg:flex items-center text-md font-semibold space-x-6 space-x-reverse">
                 <li><a href="index.html" class="text-gray-300 hover:text-white transition-colors">דף הבית</a></li>
                 <li><a href="presentation.html" class="text-white">ההזדמנות</a></li>
@@ -55,26 +36,11 @@
                 <li><a href="simulation2.html" class="text-gray-300 hover:text-white transition-colors">סימולטור כלכלי</a></li>
                 <li><a href="our-story.html" class="text-gray-300 hover:text-white transition-colors">הסיפור שלנו</a></li>
             </ul>
-
             <div class="lg:hidden">
-                <button id="mobile-menu-button" class="text-white focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                </button>
+                <button id="mobile-menu-button" class="text-white focus:outline-none"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg></button>
             </div>
         </nav>
-
-        <div id="mobile-menu" class="hidden lg:hidden bg-slate-800">
-            <a href="index.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">דף הבית</a>
-            <a href="presentation.html" class="block py-3 px-6 text-white bg-slate-700">ההזדמנות</a>
-            <a href="market-analysis.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">שוק ומתחרים</a>
-            <a href="technology.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">הפיתוח הטכנולוגי</a>
-            <a href="feasibility.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">בדיקת היתכנות</a>
-            <a href="business-plan.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">התוכנית העסקית</a>
-            <a href="investors.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">ניתוח מחיר</a>
-            <a href="simulation1.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">סימולטור אנרגיה</a>
-            <a href="simulation2.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">סימולטור כלכלי</a>
-            <a href="our-story.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">הסיפור שלנו</a>
-        </div>
+        <div id="mobile-menu" class="hidden lg:hidden bg-slate-800"></div>
     </header>
     <main>
         <section class="page-hero">
@@ -88,16 +54,16 @@
                 <div class="max-w-6xl mx-auto">
                     <div class="section-heading text-center"><h2 class="text-3xl md:text-4xl font-bold text-primary">מודל עסקי ופוטנציאל כלכלי</h2><p class="mt-2 text-lg text-secondary">פלטפורמה אחת, שני אפיקי רווח, ותוצאות מוכחות.</p></div>
                     <div class="bg-slate-800/50 border border-slate-700 p-6 md:p-8 rounded-lg mb-16">
-                        <div class="text-center mb-8"><h4 class="text-2xl font-bold text-primary">הדגמה ראשונית: העלות ליחידה</h4></div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12 items-center">
-                            <div class="text-center"><h5 class="text-xl font-bold text-orange-400 mb-4">עלות ייצור קיטור (ל-1,000 ק"ג)</h5><div class="flex items-center justify-around"><div class="text-center"><p class="text-lg text-secondary">דוד קיטור סטנדרטי</p><p class="text-3xl md:text-4xl font-extrabold text-red-400 my-2">$14.80</p></div><div class="text-center"><p class="text-lg text-secondary">מערכת HeatPower</p><p class="text-3xl md:text-4xl font-extrabold text-green-400 my-2">$2.10</p></div></div></div>
-                            <div class="text-center"><h5 class="text-xl font-bold text-blue-400 mb-4">עלות שעת קירור (לטון-קירור)</h5><div class="flex items-center justify-around"><div class="text-center"><p class="text-lg text-secondary">צ'ילר תעשייתי</p><p class="text-3xl md:text-4xl font-extrabold text-red-400 my-2">~$0.064</p><p class="text-xs text-gray-500">(הוצאה)</p></div><div class="text-center"><p class="text-lg text-secondary">מערכת HeatPower</p><p class="text-3xl md:text-4xl font-extrabold text-green-400 my-2">($0.126)</p><p class="text-xs text-gray-500">(רווח)</p></div></div></div>
+                        <div class="text-center mb-8"><h4 class="text-2xl font-bold text-primary">הדגמה ראשונית: השוואת עלויות</h4><p class="text-secondary text-sm">(הנתונים מבוססים על טמפ' סביבה של 25°C. בחן תנאים אחרים בסימולטור)</p></div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+                            <div class="flex flex-col text-center p-6 bg-slate-900/50 rounded-lg"><h5 class="text-xl font-bold text-orange-400 mb-4">עלות ייצור 1,000 ק"ג קיטור</h5><div class="flex-grow flex items-center justify-around mb-4"><div class="text-center"><p class="text-lg text-secondary">דוד קיטור סטנדרטי</p><p class="text-3xl md:text-4xl font-extrabold text-red-400 my-2">~150 ₪</p></div><div class="text-center"><p class="text-lg text-secondary">HeatPower (מגבר)</p><p class="text-3xl md:text-4xl font-extrabold text-green-400 my-2">~61 ₪</p></div></div><div class="bg-green-500/10 border border-green-500 text-green-300 text-lg font-bold p-2 rounded-md">חיסכון של 59%</div><p class="text-sm mt-3 text-secondary">במצב "יחידה עצמאית", המערכת מייצרת קיטור בכמות נמוכה יותר בחיסכון של 100%.</p></div>
+                            <div class="flex flex-col text-center p-6 bg-slate-900/50 rounded-lg"><h5 class="text-xl font-bold text-blue-400 mb-4">חיסכון שעתי עבור 3,000kW קירור</h5><div class="flex-grow flex items-center justify-around mb-4"><div class="text-center"><p class="text-lg text-secondary">צ'ילר תעשייתי</p><p class="text-3xl md:text-4xl font-extrabold text-red-400 my-2">360 ₪</p><p class="text-xs text-gray-500">(הוצאה)</p></div><div class="text-center"><p class="text-lg text-secondary">מערכת HeatPower</p><p class="text-3xl md:text-4xl font-extrabold text-green-400 my-2">754 ₪</p><p class="text-xs text-gray-500">(חיסכון כולל)</p></div></div><div class="bg-green-500/10 border border-green-500 text-green-300 text-lg font-bold p-2 rounded-md">הפיכת הוצאה לחיסכון של 209%</div><p class="text-sm mt-3 text-secondary">החיסכון מורכב מעלות הצ'ילר שנחסכה (360 ₪) ובנוסף רווח ממכירת חשמל (394 ₪).</p></div>
                         </div>
                     </div>
                     <div class="space-y-12 md:space-y-20">
-                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center"><div><h3 class="text-3xl font-bold text-primary mb-2">מקרה בוחן #1: מרכז נתונים</h3> <p class="text-lg text-secondary mb-6">צורך קירור קבוע של 142 טון (500 kWt), 24/7.</p><div class="table-responsive bg-slate-800/50 border border-slate-700 rounded-lg p-4"><table class="w-full text-center"><thead><tr class="border-b border-slate-600"><th class="py-3 text-primary">מדד</th><th class="py-2 text-secondary">מערכת מסורתית</th><th class="py-2 text-accent">מערכת HeatPower</th></tr></thead><tbody><tr class="border-b border-slate-700"><td class="py-3 text-primary font-semibold">השקעה ראשונית</td><td>$78,100</td><td class="text-white">$611,000</td></tr><tr class="border-b border-slate-700"><td class="py-3 text-primary font-semibold">עלות תפעול שנתית</td><td>$79,627</td><td class="text-green-400">($176,670) (רווח)</td></tr><tr><td class="py-3 text-primary font-semibold">החזר השקעה (ROI)</td><td>-</td><td class="text-accent text-xl font-bold">2.38 שנים</td></tr></tbody></table></div><p class="mt-4 text-secondary"><strong>סיכום כלכלי:</strong> המערכת הופכת הוצאת אנרגיה מרכזית למקור חיסכון, עם החזר השקעה (ROI) של פחות מ-2.5 שנים.</p></div><div><img src="case-datacenter.jpg" alt="מרכז נתונים" class="rounded-lg shadow-xl w-full h-full object-cover"></div></div>
-                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center"><div class="lg:order-last"><h3 class="text-3xl font-bold text-primary mb-2">מקרה בוחן #2: מבשלת בירה</h3> <p class="text-lg text-secondary mb-6">צורך בקירור מבוסס גליקול של 180 טון (633 kWt).</p><div class="table-responsive bg-slate-800/50 border border-slate-700 rounded-lg p-4"><table class="w-full text-center"><thead><tr class="border-b border-slate-600"><th class="py-3 text-primary">מדד</th><th class="py-2 text-secondary">מערכת מסורתית</th><th class="py-2 text-accent">מערכת HeatPower</th></tr></thead><tbody><tr class="border-b border-slate-700"><td class="py-3 text-primary font-semibold">השקעה ראשונית</td><td>$99,000</td><td class="text-white">$611,000</td></tr><tr class="border-b border-slate-700"><td class="py-3 text-primary font-semibold">עלות תפעול שנתית</td><td>$72,675</td><td class="text-green-400">($176,670) (רווח)</td></tr><tr><td class="py-3 text-primary font-semibold">החזר השקעה (ROI)</td><td>-</td><td class="text-accent text-xl font-bold">2.45 שנים</td></tr></tbody></table></div><p class="mt-4 text-secondary"><strong>סיכום כלכלי:</strong> הפיכת הוצאת הקירור למקור חיסכון של כרבע מיליון דולר בשנה.</p></div><div><img src="case-brewery.jpg" alt="מבשלת בירה" class="rounded-lg shadow-xl w-full h-full object-cover"></div></div>
-                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center"><div><h3 class="text-3xl font-bold text-primary mb-2">מקרה בוחן #3: מפעל מזון</h3> <p class="text-lg text-secondary mb-6">צורך של 2,000 ק"ג קיטור בשעה, ובעל מקור זמין של חום שיורי.</p><div class="table-responsive bg-slate-800/50 border border-slate-700 rounded-lg p-4"><table class="w-full text-center"><thead><tr class="border-b border-slate-600"><th class="py-3 text-primary">מדד</th><th class="py-2 text-secondary">דוד קיטור מסורתי</th><th class="py-2 text-accent">מערכת HeatPower</th></tr></thead><tbody><tr class="border-b border-slate-700"><td class="py-3 text-primary font-semibold">עלות ייצור שנתית</td><td>$177,600</td><td class="text-white">$25,170</td></tr><tr class="border-b border-slate-700"><td class="py-3 text-primary font-semibold">חיסכון שנתי נקי</td><td>-</td><td class="text-green-400 font-bold">$152,430</td></tr><tr><td class="py-3 text-primary font-semibold">החזר השקעה (ROI)</td><td>-</td><td class="text-accent text-xl font-bold">4.01 שנים</td></tr></tbody></table></div><p class="mt-4 text-secondary"><strong>סיכום כלכלי:</strong> בטמפ' סביבה של 25°C, המערכת מייצרת קיטור בהספק גבוה בחיסכון של 37%. בתפוקה נמוכה יותר (במצב עצמאי), היא חוסכת 100% מעלות הקיטור. <a href="simulation2.html" class="text-accent hover:underline font-semibold">בדוק בסימולטור הכלכלי</a>.</p></div><div><img src="case-food.jpg" alt="מפעל מזון" class="rounded-lg shadow-xl w-full h-full object-cover"></div></div>
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center"><div><h3 class="text-3xl font-bold text-primary mb-2">מקרה בוחן #1: מרכז נתונים</h3> <p class="text-lg text-secondary mb-6">צורך קירור קבוע של 142 טון (500 kWt), 24/7.</p><div class="table-responsive bg-slate-800/50 border border-slate-700 rounded-lg p-4"><table class="w-full text-center"><thead><tr class="border-b border-slate-600"><th class="py-3 text-primary">מדד</th><th class="py-2 text-secondary">צ'ילר סטנדרטי</th><th class="py-2 text-accent">מערכת HeatPower</th></tr></thead><tbody><tr class="border-b border-slate-700"><td class="py-3 text-primary font-semibold">השקעה ראשונית</td><td>$78,100</td><td class="text-white">$611,000</td></tr><tr class="border-b border-slate-700"><td class="py-3 text-primary font-semibold">עלות/חיסכון תפעול שנתי</td><td class="text-red-400">$87,600 (עלות)</td><td class="text-green-400">$191,892 (חיסכון)</td></tr><tr><td class="py-3 text-primary font-semibold">החזר השקעה (ROI)</td><td>-</td><td class="text-accent text-xl font-bold">2.18 שנים</td></tr></tbody></table></div><p class="mt-2 text-sm text-secondary"><strong>מקור הנתונים:</strong> מבוסס על צריכת קירור ממוצעת למרכז נתונים בגודל בינוני, ותפעול רציף (8,760 שעות בשנה). החיסכון הכולל מחושב על בסיס נתוני הסימולטור.</p><a href="simulation2.html?scenario=cooling&power=500&temp=25" class="inline-block mt-4 bg-accent/20 text-accent font-semibold py-2 px-4 rounded-md hover:bg-accent/40 transition-colors">אמת נתונים בסימולטור &larr;</a></div><div><img src="case-datacenter.jpg" alt="מרכז נתונים" class="rounded-lg shadow-xl w-full h-full object-cover"></div></div>
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center"><div class="lg:order-last"><h3 class="text-3xl font-bold text-primary mb-2">מקרה בוחן #2: מבשלת בירה</h3> <p class="text-lg text-secondary mb-6">צורך בקירור מבוסס גליקול של 180 טון (633 kWt).</p><div class="table-responsive bg-slate-800/50 border border-slate-700 rounded-lg p-4"><table class="w-full text-center"><thead><tr class="border-b border-slate-600"><th class="py-3 text-primary">מדד</th><th class="py-2 text-secondary">צ'ילר סטנדרטי</th><th class="py-2 text-accent">מערכת HeatPower</th></tr></thead><tbody><tr class="border-b border-slate-700"><td class="py-3 text-primary font-semibold">השקעה ראשונית</td><td>$99,000</td><td class="text-white">$611,000</td></tr><tr class="border-b border-slate-700"><td class="py-3 text-primary font-semibold">עלות/חיסכון תפעול שנתי</td><td class="text-red-400">$110,900 (עלות)</td><td class="text-green-400">$243,000 (חיסכון)</td></tr><tr><td class="py-3 text-primary font-semibold">החזר השקעה (ROI)</td><td>-</td><td class="text-accent text-xl font-bold">1.72 שנים</td></tr></tbody></table></div><p class="mt-2 text-sm text-secondary"><strong>מקור הנתונים:</strong> מבוסס על דרישות קירור סטנדרטיות בתהליכי תסיסה ובישול במבשלה תעשייתית, ותפעול רציף. החיסכון הכולל מחושב על בסיס נתוני הסימולטור.</p><a href="simulation2.html?scenario=cooling&power=633&temp=25" class="inline-block mt-4 bg-accent/20 text-accent font-semibold py-2 px-4 rounded-md hover:bg-accent/40 transition-colors">אמת נתונים בסימולטור &larr;</a></div><div><img src="case-brewery.jpg" alt="מבשלת בירה" class="rounded-lg shadow-xl w-full h-full object-cover"></div></div>
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center"><div><h3 class="text-3xl font-bold text-primary mb-2">מקרה בוחן #3: מפעל מזון</h3> <p class="text-lg text-secondary mb-6">צורך של 2,000 ק"ג קיטור בשעה, 16 שעות ביום.</p><div class="table-responsive bg-slate-800/50 border border-slate-700 rounded-lg p-4"><table class="w-full text-center"><thead><tr class="border-b border-slate-600"><th class="py-3 text-primary">מדד</th><th class="py-2 text-secondary">דוד קיטור מסורתי</th><th class="py-2 text-accent">מערכת HeatPower</th></tr></thead><tbody><tr class="border-b border-slate-700"><td class="py-3 text-primary font-semibold">השקעה ראשונית</td><td>$250,000 (מוערך)</td><td class="text-white">$427,700</td></tr><tr class="border-b border-slate-700"><td class="py-3 text-primary font-semibold">עלות ייצור שנתית</td><td class="text-red-400">$192,000</td><td class="text-green-400">$78,720</td></tr><tr><td class="py-3 text-primary font-semibold">החזר השקעה (ROI)</td><td>-</td><td class="text-accent text-xl font-bold">3.77 שנים</td></tr></tbody></table></div><p class="mt-2 text-sm text-secondary"><strong>מקור הנתונים:</strong> מבוסס על צריכת קיטור אופיינית למפעל מזון בינוני הפועל 16 שעות ביום, 250 ימים בשנה. החיסכון מחושב על פי % החיסכון בתרחיש "מגבר קיטור" בסימולטור.</p><a href="simulation2.html?scenario=amplifier&power=203&temp=25" class="inline-block mt-4 bg-accent/20 text-accent font-semibold py-2 px-4 rounded-md hover:bg-accent/40 transition-colors">אמת נתונים בסימולטור &larr;</a></div><div><img src="case-food.jpg" alt="מפעל מזון" class="rounded-lg shadow-xl w-full h-full object-cover"></div></div>
                     </div>
                      <div class="mt-16 md:mt-24 text-center"><a href="simulation2.html" class="bg-accent text-white font-bold py-3 px-6 md:py-4 md:px-8 rounded-full text-lg md:text-xl shadow-lg transform hover:scale-105 transition-transform hover:bg-blue-600">בחן את הכדאיות בסימולטור הכלכלי</a></div>
                 </div>
@@ -109,7 +75,20 @@
     <script>
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
             var menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+            var desktopLinks = document.querySelector('header .hidden.lg\\:flex.items-center');
+            if (menu.classList.contains('hidden')) {
+                if (desktopLinks) { 
+                    menu.innerHTML = desktopLinks.innerHTML.replace(/<li/g, '<a').replace(/<\/li/g, '</a>').replace(/ class="[^"]*"/g, ' class="block py-3 px-6 text-gray-300 hover:bg-slate-700"');
+                     const currentPageLink = menu.querySelector('a[href="presentation.html"]');
+                    if (currentPageLink) {
+                        currentPageLink.classList.add('text-white', 'bg-slate-700');
+                        currentPageLink.classList.remove('text-gray-300');
+                    }
+                }
+                menu.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+            }
         });
     </script>
 </body>

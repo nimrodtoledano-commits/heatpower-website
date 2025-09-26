@@ -70,8 +70,7 @@
                             </div>
                         </div>
                         <div>
-                            <h3 id="slider_title" class="text-xl font-bold mb-4 text-accent">2. קבע הספק</h3>
-                            <label id="slider_label" for="main_slider" class="block font-semibold mb-2 flex items-center">הספק חשמלי מושקע (kW)</label>
+                            <h3 class="text-xl font-bold mb-4 text-accent">2. קבע הספק חשמלי מושקע</h3>
                             <div class="flex flex-col sm:flex-row items-center sm:space-x-4 sm:space-x-reverse">
                                 <input type="range" id="main_slider" min="100" max="2000" value="1000" step="50" class="w-full h-2.5 rounded-lg appearance-none cursor-pointer">
                                 <span id="slider_value" class="font-bold text-orange-400 w-28 text-center text-lg mt-2 sm:mt-0">1000 kW</span>
@@ -135,9 +134,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const ECONOMIC = { steam_price_per_kg: 0.15, electricity_price_kwh: 0.6, chiller_cop: 5.0 };
     const CONVERSION = { J_PER_KWH: 3.6e6 };
     const SCENARIO_CONFIG = {
-        amplifier: { title: "תוצאות: מגבר קיטור", slider_label: "הספק חשמלי מושקע (kW)" },
-        independent: { title: "תוצאות: יחידה עצמאית", slider_label: "הספק חשמלי מושקע (kW)" },
-        cooling: { title: "תוצאות: תרחיש קירור", slider_label: "הספק קירור נדרש (kW)" }
+        amplifier: { title: "תוצאות: מגבר קיטור" },
+        independent: { title: "תוצאות: יחידה עצמאית" },
+        cooling: { title: "תוצאות: תרחיש קירור" }
     };
 
     function getDynamicUnitCycle(T_ambient_C) {
@@ -160,18 +159,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const dynamicCycle = getDynamicUnitCycle(T_ambient_C);
         
-        const resultsA = calcScenarioA(power_val, dynamicCycle);
-        const resultsB = calcScenarioB(power_val, dynamicCycle);
-        const resultsC = calcScenarioC(power_val, dynamicCycle);
+        const invested_J_hr = power_val * CONVERSION.J_PER_KWH;
+        const num_cycles = dynamicCycle.W_in_J > 0 ? invested_J_hr / dynamicCycle.W_in_J : 0;
+        const cooling_power_kw = (dynamicCycle.Q_cooling_J * num_cycles) / CONVERSION.J_PER_KWH;
+
+        const resultsA = calcScenarioA(num_cycles, power_val, cooling_power_kw);
+        const resultsB = calcScenarioB(num_cycles, cooling_power_kw);
+        const resultsC = calcScenarioC(num_cycles, power_val, cooling_power_kw, dynamicCycle);
         
         const scenarios = { amplifier: resultsA, independent: resultsB, cooling: resultsC };
         updateResultsCard(scenarios[currentScenario]);
         updateSummaryTable({ amplifier: resultsA, independent: resultsB, cooling: resultsC }, hours_per_day);
     }
     
-    function calcScenarioA(invested_power_kw, cycle) {
-        const invested_J_hr = invested_power_kw * CONVERSION.J_PER_KWH;
-        const num_cycles = cycle.W_in_J > 0 ? invested_J_hr / cycle.W_in_J : 0;
+    function calcScenarioA(num_cycles, invested_power_kw, cooling_power_kw) {
         const steam_kg = BASE_CYCLE.steam_output_kg * num_cycles;
         const cost = invested_power_kw * ECONOMIC.electricity_price_kwh;
         const value = steam_kg * ECONOMIC.steam_price_per_kg;
@@ -179,35 +180,34 @@ document.addEventListener('DOMContentLoaded', () => {
         const percentage_savings = value > 0 ? (hourly_savings / value) * 100 : 0;
         return {
             "תפוקת קיטור שעתית": { value: steam_kg, unit: 'ק"ג', tooltip: "כמות הקיטור המיוצרת בשעה עבור ההספק הנבחר." },
-            "עלות חשמל שעתית": { value: cost, unit: 'ש"ח', tooltip: "עלות צריכת החשמל של משאבת החום לשעה." },
+            "הספק קירור שנוצר": { value: cooling_power_kw, unit: 'kW', tooltip: "הקירור הוא תוצר לוואי של פעולת משאבת החום, והוא המקור לאנרגיה העודפת במערכת." },
             "✅ חיסכון שעתי": { value: hourly_savings, unit: 'ש"ח', tooltip: "החיסכון הנקי לשעה: שווי הקיטור שנוצר פחות עלות החשמל שהושקע." },
             "📈 חיסכון באחוזים": { value: percentage_savings, unit: '%', tooltip: "אחוז החיסכון ביחס לעלות רכישת אותה כמות קיטור בשוק." }
         };
     }
 
-    function calcScenarioB(power_kw, cycle) {
-        const num_cycles = cycle.W_in_J > 0 ? (power_kw * CONVERSION.J_PER_KWH) / cycle.W_in_J : 0;
-        const surplus_ratio = cycle.W_net_J > 0 ? cycle.W_net_J / BASE_CYCLE.W_out_J : 0;
+    function calcScenarioB(num_cycles, cooling_power_kw) {
+        const surplus_ratio = (BASE_CYCLE.W_out_J - (BASE_CYCLE.Q_H_J / parseFloat(elements.calculated_cop_value.textContent))) / BASE_CYCLE.W_out_J;
         const surplus_steam = BASE_CYCLE.steam_output_kg * num_cycles * surplus_ratio;
         const hourly_savings = surplus_steam * ECONOMIC.steam_price_per_kg;
         return {
             "תפוקת קיטור עודף (חינם)": { value: surplus_steam, unit: 'ק"ג', tooltip: "כמות הקיטור הנוצרת מהחשמל העודף של המערכת, לאחר שהיא מספקת חשמל לתפעול העצמי שלה." },
+            "הספק קירור שנוצר": { value: cooling_power_kw, unit: 'kW', tooltip: "הקירור הוא תוצר לוואי של פעולת משאבת החום, והוא המקור לאנרגיה העודפת במערכת." },
             "✅ חיסכון שעתי": { value: hourly_savings, unit: 'ש"ח', tooltip: "החיסכון הנקי לשעה, המייצג את שווי השוק של הקיטור העודף שנוצר ללא עלות תפעול." },
             "📈 חיסכון באחוזים": { value: 100, unit: '%', tooltip: "החיסכון הוא 100% מעלות הקיטור העודף, מכיוון שהוא מיוצר ללא עלות חשמל חיצונית." }
         };
     }
 
-    function calcScenarioC(cooling_kw, cycle) {
-        const num_cycles = cycle.Q_cooling_J > 0 ? (cooling_kw * CONVERSION.J_PER_KWH) / cycle.Q_cooling_J : 0;
-        const chiller_cost = (cooling_kw / ECONOMIC.chiller_cop) * ECONOMIC.electricity_price_kwh;
-        const our_revenue = cycle.W_net_J > 0 ? (cycle.W_net_J * num_cycles / CONVERSION.J_PER_KWH) * ECONOMIC.electricity_price_kwh : 0;
+    function calcScenarioC(num_cycles, invested_power_kw, cooling_power_kw, cycle) {
+        const chiller_cost = (cooling_power_kw / ECONOMIC.chiller_cop) * ECONOMIC.electricity_price_kwh;
+        const our_revenue = (cycle.W_net_J * num_cycles / CONVERSION.J_PER_KWH) * ECONOMIC.electricity_price_kwh;
         const hourly_savings = chiller_cost + our_revenue;
         const percentage_savings = chiller_cost > 0 ? (hourly_savings / chiller_cost) * 100 : 0;
         return {
+            "הספק קירור שנוצר": { value: cooling_power_kw, unit: 'kW', tooltip: "הקירור הוא תוצר לוואי של פעולת משאבת החום, והוא המקור לאנרגיה העודפת במערכת." },
             "עלות צ'ילר (נחסך)": { value: chiller_cost, unit: 'ש"ח', tooltip: "עלות החשמל השעתית שהייתה נדרשת להפעלת צ'ילר תעשייתי סטנדרטי לאותו הספק קירור." },
             "הכנסה מחשמל נקי": { value: our_revenue, unit: 'ש"ח', tooltip: "ההכנסה השעתית הנובעת ממכירת החשמל העודף שהמערכת מייצרת תוך כדי פעולת הקירור." },
             "✅ חיסכון שעתי כולל": { value: hourly_savings, unit: 'ש"ח', tooltip: "החיסכון הכולל לשעה: סכום עלות הצ'ילר שנחסכה וההכנסה ממכירת חשמל." },
-            "📈 חיסכון באחוזים": { value: percentage_savings, unit: '%', tooltip: "אחוז החיסכון ביחס לעלות הפעלת צ'ילר בלבד. ערך מעל 100% משקף גם את הרווח הנוסף ממכירת חשמל." }
         };
     }
     
@@ -219,8 +219,8 @@ document.addEventListener('DOMContentLoaded', () => {
              const textColor = isLarge ? 'text-green-400' : isPercent ? 'text-teal-400' : 'text-blue-400';
              const textSize = isLarge || isPercent ? 'text-3xl' : 'text-2xl';
              content += `
-                <div class="${isLarge || isPercent ? 'sm:col-span-2' : ''}">
-                    <p class="text-secondary flex items-center"><span>${key.substring(2)}</span><button class="info-icon" aria-label="מידע">ⓘ<span class="tooltip-text">${data.tooltip}</span></button></p>
+                <div class="${isLarge || isPercent || key.includes('הספק קירור') ? 'sm:col-span-2' : ''}">
+                    <p class="text-secondary flex items-center"><span>${key.substring(key.startsWith('✅') || key.startsWith('📈') ? 2 : 0)}</span><button class="info-icon" aria-label="מידע">ⓘ<span class="tooltip-text">${data.tooltip}</span></button></p>
                     <div class="flex items-baseline"><span class="${textSize} font-bold ${textColor}">${data.value.toLocaleString('he-IL', {maximumFractionDigits: 0})}</span><span class="mr-2 text-secondary">${data.unit}</span></div>
                 </div>`;
         }
@@ -255,7 +255,6 @@ document.addEventListener('DOMContentLoaded', () => {
         currentScenario = scenarioName;
         Object.values(elements.buttons).forEach(btn => btn.classList.remove('active'));
         elements.buttons[scenarioName].classList.add('active');
-        elements.slider_label.textContent = SCENARIO_CONFIG[scenarioName].slider_label;
         calculateAndDisplay();
     }
     
@@ -273,9 +272,10 @@ document.addEventListener('DOMContentLoaded', () => {
             <div>
                 <h4 class="text-lg font-semibold text-accent mb-2">2. מתודולוגיית חישוב</h4>
                 <ul class="list-disc list-inside space-y-2">
-                    <li><strong class="text-primary">תרחיש א' (מגבר קיטור):</strong> אנו מחשבים כמה "מחזורי יחידה" ניתן להפעיל בשעה לפי ההספק החשמלי שהושקע. החיסכון הוא <strong class="text-green-400">שווי הקיטור שנוצר פחות עלות החשמל</strong>. החיסכון באחוזים הוא היחס בין החיסכון לשווי הקיטור.</li>
-                    <li><strong class="text-primary">תרחיש ב' (יחידה עצמאית):</strong> המערכת משתמשת בחלק מהחשמל שהיא מייצרת כדי להזין את עצמה. אנו מחשבים את כמות הקיטור ה"עודף" שנוצר מאנרגיה זו. החיסכון הוא <strong class="text-green-400">שווי השוק של הקיטור העודף</strong>, והוא 100% כי הוא נוצר ללא עלות תפעולית.</li>
-                    <li><strong class="text-primary">תרחיש ג' (קירור):</strong> אנו מחשבים את החיסכון הכולל משני מקורות: <strong class="text-green-400">החיסכון בעלות הפעלת צ'ילר סטנדרטי</strong>, בתוספת <strong class="text-green-400">ההכנסה ממכירת החשמל העודף</strong> שהמערכת מייצרת במקביל.</li>
+                    <li><strong class="text-primary">קלט אחיד:</strong> כל התרחישים מבוססים על קלט של <strong>הספק חשמלי מושקע (kW)</strong>, כדי לאפשר השוואה ישירה.</li>
+                    <li><strong class="text-primary">תרחיש א' (מגבר קיטור):</strong> מחשב את כמות הקיטור המופקת מההשקעה החשמלית ומציג את החיסכון ביחס לרכישת אותו קיטור בשוק.</li>
+                    <li><strong class="text-primary">תרחיש ב' (יחידה עצמאית):</strong> מחשב את כמות הקיטור ה"עודף" שנוצר לאחר שהמערכת מזינה את עצמה. החיסכון הוא שווי הקיטור שנוצר בחינם.</li>
+                    <li><strong class="text-primary">תרחיש ג' (קירור):</strong> מחשב את <strong>הספק הקירור (kW)</strong> שנוצר כתוצאה מההשקעה החשמלית, ומציג את החיסכון הכולל (עלות צ'ילר שנחסכה + רווח ממכירת חשמל עודף).</li>
                 </ul>
             </div>
              <div>
@@ -297,7 +297,21 @@ document.addEventListener('DOMContentLoaded', () => {
     [elements.main_slider, elements.ambient_temp_slider, elements.hours_slider].forEach(slider => {
         if(slider) slider.addEventListener('input', calculateAndDisplay);
     });
-    switchScenario('amplifier');
+    
+    // Read URL parameters if they exist
+    const urlParams = new URLSearchParams(window.location.search);
+    const scenario = urlParams.get('scenario');
+    const power = urlParams.get('power');
+    const temp = urlParams.get('temp');
+
+    if (scenario && elements.buttons[scenario]) {
+        if (power) elements.main_slider.value = power;
+        if (temp) elements.ambient_temp_slider.value = temp;
+        switchScenario(scenario);
+    } else {
+        switchScenario('amplifier');
+    }
+    
     injectAppendix();
 });
 </script>
