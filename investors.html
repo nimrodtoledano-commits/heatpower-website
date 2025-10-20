@@ -2,7 +2,7 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale-1.0">
     <title>HeatPower | ניתוח מחיר והשקעה</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -67,37 +67,51 @@
             <section id="executive-summary">
                  <div class="max-w-4xl mx-auto text-center bg-slate-800/50 border border-slate-700 p-8 md:p-10 rounded-lg">
                     <h2 class="text-3xl font-bold text-primary">תקציר מנהלים</h2>
-                    <p class="mt-4 text-lg text-secondary leading-relaxed text-right">דוח זה מציג ניתוח מקיף של עלויות ומיפוי ספקים עבור המיזם. מטרתו לספק בסיס נתונים מהימן לבניית מודל פיננסי, תוך התמקדות באיסוף נתוני תמחור ריאליים מהשוק. הממצאים מצביעים על מספר גורמי עלות קריטיים: פרמיית כישרונות בכוח אדם, "מצוק עלויות הון" במעבר לייצור, והתלות בין השקעה באיכות להפחתת עלויות ביטוח. ניתוח זה מהווה חלק מ<a href="business-plan.html" class="font-bold text-accent hover:underline">התוכנית העסקית המלאה</a>.</p>
+                    <p class="mt-4 text-lg text-secondary leading-relaxed text-right">דוח זה מציג ניתוח פיננסי השוואתי לשלב הפיתוח הראשוני (Pre-Seed), הכולל שני תרחישים: **תרחיש עלות סבירה** המבוסס על רכש יעיל ושותפויות, ו**תרחיש עלות מקסימלית** המשקף גישה שמרנית ומרווח ביטחון. מטרת הניתוח היא לספק בסיס נתונים שקוף לבניית מודל פיננסי גמיש, ולאפשר קבלת החלטות מושכלת לגבי היקף המימון הנדרש. ניתוח זה מהווה חלק מ<a href="business-plan.html" class="font-bold text-accent hover:underline">התוכנית העסקית המלאה</a>.</p>
                  </div>
             </section>
             
             <section id="cost-analysis">
-                <div class="section-heading text-center"><h2 class="text-3xl md:text-4xl font-bold text-primary">ניתוח עלויות פיתוח וייצור</h2></div>
+                <div class="section-heading text-center"><h2 class="text-3xl md:text-4xl font-bold text-primary">ניתוח עלויות פיתוח (שלב Pre-Seed)</h2></div>
                 <div class="space-y-12">
                     <div class="bg-slate-800/50 border border-slate-700 p-6 md:p-8 rounded-lg">
-                        <h3 class="text-2xl font-bold text-accent mb-6">שלב ב': הקמת תשתית ופיתוח אב טיפוס</h3>
                         <div class="grid lg:grid-cols-5 gap-8">
                             <div class="lg:col-span-3 space-y-8">
                                 <div>
-                                    <h4 class="text-xl font-semibold mb-4 text-primary">הוצאות חד-פעמיות</h4>
-                                    <div class="table-responsive"><table class="min-w-[600px]"><thead class="text-secondary"><tr><th>פריט</th><th>עלות מקסימלית (USD)</th></tr></thead><tbody class="text-primary"><tr><td>הקמת חברה והסכם מייסדים</td><td>$4,000</td></tr><tr><td>כור לחץ מעבדתי (5-10 ליטר)</td><td>$50,000</td></tr><tr><td>מיקרו-טורבינה וגנרטור</td><td>$20,000</td></tr><tr><td>משאבת חום ומערכת אידוי</td><td>$150,000</td></tr><tr><td>מערכת בקרה (PLC/SCADA)</td><td>$100,000</td></tr></tbody></table></div>
+                                    <h4 class="text-xl font-semibold mb-4 text-primary">הוצאות חד-פעמיות (אב-טיפוס)</h4>
+                                    <div class="table-responsive"><table class="min-w-[600px]"><thead class="text-secondary"><tr><th>פריט</th><th>עלות סבירה (USD)</th><th>עלות מקסימלית (USD)</th></tr></thead><tbody class="text-primary">
+                                        <tr><td>הקמת חברה והסכם מייסדים</td><td>$2,500</td><td>$4,000</td></tr>
+                                        <tr><td>כור לחץ מעבדתי (5-10 ליטר) <a href="https://www.alibaba.com/product-detail/10l-jacket-glass-reaction-vessel-price_1600168344799.html" target="_blank" class="text-accent text-xs hover:underline">[דוגמה]</a></td><td>$12,000</td><td>$50,000</td></tr>
+                                        <tr><td>מיקרו-טורבינה וגנרטור <a href="https://www.alibaba.com/product-detail/1kw-2kw-3kw-5kw-mini-steam_1600551010378.html" target="_blank" class="text-accent text-xs hover:underline">[דוגמה]</a></td><td>$5,000</td><td>$20,000</td></tr>
+                                        <tr><td>משאבת חום ומערכת אידוי</td><td>$35,000</td><td>$150,000</td></tr>
+                                        <tr><td>מערכת בקרה (PLC/SCADA) <a href="https://www.ebay.com/p/13042079089" target="_blank" class="text-accent text-xs hover:underline">[דוגמה]</a></td><td>$15,000</td><td>$100,000</td></tr>
+                                        <tr class="font-bold bg-slate-900/50"><td class="py-3">סה"כ חד-פעמי</td><td>$69,500</td><td>$324,000</td></tr>
+                                    </tbody></table></div>
                                 </div>
                                 <div>
                                     <h4 class="text-xl font-semibold mb-4 text-primary">הוצאות קבועות (חודשי)</h4>
-                                    <div class="table-responsive"><table class="min-w-[600px]"><thead class="text-secondary"><tr><th>פריט</th><th>עלות מעסיק מקסימלית (USD)</th></tr></thead><tbody class="text-primary"><tr><td>מהנדס/ת כימיה</td><td>$9,000</td></tr><tr><td>מהנדס/ת מכונות</td><td>$8,850</td></tr><tr><td>שכירות מעבדה</td><td>$2,400</td></tr><tr><td>רישיונות תוכנה</td><td>$7,550</td></tr></tbody></table></div>
+                                    <div class="table-responsive"><table class="min-w-[600px]"><thead class="text-secondary"><tr><th>פריט</th><th>עלות סבירה (USD)</th><th>עלות מקסימלית (USD)</th></tr></thead><tbody class="text-primary">
+                                        <tr><td>מהנדס/ת כימיה</td><td>$6,500</td><td>$9,000</td></tr>
+                                        <tr><td>מהנדס/ת מכונות</td><td>$6,500</td><td>$8,850</td></tr>
+                                        <tr><td>שכירות מעבדה</td><td>$1,200</td><td>$2,400</td></tr>
+                                        <tr><td>רישיונות תוכנה*</td><td>$0</td><td>$7,550</td></tr>
+                                        <tr class="font-bold bg-slate-900/50"><td class="py-3">סה"כ חודשי (Burn Rate)</td><td>$14,200</td><td>$27,800</td></tr>
+                                    </tbody></table></div>
+                                    <p class="text-xs text-secondary mt-2">*בתרחיש הסביר, עלות התוכנה היא $0 בזכות גישה דרך שותפות פוטנציאלית עם מכון מחקר.</p>
                                 </div>
                             </div>
                             <div class="lg:col-span-2 flex flex-col gap-y-6">
                                 <div class="bg-slate-700/50 p-6 rounded-lg text-center">
-                                    <h4 class="text-lg font-semibold text-secondary">סה"כ עלויות וצפי מימון (שלב ב')</h4>
-                                    <p class="flex justify-between mt-4"><span>הוצאות חד-פעמיות:</span> <strong class="text-white">$324,000</strong></p>
-                                    <p class="flex justify-between"><span>עלות חודשית (Burn Rate):</span> <strong class="text-white">$27,800</strong></p>
+                                    <h4 class="text-lg font-semibold text-secondary">צפי עלות כוללת (18 חודשים)</h4>
+                                    <p class="flex justify-between mt-4"><span>תרחיש סביר:</span> <strong class="text-white">$325,100</strong></p>
+                                    <p class="flex justify-between"><span>תרחיש מקסימלי:</span> <strong class="text-white">$824,400</strong></p>
                                     <hr class="my-3 border-slate-600">
+                                    <h4 class="text-lg font-semibold text-secondary">סכום גיוס מבוקש (Pre-Seed)</h4>
                                     <p class="text-4xl font-bold text-accent mt-2">$1M</p>
-                                    <p class="text-sm text-secondary">סבב Pre-Seed ל-18 חודשי פעילות</p>
+                                    <p class="text-sm text-secondary">הסכום מבוסס על התרחיש המקסימלי בתוספת מרווח ביטחון, ומאפשר גמישות תפעולית מלאה.</p>
                                 </div>
                                 <div class="bg-slate-900/50 p-4 rounded-lg">
-                                     <h4 class="text-lg font-semibold mb-2 text-center text-primary">תרשים חלוקת השקעה</h4>
+                                     <h4 class="text-lg font-semibold mb-2 text-center text-primary">תרשים חלוקת השקעה (תרחיש מקסימלי)</h4>
                                      <div class="relative w-full mx-auto aspect-square"><canvas id="investmentChart"></canvas></div>
                                 </div>
                             </div>
@@ -106,28 +120,26 @@
                 </div>
             </section>
 
-            <section id="cost-notes">
-                 <div class="max-w-4xl mx-auto space-y-6">
-                    <div class="section-heading text-center"><h2 class="text-3xl md:text-4xl font-bold text-primary">הערות חשובות על ניתוח העלויות</h2></div>
-                    <div class="bg-slate-800/50 border border-slate-700 p-6 rounded-lg">
-                        <h4 class="text-xl font-bold text-primary mb-2">הערכות מחמירות</h4>
-                        <p class="text-secondary">הניתוח מתבסס בכוונה על הערכות עלות מחמירות והצעות המחיר הגבוהות ביותר שנמצאו בשוק. הדבר נעשה כדי להבטיח שהמודל הפיננסי יציב וערוך גם לתרחישים הפחות אופטימיים. הסבירות היא שברכש מרוכז ומשא ומתן, ניתן יהיה להפחית עלויות אלו.</p>
-                    </div>
-                    <div class="bg-slate-800/50 border border-slate-700 p-6 rounded-lg">
-                        <h4 class="text-xl font-bold text-primary mb-2">צפי לירידת עלויות בייצור סדרתי</h4>
-                        <p class="text-secondary">עלויות החומרה המוצגות הן לשלב אב-הטיפוס ודורשות שימוש בחומרים עמידים ויקרים. עלויות אלו צפויות לצנוח באופן דרמטי (50% ויותר) במעבר לייצור סדרתי, הודות לאופטימיזציה של חומרים (שימוש בחומרים "סלחניים" יותר) ותהליכים הנדסיים.</p>
-                    </div>
-                 </div>
-            </section>
-
             <section id="price-analysis">
                 <div class="section-heading text-center"><h2 class="text-3xl md:text-4xl font-bold text-primary">ניתוח מחיר מכונה ללקוח (ROI)</h2></div>
                 <div class="max-w-5xl mx-auto space-y-8">
-                    <div class="bg-slate-800/50 border border-slate-700 p-6 md:p-8 rounded-lg"><h4 class="text-xl font-bold text-primary">שלב 1: עלות ייצור סדרתי (COGS)</h4><p class="mt-2 text-secondary">עלויות החומרה בייצור סדרתי (לאחר אופטימיזציה) מוערכות בכ- <span class="font-bold text-accent text-lg">$305,500</span>.</p></div>
-                    <div class="bg-slate-800/50 border border-slate-700 p-6 md:p-8 rounded-lg"><h4 class="text-xl font-bold text-primary">שלב 2: הוספת מרווח רווח גולמי</h4><p class="mt-2 text-secondary mb-4">מרווח רווח של 50% מקובל בתעשייה כדי לכסות עלויות שיווק, מכירה, תמיכה ופיתוח עתידי.</p><div class="text-center"><div class="inline-block bg-slate-700/50 p-4 rounded-lg border-2 border-accent"><p class="font-semibold text-accent">מחיר לאחר הוספת 50% מרווח</p><p class="text-3xl font-bold text-white mt-1">$611,000</p></div></div></div>
-                    <div class="text-center bg-slate-800/50 border-2 border-accent p-6 md:p-8 rounded-lg"><h4 class="text-xl md:text-2xl font-bold text-primary mb-4">הערכה סופית: מחיר מומלץ ללקוח</h4><p class="text-4xl md:text-5xl font-extrabold text-accent my-2">$600,000 - $650,000</p><p class="text-md text-secondary mt-2">טווח מחירים זה מבטיח מרווח רווח בריא לחברה והחזר השקעה אטרקטיבי ומהיר ללקוח.</p></div>
-                    <div class="mt-12 text-center">
-                        <a href="simulation2.html" class="bg-accent text-white font-bold py-3 px-6 md:py-4 md:px-8 rounded-full text-lg md:text-xl shadow-lg transform hover:scale-105 transition-transform hover:bg-blue-600">בחן את הכדאיות בסימולטור הכלכלי</a>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-slate-800/50 border border-slate-700 p-6 rounded-lg">
+                            <h4 class="text-xl font-bold text-primary mb-2">תרחיש רזה</h4>
+                            <p class="text-secondary">עלות ייצור סדרתי (COGS) מוערכת בכ- <span class="font-bold text-accent text-lg">$150,000</span>.</p>
+                            <p class="mt-4 text-secondary">לאחר הוספת מרווח רווח גולמי של 50%, המחיר ללקוח יעמוד על כ-</p>
+                            <p class="text-4xl font-extrabold text-accent my-2">$300,000</p>
+                        </div>
+                        <div class="bg-slate-800/50 border border-slate-700 p-6 rounded-lg">
+                            <h4 class="text-xl font-bold text-primary mb-2">תרחיש מחמיר*</h4>
+                            <p class="text-secondary">עלות ייצור סדרתי (COGS) מוערכת בכ- <span class="font-bold text-accent text-lg">$305,500</span>.</p>
+                             <p class="mt-4 text-secondary">לאחר הוספת מרווח רווח גולמי של 50%, המחיר ללקוח יעמוד על כ-</p>
+                            <p class="text-4xl font-extrabold text-accent my-2">$611,000</p>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-md text-secondary mt-2">*תחשיבי ה-ROI בדף "ההזדמנות" מבוססים על תרחיש העלות המחמיר ביותר, המבטיח החזר השקעה אטרקטיבי גם במקרה הפחות אופטימי.</p>
+                        <a href="simulation2.html" class="mt-8 inline-block bg-accent text-white font-bold py-3 px-6 md:py-4 md:px-8 rounded-full text-lg md:text-xl shadow-lg transform hover:scale-105 transition-transform hover:bg-blue-600">בחן את הכדאיות בסימולטור הכלכלי</a>
                     </div>
                 </div>
             </section>
@@ -141,8 +153,8 @@
                         </div>
                     </div>
                     <div class="mt-4 text-center">
-                        <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ1pjgODEbyZiFt9M7jiXYwodjGWzXHP8Vf_llqEoYFhNGKkYUPHLAa42mba0yVoQlw1-vuAJFy3Bx_/pubhtml" target="_blank" rel="noopener noreferrer" class="inline-block bg-transparent border-2 border-accent text-accent font-bold py-2 px-6 rounded-full text-md transition-colors hover:bg-accent hover:text-white">
-                            פתח בחלון חדש
+                        <a href="https://docs.google.com/spreadsheets/d/1-uPKE3uEAP-6xWES1eY9lORL6n5YRG0QG8hqhGcFGD8/edit?gid=159127296#gid=159127296" target="_blank" rel="noopener noreferrer" class="inline-block bg-transparent border-2 border-accent text-accent font-bold py-2 px-6 rounded-full text-md transition-colors hover:bg-accent hover:text-white">
+                            פתח את גיליון הנתונים המלא
                         </a>
                     </div>
                 </div>
@@ -156,6 +168,7 @@
             menu.classList.toggle('hidden');
         });
         document.addEventListener('DOMContentLoaded', () => {
+             // Data for the "Maximum Cost" scenario chart
              const investmentData = { labels: ['חומרה ($324k)', 'כוח אדם ($480k)', 'תקורה ורישיונות ($196k)'], data: [324000, 480000, 196000]};
              const chartElement = document.getElementById('investmentChart'); 
              if (!chartElement) return; 

@@ -157,7 +157,7 @@
                                 <rect x="50" y="350" width="130" height="60" class="box" /><text x="115" y="385" text-anchor="middle" class="label-text">תמיסה מדוללת</text>
                                 <rect x="270" y="350" width="120" height="60" class="box" /><text x="330" y="385" text-anchor="middle" class="label-text">מאדה</text>
                                 <rect x="270" y="450" width="120" height="60" class="box" style="fill:#eff6ff;"/><text x="330" y="485" text-anchor="middle" class="label-text">משאבת חום</text>
-                                <path d="M 170 130 Q 270 150 370 130" fill="none" class="path-line" /><path d="M 320 130 Q 345 140 370 130" fill="none" class="path-line" />
+                                <path d="M 170 130 Q 270 150 370 130" fill="none" class="path-line" /><path d="M 320 130 Q 345 140 370 130" fill="none" class.name="path-line" />
                                 <path d="M 490 130 H 580" class="path-line" /><path d="M 655 160 V 275" class="path-line" />
                                 <path d="M 430 160 V 320 C 430 330 420 340 410 340 H 100 C 90 340 80 350 80 360 V 350" fill="none" class="path-line" />
                                 <path d="M 180 380 H 270" class="path-line" /><path d="M 330 450 V 410" class="path-line" /><text x="360" y="430" class="label-text" style="font-size:14px; fill: #ef4444">חום</text>
@@ -176,8 +176,24 @@
                 </div>
             </section>
             <section id="performance">
-                <div class="text-center mb-12"><h2 class="text-3xl md:text-4xl font-bold text-primary-warm">השורה התחתונה: סיכום ביצועים</h2><p class="mt-4 text-lg text-secondary-warm">סימולציית המערכת מציגה מאזן אנרגטי חיובי מרשים.</p></div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center"><div class="bg-white p-6 rounded-lg shadow-sm border"><p class="text-lg font-semibold text-green-700">רווח חשמל נקי</p><p class="text-5xl font-extrabold text-green-600 my-2">14.3 kJ</p><p class="text-md text-secondary-warm">15.05% מהאנרגיה הכימית</p></div><div class="bg-white p-6 rounded-lg shadow-sm border"><p class="text-lg font-semibold text-blue-700">תפוקת קירור</p><p class="text-5xl font-extrabold text-blue-600 my-2">51.03 kJ</p><p class="text-md text-secondary-warm">אנרגיה שנשאבה מהסביבה</p></div><div class="bg-white p-6 rounded-lg shadow-sm border"><p class="text-lg font-semibold text-indigo-700">יעילות כוללת</p><p class="text-5xl font-extrabold text-indigo-600 my-2">15.05%</p><p class="text-md text-secondary-warm">יעילות מערכת כוללת</p></div></div>
+                <div class="text-center mb-12"><h2 class="text-3xl md:text-4xl font-bold text-primary-warm">השורה התחתונה: סיכום ביצועים</h2><p class="mt-4 text-lg text-secondary-warm">סימולציית המערכת מציגה מאזן אנרגטי חיובי מרשים (מבוסס על נתוני סימולטור ברירת מחדל).</p></div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="bg-white p-6 rounded-lg shadow-sm border">
+                        <p class="text-lg font-semibold text-green-700">רווח חשמל נקי</p>
+                        <p class="text-5xl font-extrabold text-green-600 my-2">29.33 kJ</p>
+                        <p class="text-md text-secondary-warm">רווח אנרגטי נקי (W<sub>net</sub>)</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm border">
+                        <p class="text-lg font-semibold text-blue-700">תפוקת קירור</p>
+                        <p class="text-5xl font-extrabold text-blue-600 my-2">140.73 kJ</p>
+                        <p class="text-md text-secondary-warm">אנרגיה סביבתית (Q<sub>c</sub>)</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm border">
+                        <p class="text-lg font-semibold text-indigo-700">יעילות כוללת</p>
+                        <p class="text-5xl font-extrabold text-indigo-600 my-2">41.90%</p>
+                        <p class="text-md text-secondary-warm">יעילות מערכת (W<sub>net</sub> / ΔH<sub>dil</sub>)</p>
+                    </div>
+                </div>
                 <div class="mt-12 bg-white p-8 rounded-lg text-center shadow-sm border max-w-4xl mx-auto">
                     <p class="text-xl text-secondary-warm leading-relaxed">המאזן האנרגטי החיובי מדגים את ליבת החדשנות: המערכת רותמת חום סביבתי זמין ומשתמשת בו כדי להניע את עצמה. התוצאה היא <span class="font-bold text-primary-warm">יצירת רווח אנרגטי נקי</span>. כל עוד יש חום סביבתי, ניתן "לקצור" אותו ולהפוך אותו למשאבים יקרי ערך.</p>
                 </div>

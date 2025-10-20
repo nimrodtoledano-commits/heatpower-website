@@ -26,61 +26,137 @@
         }
          .navbar a { color: #5a5a5a; }
         .navbar .font-bold { color: #2d2d2d; }
+        .team-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.07);
+            border: 1px solid #e5e5e0;
+            text-align: center;
+            height: 100%;
+        }
+        .team-placeholder-img {
+            width: 8rem; /* 128px */
+            height: 8rem; /* 128px */
+            background-color: #e5e5e0; /* bg-stone-200 */
+            border-radius: 9999px; /* rounded-full */
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #78716c; /* text-stone-500 */
+            font-size: 0.875rem;
+        }
     </style>
 </head>
 <body>
   <header class="navbar">
     <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-        <div class="text-3xl font-bold text-accent tracking-wider">HeatPower</div>
+        <div class="text-3xl font-bold text-accent-warm tracking-wider">HeatPower</div>
         
         <ul class="hidden lg:flex items-center text-md font-semibold space-x-6 space-x-reverse">
-            <li><a href="index.html" class="text-gray-300 hover:text-accent transition-colors">דף הבית</a></li>
-            <li><a href="presentation.html" class="text-gray-300 hover:text-accent transition-colors">ההזדמנות</a></li>
-            <li><a href="market-analysis.html" class="text-gray-300 hover:text-accent transition-colors">שוק ומתחרים</a></li>
-            <li><a href="technology.html" class="text-gray-300 hover:text-accent transition-colors">הפיתוח הטכנולוגי</a></li>
-            <li><a href="feasibility.html" class="text-gray-300 hover:text-accent transition-colors">בדיקת היתכנות</a></li>
-            <li><a href="business-plan.html" class="text-gray-300 hover:text-accent transition-colors">התוכנית העסקית</a></li>
-            <li><a href="investors.html" class="text-gray-300 hover:text-accent transition-colors">ניתוח מחיר</a></li>
-            <li><a href="simulation1.html" class="text-gray-300 hover:text-accent transition-colors">סימולטור אנרגיה</a></li>
-            <li><a href="simulation2.html" class="text-gray-300 hover:text-accent transition-colors">סימולטור כלכלי</a></li>
-            <li><a href="our-story.html" class="text-gray-300 hover:text-accent transition-colors">הסיפור שלנו</a></li>
+             <li><a href="index.html" class="text-gray-500 hover:text-accent-warm transition-colors">דף הבית</a></li>
+            <li><a href="presentation.html" class="text-gray-500 hover:text-accent-warm transition-colors">ההזדמנות</a></li>
+            <li><a href="market-analysis.html" class="text-gray-500 hover:text-accent-warm transition-colors">שוק ומתחרים</a></li>
+            <li><a href="technology.html" class="text-gray-500 hover:text-accent-warm transition-colors">הפיתוח הטכנולוגי</a></li>
+            <li><a href="feasibility.html" class="text-gray-500 hover:text-accent-warm transition-colors">בדיקת היתכנות</a></li>
+            <li><a href="business-plan.html" class="text-gray-500 hover:text-accent-warm transition-colors">התוכנית העסקית</a></li>
+            <li><a href="investors.html" class="text-gray-500 hover:text-accent-warm transition-colors">ניתוח מחיר</a></li>
+            <li><a href="simulation1.html" class="text-gray-500 hover:text-accent-warm transition-colors">סימולטור אנרגיה</a></li>
+            <li><a href="simulation2.html" class="text-gray-500 hover:text-accent-warm transition-colors">סימולטור כלכלי</a></li>
+            <li><a href="our-story.html" class="text-primary-warm font-bold hover:text-accent-warm transition-colors">הסיפור שלנו</a></li>
         </ul>
 
         <div class="lg:hidden">
-            <button id="mobile-menu-button" class="text-white focus:outline-none">
+            <button id="mobile-menu-button" class="text-primary-warm focus:outline-none">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </div>
     </nav>
 
-    <div id="mobile-menu" class="hidden lg:hidden bg-slate-800">
-        <a href="index.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">דף הבית</a>
-        <a href="presentation.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">ההזדמנות</a>
-        <a href="market-analysis.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">שוק ומתחרים</a>
-        <a href="technology.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">הפיתוח הטכנולוגי</a>
-        <a href="feasibility.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">בדיקת היתכנות</a>
-        <a href="business-plan.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">התוכנית העסקית</a>
-        <a href="investors.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">ניתוח מחיר</a>
-        <a href="simulation1.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">סימולטור אנרגיה</a>
-        <a href="simulation2.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">סימולטור כלכלי</a>
-        <a href="our-story.html" class="block py-2 px-6 text-gray-300 hover:bg-slate-700">הסיפור שלנו</a>
-    </div>
-</header>
-    <main>
-        <div class="pt-48 pb-24 text-center container mx-auto">
-            <h1 class="text-5xl font-bold text-primary-warm">הסיפור שלנו</h1>
-            <p class="mt-4 text-2xl text-secondary-warm">כאן יוצג סיפור החברה ביחד עם תמונות המייסדים.</p>
-            <p class="mt-2 text-lg text-secondary-warm">(תוכן יוסף בקרוב)</p>
+    <div id="mobile-menu" class="hidden lg:hidden bg-stone-50/95 backdrop-blur-sm">
         </div>
-    </main>
-     <footer class="bg-stone-100 text-stone-600 text-center py-6 border-t border-stone-200">
-        <p>&copy; 2025 HeatPower. כל הזכויות שמורות.</p>
-    </footer>
-    <script>
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            var menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+</header>
+<main>
+    <div class="pt-32 md:pt-48 pb-24 container mx-auto px-6 max-w-6xl">
+        <div class="text-center mb-16">
+            <h1 class="text-4xl md:text-6xl font-bold text-primary-warm mb-4">הצוות שלנו</h1>
+            <p class="text-xl text-secondary-warm max-w-3xl mx-auto">הכוח המניע מאחורי החזון של HeatPower.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 mb-24">
+            <div class="team-card">
+                <div class="team-placeholder-img"><span>תמונה</span></div>
+                <p class="text-2xl font-bold text-primary-warm">נמרוד טולדנו</p>
+                <p class="text-accent-warm font-semibold mt-1 text-lg">יזם ומייסד</p>
+                <p class="text-secondary-warm mt-3">בוגר מגמת פיזיקה, שירת חמש שנים כמפקד קרבי ביחידה מובחרת. מוביל את הפיתוח הטכנולוגי והחזון האסטרטגי.</p>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-placeholder-img"><span>תמונה</span></div>
+                <p class="text-2xl font-bold text-primary-warm">עמית אינברט</p>
+                <p class="text-accent-warm font-semibold mt-1 text-lg">יועץ אסטרטגי</p>
+                <p class="text-secondary-warm mt-3">[מקום לתיאור קצר על הניסיון והתרומה של עמית]</p>
+            </div>
+
+            <div class="team-card opacity-75 border-2 border-dashed border-stone-300">
+                <div class="team-placeholder-img">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+                    </svg>
+                </div>
+                <p class="text-2xl font-bold text-primary-warm">מקום שמור</p>
+                <p class="text-accent-warm font-semibold mt-1 text-lg">מומחה/ית בתהליך גיוס</p>
+                <p class="text-secondary-warm mt-3">אנו תמיד מחפשים טאלנטים ויועצים מובילים להצטרף למסע.</p>
+            </div>
+        </div>
+
+        <div class="mt-16 pt-16 border-t border-stone-300">
+            <h2 class="text-4xl md:text-5xl font-bold text-primary-warm mb-12 text-center">איך הכל התחיל</h2>
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-12 items-start">
+                <div class="md:sticky md:top-28">
+                    <img src="lachish-heat.jpg" alt="נוף חם של חבל לכיש" class="rounded-lg shadow-xl w-full h-auto object-cover">
+                    <p class="text-sm text-center text-gray-500 mt-2">שטחי האש, חבל לכיש, קיץ.</p>
+                </div>
+                <div class="prose prose-lg lg:prose-xl max-w-none text-secondary-warm leading-relaxed space-y-6">
+                    <p>
+                    הרעיון נולד במהלך שבוע שטח בטירונות, תחת צלייה קופחת בשטחי האש של חבל לכיש. החום הקיצוני, לצד גנרטורים רועשים הפולטים עוד חום, התחברו למחשבה אחת: אנחנו חיים בתוך אוקיינוס של אנרגיה מבוזבזת.
+                    </V>
+                    <p>
+                    באותו רגע עלתה השאלה: "איך אי אפשר לקחת את כל האנרגיה הזו, שרק תורמת להתחממות הגלובלית, ולהפוך אותה למשהו מועיל?". המחשבה על רתימת החום הסביבתי הבלתי מנוצל והפיכתו לחשמל נקי וקירור הפכה לחלום, ועם השחרור מהצבא - לתוכנית פעולה הנדסית.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</main>
+<footer class="bg-stone-100 text-stone-600 text-center py-6 border-t border-stone-200">
+    <p>&copy; 2025 HeatPower. כל הזכויות שמורות.</p>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const desktopNavLinks = document.querySelector('header .hidden.lg\\:flex');
+
+        if (desktopNavLinks) {
+            mobileMenu.innerHTML = desktopNavLinks.innerHTML.replace(/<li/g, '<a>').replace(/<\/li>/g, '</a>').replace(/ class="[^"]*"/g, ' class="block py-3 px-6 text-gray-500 hover:bg-stone-200"');
+            const currentPageLink = mobileMenu.querySelector('a[href="our-story.html"]');
+            if (currentPageLink) {
+                currentPageLink.classList.add('text-primary-warm', 'font-bold', 'bg-stone-200');
+                currentPageLink.classList.remove('text-gray-500');
+            }
+        }
+
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
         });
-    </script>
+    });
+</script>
+
 </body>
 </html>
