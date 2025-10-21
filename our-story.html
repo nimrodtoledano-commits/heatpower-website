@@ -34,6 +34,14 @@
             border: 1px solid #e5e5e0;
             text-align: center;
             height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Align content to the top */
+        }
+        .team-card-empty {
+            background-color: transparent;
+            border: 2px dashed #d6d3d1; /* border-stone-300 */
+            box-shadow: none;
         }
         .team-placeholder-img {
             width: 8rem; /* 128px */
@@ -91,26 +99,18 @@
                 <div class="team-placeholder-img"><span>תמונה</span></div>
                 <p class="text-2xl font-bold text-primary-warm">נמרוד טולדנו</p>
                 <p class="text-accent-warm font-semibold mt-1 text-lg">יזם ומייסד</p>
-                <p class="text-secondary-warm mt-3">בוגר מגמת פיזיקה, שירת חמש שנים כמפקד קרבי ביחידה מובחרת. מוביל את הפיתוח הטכנולוגי והחזון האסטרטגי.</p>
+                <p classs="text-secondary-warm mt-3">קצין קרבי ביחידה מובחרת ובוגר תוכנית "מדע חישובי" במכון ויצמן. משלב ניסיון פיקודי של 5 שנים עם בסיס ידע רחב בפיזיקה ובמידול תהליכים פיזיקליים, ומוביל את הפיכת החזון ההנדסי של HeatPower למציאות.</p>
             </div>
             
             <div class="team-card">
                 <div class="team-placeholder-img"><span>תמונה</span></div>
                 <p class="text-2xl font-bold text-primary-warm">עמית אינברט</p>
                 <p class="text-accent-warm font-semibold mt-1 text-lg">יועץ אסטרטגי</p>
-                <p class="text-secondary-warm mt-3">[מקום לתיאור קצר על הניסיון והתרומה של עמית]</p>
+                <p classs="text-secondary-warm mt-3">[מקום לתיאור קצר על הניסיון והתרומה של עמית]</p>
             </div>
 
-            <div class="team-card opacity-75 border-2 border-dashed border-stone-300">
-                <div class="team-placeholder-img">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
-                    </svg>
+            <div class="team-card team-card-empty">
                 </div>
-                <p class="text-2xl font-bold text-primary-warm">מקום שמור</p>
-                <p class="text-accent-warm font-semibold mt-1 text-lg">מומחה/ית בתהליך גיוס</p>
-                <p class="text-secondary-warm mt-3">אנו תמיד מחפשים טאלנטים ויועצים מובילים להצטרף למסע.</p>
-            </div>
         </div>
 
         <div class="mt-16 pt-16 border-t border-stone-300">
