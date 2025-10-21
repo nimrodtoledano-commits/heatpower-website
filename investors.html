@@ -2,7 +2,7 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale-1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HeatPower | ניתוח מחיר והשקעה</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -16,7 +16,7 @@
         .navbar { position: fixed; top: 0; left: 0; width: 100%; background-color: rgba(13, 17, 23, 0.7); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid #30363d; }
         .page-hero { text-align: center; background-image: linear-gradient(rgba(13, 17, 23, 0.7), rgba(13, 17, 23, 0.7)), url('hero-investors.jpg'); background-size: cover; background-position: center; }
         .section-heading { border-bottom: 1px solid #30363d; padding-bottom: 1.5rem; margin-bottom: 3rem; md:margin-bottom: 4rem; }
-        .table-responsive { overflow-x: auto; }
+        .table-responsive { overflow-x: auto; -webkit-overflow-scrolling: touch; /* Smoother scrolling on iOS */ }
         .table-responsive table { border-collapse: collapse; width: 100%; }
         .table-responsive th, .table-responsive td { padding: 0.75rem 1rem; border: 1px solid #30363d; white-space: nowrap; }
         .table-responsive th { background-color: #161b22; }
@@ -26,7 +26,7 @@
    <header class="navbar">
     <nav class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
         <div class="text-3xl font-bold text-accent tracking-wider">HeatPower</div>
-        <ul class="hidden lg:flex items-center text-md font-semibold space-x-6 space-x-reverse">
+        <ul class="hidden lg:flex items-center text-md font-semibold space-x-6 space-x-reverse" id="desktop-nav-links">
             <li><a href="index.html" class="text-gray-300 hover:text-accent transition-colors">דף הבית</a></li>
             <li><a href="presentation.html" class="text-gray-300 hover:text-accent transition-colors">ההזדמנות</a></li>
             <li><a href="market-analysis.html" class="text-gray-300 hover:text-accent transition-colors">שוק ומתחרים</a></li>
@@ -43,17 +43,7 @@
         </div>
     </nav>
     <div id="mobile-menu" class="hidden lg:hidden bg-slate-800/95 backdrop-blur-sm">
-        <a href="index.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">דף הבית</a>
-        <a href="presentation.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">ההזדמנות</a>
-        <a href="market-analysis.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">שוק ומתחרים</a>
-        <a href="technology.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">הפיתוח הטכנולוגי</a>
-        <a href="feasibility.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">בדיקת היתכנות</a>
-        <a href="business-plan.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">התוכנית העסקית</a>
-        <a href="investors.html" class="block py-3 px-6 text-white bg-slate-700">ניתוח מחיר</a>
-        <a href="simulation1.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">סימולטור אנרגיה</a>
-        <a href="simulation2.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">סימולטור כלכלי</a>
-        <a href="our-story.html" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">הסיפור שלנו</a>
-    </div>
+        </div>
 </header>
     <main>
         <section class="page-hero pt-32 pb-16 md:pt-48 md:pb-24">
@@ -148,8 +138,7 @@
                 <div class="max-w-5xl mx-auto">
                     <div class="section-heading text-center"><h2 class="text-3xl md:text-4xl font-bold text-primary">המודל הפיננסי המלא</h2></div>
                     <div class="bg-slate-800/50 border border-slate-700 rounded-lg overflow-hidden">
-                        <div class="overflow-x-auto">
-                           <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ1pjgODEbyZiFt9M7jiXYwodjGWzXHP8Vf_llqEoYFhNGKkYUPHLAa42mba0yVoQlw1-vuAJFy3Bx_/pubhtml?widget=true&amp;headers=false" style="width:100%; height: 600px; min-width: 700px; border: none;"></iframe>
+                        <div class="table-responsive"> <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ1pjgODEbyZiFt9M7jiXYwodjGWzXHP8Vf_llqEoYFhNGKkYUPHLAa42mba0yVoQlw1-vuAJFy3Bx_/pubhtml?widget=true&amp;headers=false" style="width:100%; height: 600px; min-width: 700px; border: none;"></iframe>
                         </div>
                     </div>
                     <div class="mt-4 text-center">
@@ -162,11 +151,44 @@
         </div>
     </main>
     <footer class="bg-gray-900 text-gray-500 text-center py-6 border-t border-gray-700"><p>&copy; 2025 HeatPower. כל הזכויות שמורות.</p></footer>
+    
     <script>
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            var menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const desktopNavLinks = document.getElementById('desktop-nav-links'); // Ensure the ul has this ID
+
+            // Function to populate and highlight mobile menu
+            function setupMobileMenu() {
+                if (desktopNavLinks && mobileMenu) {
+                    let linksHTML = '';
+                    desktopNavLinks.querySelectorAll('li a').forEach(function(link) {
+                        linksHTML += `<a href="${link.href}" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">${link.innerHTML}</a>`;
+                    });
+                    mobileMenu.innerHTML = linksHTML;
+
+                    const currentPageFilename = window.location.pathname.split('/').pop() || 'index.html'; // Default to index.html if path is empty
+                    const currentPageLink = mobileMenu.querySelector(`a[href*="${currentPageFilename}"]`);
+                    if (currentPageLink) {
+                        currentPageLink.classList.add('text-white', 'bg-slate-700');
+                        currentPageLink.classList.remove('text-gray-300');
+                    }
+                }
+            }
+
+            // Initial setup
+            setupMobileMenu();
+
+            // Event listener for the button
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
         });
+    </script>
+    
+    <script>
         document.addEventListener('DOMContentLoaded', () => {
              // Data for the "Maximum Cost" scenario chart
              const investmentData = { labels: ['חומרה ($324k)', 'כוח אדם ($480k)', 'תקורה ורישיונות ($196k)'], data: [324000, 480000, 196000]};
@@ -177,7 +199,8 @@
                 type: 'doughnut', 
                 data: { labels: investmentData.labels, datasets: [{ label: `עלות ($)`, data: investmentData.data, backgroundColor: ['#1e3a8a', '#1d4ed8', '#3b82f6'], borderColor: '#1e293b', borderWidth: 5 }] }, 
                 options: { 
-                    responsive: true, maintainAspectRatio: true,
+                    responsive: true, // This should make the chart responsive
+                    maintainAspectRatio: false, // Allows changing aspect ratio, often needed with defined container size
                     plugins: { 
                         legend: { position: 'bottom', labels: { color: '#d1d5db', font: { size: 14 } } }, 
                         title: { display: false } 
