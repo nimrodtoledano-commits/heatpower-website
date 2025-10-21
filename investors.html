@@ -20,6 +20,10 @@
         .table-responsive table { border-collapse: collapse; width: 100%; }
         .table-responsive th, .table-responsive td { padding: 0.75rem 1rem; border: 1px solid #30363d; white-space: nowrap; }
         .table-responsive th { background-color: #161b22; }
+        /* Style for the iframe container to allow scrolling */
+        .iframe-container { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        /* Added class to make the grid container scrollable on small screens */
+        .grid-scrollable { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 1rem; /* Add some padding for the scrollbar */}
     </style>
 </head>
 <body class="bg-slate-900">
@@ -65,11 +69,12 @@
                 <div class="section-heading text-center"><h2 class="text-3xl md:text-4xl font-bold text-primary">ניתוח עלויות פיתוח (שלב Pre-Seed)</h2></div>
                 <div class="space-y-12">
                     <div class="bg-slate-800/50 border border-slate-700 p-6 md:p-8 rounded-lg">
-                        <div class="grid lg:grid-cols-5 gap-8">
-                            <div class="lg:col-span-3 space-y-8">
+                        <div class="grid lg:grid-cols-5 gap-8 grid-scrollable">
+                             {/* Added min-width to force horizontal scrolling on mobile */}
+                            <div class="lg:col-span-3 space-y-8 min-w-[650px]">
                                 <div>
                                     <h4 class="text-xl font-semibold mb-4 text-primary">הוצאות חד-פעמיות (אב-טיפוס)</h4>
-                                    <div class="table-responsive"><table class="min-w-[600px]"><thead class="text-secondary"><tr><th>פריט</th><th>עלות סבירה (USD)</th><th>עלות מקסימלית (USD)</th></tr></thead><tbody class="text-primary">
+                                    <div class="table-responsive"><table class="w-full"><thead class="text-secondary"><tr><th>פריט</th><th>עלות סבירה (USD)</th><th>עלות מקסימלית (USD)</th></tr></thead><tbody class="text-primary">
                                         <tr><td>הקמת חברה והסכם מייסדים</td><td>$2,500</td><td>$4,000</td></tr>
                                         <tr><td>כור לחץ מעבדתי (5-10 ליטר) <a href="https://www.alibaba.com/product-detail/10l-jacket-glass-reaction-vessel-price_1600168344799.html" target="_blank" class="text-accent text-xs hover:underline">[דוגמה]</a></td><td>$12,000</td><td>$50,000</td></tr>
                                         <tr><td>מיקרו-טורבינה וגנרטור <a href="https://www.alibaba.com/product-detail/1kw-2kw-3kw-5kw-mini-steam_1600551010378.html" target="_blank" class="text-accent text-xs hover:underline">[דוגמה]</a></td><td>$5,000</td><td>$20,000</td></tr>
@@ -80,7 +85,7 @@
                                 </div>
                                 <div>
                                     <h4 class="text-xl font-semibold mb-4 text-primary">הוצאות קבועות (חודשי)</h4>
-                                    <div class="table-responsive"><table class="min-w-[600px]"><thead class="text-secondary"><tr><th>פריט</th><th>עלות סבירה (USD)</th><th>עלות מקסימלית (USD)</th></tr></thead><tbody class="text-primary">
+                                    <div class="table-responsive"><table class="w-full"><thead class="text-secondary"><tr><th>פריט</th><th>עלות סבירה (USD)</th><th>עלות מקסימלית (USD)</th></tr></thead><tbody class="text-primary">
                                         <tr><td>מהנדס/ת כימיה</td><td>$6,500</td><td>$9,000</td></tr>
                                         <tr><td>מהנדס/ת מכונות</td><td>$6,500</td><td>$8,850</td></tr>
                                         <tr><td>שכירות מעבדה</td><td>$1,200</td><td>$2,400</td></tr>
@@ -90,7 +95,8 @@
                                     <p class="text-xs text-secondary mt-2">*בתרחיש הסביר, עלות התוכנה היא $0 בזכות גישה דרך שותפות פוטנציאלית עם מכון מחקר.</p>
                                 </div>
                             </div>
-                            <div class="lg:col-span-2 flex flex-col gap-y-6">
+                             {/* Added min-width here too */}
+                            <div class="lg:col-span-2 flex flex-col gap-y-6 min-w-[300px]">
                                 <div class="bg-slate-700/50 p-6 rounded-lg text-center">
                                     <h4 class="text-lg font-semibold text-secondary">צפי עלות כוללת (18 חודשים)</h4>
                                     <p class="flex justify-between mt-4"><span>תרחיש סביר:</span> <strong class="text-white">$325,100</strong></p>
@@ -138,7 +144,8 @@
                 <div class="max-w-5xl mx-auto">
                     <div class="section-heading text-center"><h2 class="text-3xl md:text-4xl font-bold text-primary">המודל הפיננסי המלא</h2></div>
                     <div class="bg-slate-800/50 border border-slate-700 rounded-lg overflow-hidden">
-                        <div class="table-responsive"> <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ1pjgODEbyZiFt9M7jiXYwodjGWzXHP8Vf_llqEoYFhNGKkYUPHLAa42mba0yVoQlw1-vuAJFy3Bx_/pubhtml?widget=true&amp;headers=false" style="width:100%; height: 600px; min-width: 700px; border: none;"></iframe>
+                        <div class="iframe-container"> 
+                           <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ1pjgODEbyZiFt9M7jiXYwodjGWzXHP8Vf_llqEoYFhNGKkYUPHLAa42mba0yVoQlw1-vuAJFy3Bx_/pubhtml?widget=true&amp;headers=false" style="width:100%; height: 600px; min-width: 700px; border: none;"></iframe>
                         </div>
                     </div>
                     <div class="mt-4 text-center">
@@ -156,9 +163,8 @@
         document.addEventListener('DOMContentLoaded', function() {
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
-            const desktopNavLinks = document.getElementById('desktop-nav-links'); // Ensure the ul has this ID
+            const desktopNavLinks = document.getElementById('desktop-nav-links'); 
 
-            // Function to populate and highlight mobile menu
             function setupMobileMenu() {
                 if (desktopNavLinks && mobileMenu) {
                     let linksHTML = '';
@@ -167,7 +173,7 @@
                     });
                     mobileMenu.innerHTML = linksHTML;
 
-                    const currentPageFilename = window.location.pathname.split('/').pop() || 'index.html'; // Default to index.html if path is empty
+                    const currentPageFilename = window.location.pathname.split('/').pop() || 'index.html'; 
                     const currentPageLink = mobileMenu.querySelector(`a[href*="${currentPageFilename}"]`);
                     if (currentPageLink) {
                         currentPageLink.classList.add('text-white', 'bg-slate-700');
@@ -176,10 +182,8 @@
                 }
             }
 
-            // Initial setup
             setupMobileMenu();
 
-            // Event listener for the button
             if (mobileMenuButton && mobileMenu) {
                 mobileMenuButton.addEventListener('click', function() {
                     mobileMenu.classList.toggle('hidden');
@@ -190,7 +194,6 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-             // Data for the "Maximum Cost" scenario chart
              const investmentData = { labels: ['חומרה ($324k)', 'כוח אדם ($480k)', 'תקורה ורישיונות ($196k)'], data: [324000, 480000, 196000]};
              const chartElement = document.getElementById('investmentChart'); 
              if (!chartElement) return; 
@@ -199,8 +202,8 @@
                 type: 'doughnut', 
                 data: { labels: investmentData.labels, datasets: [{ label: `עלות ($)`, data: investmentData.data, backgroundColor: ['#1e3a8a', '#1d4ed8', '#3b82f6'], borderColor: '#1e293b', borderWidth: 5 }] }, 
                 options: { 
-                    responsive: true, // This should make the chart responsive
-                    maintainAspectRatio: false, // Allows changing aspect ratio, often needed with defined container size
+                    responsive: true, 
+                    maintainAspectRatio: false, 
                     plugins: { 
                         legend: { position: 'bottom', labels: { color: '#d1d5db', font: { size: 14 } } }, 
                         title: { display: false } 
