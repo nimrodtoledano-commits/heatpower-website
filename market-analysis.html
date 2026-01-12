@@ -3,176 +3,318 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HeatPower | שוק ומתחרים</title>
+    <title>HeatPower | ניתוח שוק וטכנולוגיה</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { 
-            font-family: 'Assistant', sans-serif; 
-            background-color: #0d1117;
-            background-image: radial-gradient(at 15% 20%, hsla(212, 45%, 15%, 0.7) 0px, transparent 50%), radial-gradient(at 85% 80%, hsla(180, 50%, 20%, 0.6) 0px, transparent 50%);
-            color: #e6edf3; 
-            scroll-behavior: smooth; 
-        }
-        .text-primary { color: #f0f6fc; } .text-secondary { color: #8b949e; } .text-accent { color: #58a6ff; }
-        .navbar { position: fixed; top: 0; left: 0; width: 100%; background-color: rgba(13, 17, 23, 0.7); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid #30363d; }
+        body { font-family: 'Assistant', sans-serif; background-color: #010409; color: #e6edf3; scroll-behavior: smooth; }
+        .text-primary { color: #f0f6fc; } 
+        .text-secondary { color: #8b949e; } 
+        .text-accent { color: #58a6ff; }
+        .navbar { position: fixed; top: 0; left: 0; width: 100%; background-color: rgba(1, 4, 9, 0.9); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid #30363d; }
+        
+        /* Hero background specific for Market Analysis */
         .page-hero { 
+            padding-top: 10rem; 
+            padding-bottom: 6rem; 
             text-align: center; 
-            background-image: linear-gradient(rgba(13, 17, 23, 0.7), rgba(13, 17, 23, 0.7)), url('hero-market.jpg');
-            background-size: cover; background-position: center;
+            background-image: linear-gradient(rgba(22, 27, 34, 0.85), rgba(1, 4, 9, 0.9)), url('market-hero.jpg'); 
+            background-size: cover; 
+            background-position: center;
         }
-        .section-heading { border-bottom: 1px solid #30363d; padding-bottom: 1.5rem; margin-bottom: 3rem; md:margin-bottom: 4rem; }
+        
+        @media (min-width: 768px) { .page-hero { padding-top: 12rem; padding-bottom: 8rem; } }
+        .section-heading { border-bottom: 1px solid #30363d; padding-bottom: 1.5rem; margin-bottom: 3rem; }
         .table-responsive { overflow-x: auto; }
-        .source-link { color: #4b5563; /* text-slate-600 */ transition-duration: 0.2s; }
-        .source-link:hover { color: #58a6ff; /* text-accent */ }
+        .citation { font-size: 0.75rem; color: #8b949e; margin-top: 0.5rem; border-top: 1px solid #30363d; padding-top: 0.5rem; }
+        
+        /* Custom graph for The Vacuum section */
+        .temp-bar { height: 20px; width: 100%; background: linear-gradient(90deg, #3b82f6 0%, #3b82f6 30%, #a855f7 30%, #a855f7 70%, #ef4444 70%, #ef4444 100%); border-radius: 10px; position: relative; margin: 2rem 0; }
+        .temp-marker { position: absolute; top: -25px; transform: translateX(-50%); font-size: 0.8rem; font-weight: bold; }
+        .vacuum-zone { position: absolute; top: 25px; left: 30%; width: 40%; text-align: center; border: 1px dashed #a855f7; border-top: none; height: 20px; }
+        .vacuum-label { position: absolute; top: 50px; left: 50%; transform: translateX(-50%); color: #a855f7; font-weight: bold; white-space: nowrap; }
+
+        /* IP Card Styling */
+        .ip-card { border-left: 4px solid transparent; transition: all 0.3s ease; background-color: rgba(30, 41, 59, 0.3); }
+        .ip-card:hover { transform: translateY(-5px); background-color: rgba(30, 41, 59, 0.8); }
+        .ip-card.anchor { border-color: #ef4444; }
+        .ip-card.brain { border-color: #eab308; }
+        .ip-card.shield { border-color: #22c55e; }
+        .ip-card.feature { border-color: #3b82f6; }
     </style>
 </head>
 <body class="bg-slate-900">
-    <header class="navbar">
-    <nav class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
-        <div class="text-3xl font-bold text-accent tracking-wider">HeatPower</div>
-        
-        <ul class="hidden lg:flex items-center text-md font-semibold space-x-6 space-x-reverse">
-             <li><a href="index.html" class="text-gray-300 hover:text-accent transition-colors">דף הבית</a></li>
-            <li><a href="presentation.html" class="text-gray-300 hover:text-accent transition-colors">ההזדמנות</a></li>
-            <li><a href="market-analysis.html" class="text-white hover:text-accent transition-colors">שוק ומתחרים</a></li>
-            <li><a href="technology.html" class="text-gray-300 hover:text-accent transition-colors">הפיתוח הטכנולוגי</a></li>
-            <li><a href="feasibility.html" class="text-gray-300 hover:text-accent transition-colors">בדיקת היתכנות</a></li>
-            <li><a href="business-plan.html" class="text-gray-300 hover:text-accent transition-colors">התוכנית העסקית</a></li>
-            <li><a href="investors.html" class="text-gray-300 hover:text-accent transition-colors">ניתוח מחיר</a></li>
-            <li><a href="simulation1.html" class="text-gray-300 hover:text-accent transition-colors">סימולטור אנרגיה</a></li>
-            <li><a href="simulation2.html" class="text-gray-300 hover:text-accent transition-colors">סימולטור כלכלי</a></li>
-            <li><a href="our-story.html" class="text-gray-300 hover:text-accent transition-colors">הסיפור שלנו</a></li>
-        </ul>
+     <header class="navbar">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-3xl font-bold text-accent tracking-wider">HeatPower</div>
+            <ul class="hidden lg:flex items-center text-md font-semibold space-x-6 space-x-reverse">
+                <li><a href="index.html" class="text-gray-300 hover:text-white transition-colors">דף הבית</a></li>
+                <li><a href="presentation.html" class="text-gray-300 hover:text-white transition-colors">ההזדמנות</a></li>
+                <li><a href="market-analysis.html" class="text-white">שוק ומתחרים</a></li>
+                <li><a href="technology.html" class="text-gray-300 hover:text-white transition-colors">הפיתוח הטכנולוגי</a></li>
+                <li><a href="feasibility.html" class="text-gray-300 hover:text-white transition-colors">בדיקת היתכנות</a></li>
+                <li><a href="business-plan.html" class="text-gray-300 hover:text-white transition-colors">התוכנית העסקית</a></li>
+                <li><a href="investors.html" class="text-gray-300 hover:text-white transition-colors">ניתוח מחיר</a></li>
+                <li><a href="simulation1.html" class="text-gray-300 hover:text-white transition-colors">סימולטור אנרגיה</a></li>
+                <li><a href="simulation2.html" class="text-gray-300 hover:text-white transition-colors">סימולטור כלכלי</a></li>
+                <li><a href="our-story.html" class="text-gray-300 hover:text-white transition-colors">הסיפור שלנו</a></li>
+            </ul>
+            <div class="lg:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg></button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden lg:hidden bg-slate-800"></div>
+    </header>
 
-        <div class="lg:hidden">
-            <button id="mobile-menu-button" class="text-white focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
-        </div>
-    </nav>
-
-    <div id="mobile-menu" class="hidden lg:hidden bg-slate-800/95 backdrop-blur-sm">
-        </div>
-</header>
     <main>
-        <section class="page-hero pt-32 pb-16 md:pt-48 md:pb-24">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6">
-                <h1 class="text-4xl md:text-7xl font-extrabold text-primary leading-tight">שוק, מתחרים וחדשנות</h1>
-                <p class="mt-4 text-lg md:text-2xl text-secondary">ניתוח הסביבה העסקית והיתרון התחרותי הייחודי של HeatPower.</p>
+        <section class="page-hero">
+            <div class="max-w-4xl mx-auto px-6">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-primary leading-tight">שנאי חום (HTHP): ניתוח שוק וטכנולוגיה</h1>
+                <p class="mt-6 text-xl text-secondary max-w-3xl mx-auto">
+                    התכנסות של תרמודינמיקה והנדסת חומרים: כיצד הבשלת טכנולוגיית ה-SiC מאפשרת כדאיות כלכלית למחזור ה-H2SO4 לאחר 40 שנה של היתכנות תיאורטית.
+                </p>
             </div>
         </section>
-        <div class="container mx-auto px-4 sm:px-6 py-16 space-y-16 md:py-24 md:space-y-24">
+
+        <div class="container mx-auto px-6 py-12 space-y-20">
             
-            <section id="why-now">
-                <div class="max-w-5xl mx-auto">
-                    <div class="section-heading text-center"><h2 class="text-3xl md:text-4xl font-bold text-primary">מדוע אף אחד לא עשה זאת עד כה?</h2></div>
-                    <div class="grid md:grid-cols-2 gap-12 items-start">
-                        <div class="bg-slate-800/50 border border-slate-700 p-8 rounded-lg">
-                            <h3 class="text-2xl font-bold text-primary mb-4">האתגר ההיסטורי</h3>
-                            <ul class="space-y-4 text-secondary list-disc list-inside">
-                                <li><strong class="text-primary">מחסום הנדסי:</strong> השילוב של טמפרטורה, לחץ וקורוזיה קיצונית נחשב לאתגר חומרים מהמעלה הראשונה.</li>
-                                <li><strong class="text-primary">מודלים כלכליים שגויים:</strong> ההנחה הרווחת הייתה שפתרון בעיות החומרים דורש שימוש בחומרים בעלות אסטרונומית, מה שהופך את המודל ללא כדאי.</li>
-                                <li><strong class="text-primary">מיקוד תעשייתי שונה:</strong> העקרונות שימשו רק בתהליכים גדולים ומסורבלים, לא כמוצר אנרגיה קומפקטי ועצמאי.</li>
-                            </ul>
-                        </div>
-                        <div class="bg-slate-800/50 border-2 border-accent p-8 rounded-lg">
-                            <h3 class="text-2xl font-bold text-accent mb-4">פריצת הדרך שלנו</h3>
-                             <ul class="space-y-4 text-secondary list-disc list-inside">
-                                <li><strong class="text-primary">מודל כלכלי מאמת:</strong> המודלים האנרגטיים והכלכליים שלנו מראים שההשקעה בפתרון האתגר ההנדסי עדיין רווחית וכדאית.</li>
-                                <li><strong class="text-primary">תוכנית אימות הנדסית:</strong> במקום להסתמך על פתרונות יקרים, בנינו תוכנית מחקר ופיתוח ממוקדת לבחינת חומרים וציפויים מודרניים וכלכליים.</li>
-                                <li><strong class="text-primary">מיקוד במוצר:</strong> אנו מתמקדים באינטגרציה של רכיבי מדף מוכחים ליצירת מוצר קומפקטי, בניגוד לתהליכי הענק של התעשייה הכבדה.</li>
-                            </ul>
-                        </div>
+            <section id="material-gap">
+                <div class="section-heading"><h2 class="text-3xl font-bold text-primary">למה זה לא קרה עד היום? (חסם החומרים)</h2></div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-stretch">
+                    
+                    <div class="bg-slate-800/50 p-8 rounded-lg border border-slate-700">
+                        <h3 class="text-xl font-bold text-red-400 mb-4 flex items-center">
+                            <svg class="w-6 h-6 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                            האתגר (שנות ה-80-90)
+                        </h3>
+                        <p class="text-secondary mb-4 text-sm leading-relaxed">
+                            המחזור התרמודינמי של מים-חומצה היה ידוע כיעיל ביותר כבר לפני 40 שנה, אך הניסיונות ליישמו נתקלו ב"קיר הנדסי". הטיפול בחומצה גופרתית ב-200°C הציב בפני המהנדסים דילמה בלתי אפשרית בין עלות לאמינות:
+                        </p>
+                        <ul class="space-y-4 text-sm text-gray-300">
+                            <li class="flex items-start">
+                                <span class="text-red-500 font-bold ml-2">•</span> 
+                                <div>
+                                    <strong class="text-white block mb-1">טנטלום (Tantalum) - יקר מדי:</strong> 
+                                    זוהי המתכת היחידה שעמידה לחלוטין לקורוזיה בתנאים אלו. עם זאת, מחירה האסטרונומי הפך כל פרויקט ללא-כלכלי (ROI שלילי), מה שמנע אימוץ תעשייתי רחב.
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-red-500 font-bold ml-2">•</span> 
+                                <div>
+                                    <strong class="text-white block mb-1">זכוכית/אמייל - שביר ומסוכן:</strong> 
+                                    החלופה הזולה הייתה שימוש בציוד מצופה זכוכית. הבעיה: רגישות קיצונית לרעידות מכאניות במפעל ול"הלם תרמי" (שינויי טמפרטורה פתאומיים). סדק קטן היה גורם לכשל קטסטרופלי ולדליפת חומצה רותחת בלחץ.
+                                </div>
+                            </li>
+                        </ul>
                     </div>
+
+                    <div class="bg-slate-800/50 p-8 rounded-lg border border-slate-700">
+                        <h3 class="text-xl font-bold text-green-400 mb-4 flex items-center">
+                            <svg class="w-6 h-6 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            נקודת המפנה (2024)
+                        </h3>
+                        <p class="text-secondary mb-4 text-sm leading-relaxed">
+                            בשנים האחרונות התרחשה מהפכה שקטה בתחום הנדסת החומרים, שאפשרה לנו לגשר על הפער ההיסטורי ולהפוך את התיאוריה למכונה משתלמת ובטוחה:
+                        </p>
+                        <ul class="space-y-4 text-sm text-gray-300">
+                            <li class="flex items-start">
+                                <span class="text-green-500 font-bold ml-2">•</span> 
+                                <div>
+                                    <strong class="text-white block mb-1">מהפכת הסיליקון קרביד (SiC):</strong> 
+                                    בזכות הדחיפה של תעשיית הרכב החשמלי (EV), טכנולוגיית הייצור של קרמיקה הנדסית הבשילה ומחירה צנח. ה-SiC הוא "יהלום תעשייתי": קשיח, מוליך חום כמו נחושת, ועמיד לחלוטין לחומצה בכל ריכוז וטמפרטורה.
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-500 font-bold ml-2">•</span> 
+                                <div>
+                                    <strong class="text-white block mb-1">בטיחות Fail-Safe בוואקום:</strong> 
+                                    שינינו את הפרדיגמה הבטיחותית. במקום לעבוד בלחץ (שדוחף חומר החוצה), המערכת פועלת בוואקום עמוק (0.1 בר). חוקי הפיזיקה מבטיחים שבמקרה של דליפה, האוויר יישאב פנימה והחומצה תישאר בטוחה בתוך המיכל.
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
                 </div>
             </section>
 
             <section id="competition">
-                <div class="max-w-5xl mx-auto">
-                    <div class="section-heading text-center"><h2 class="text-3xl md:text-4xl font-bold text-primary">ניתוח מתחרים עקיפים</h2></div>
-                    <div class="table-responsive bg-slate-800/50 border border-slate-700 rounded-lg p-4">
-                        <table class="w-full min-w-[600px]">
-                            <thead><tr class="border-b border-slate-600"><th class="py-3 pr-4 text-right text-accent font-semibold">טכנולוגיה</th><th class="py-3 px-4 text-right text-primary font-semibold">תיאור</th><th class="py-3 pl-4 text-right text-primary font-semibold">היתרון שלנו</th></tr></thead>
-                            <tbody class="text-secondary">
-                                <tr class="border-b border-slate-700"><td class="py-4 pr-4 align-top font-bold">אגירה תרמוכימית (TCES)</td><td class="py-4 px-4 align-top">מערכות המשתמשות בתגובת חומצה-מים כדי לאגור אנרגיית חום.</td><td class="py-4 pl-4 align-top">בעוד שהן מתמקדות באגירה בלבד, אנו מציעים פתרון מחזורי שלם לייצור אנרגיה רציף.</td></tr>
-                                <tr><td class="py-4 pr-4 align-top font-bold">תאי דלק (Fuel Cells)</td><td class="py-4 px-4 align-top">התקנים הממירים אנרגיה כימית (לרוב מימן) ישירות לחשמל.</td><td class="py-4 pl-4 align-top">המערכת שלנו משתמשת בחומרים זולים וזמינים יותר, ובטכנולוגיה תרמו-מכנית מוכחת.</td></tr>
-                            </tbody>
-                        </table>
+                <div class="section-heading"><h2 class="text-3xl font-bold text-primary">היתרון התחרותי: לבד במגרש</h2><p class="mt-2 text-secondary">אנו לא מחליפים את הדוד, אלא משפרים את יעילותו.</p></div>
+                
+                <div class="table-responsive bg-slate-800/30 rounded-lg p-1 mb-6">
+                    <table class="w-full text-right border-collapse">
+                        <thead>
+                            <tr class="bg-slate-800 text-primary border-b border-slate-700">
+                                <th class="p-4 w-1/4">הטכנולוגיה</th>
+                                <th class="p-4 w-1/3">החסם הפיזיקלי (למה הם נכשלים)</th>
+                                <th class="p-4 w-1/3">היתרון שלנו (H2SO4)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm">
+                            <tr class="border-b border-slate-800 hover:bg-slate-800/50">
+                                <td class="p-4 font-bold text-white">LiBr Absorption<br><span class="text-xs text-gray-500 font-normal">שנאי חום מבוססי מלח</span></td>
+                                <td class="p-4 text-red-300">
+                                    <strong class="block">התגבשות (Crystallization)</strong>
+                                    מעל 160°C-165°C המלח הופך למוצק, סותם את הצנרת והורס את המכונה.
+                                </td>
+                                <td class="p-4 text-green-300">
+                                    <strong class="block">אין התגבשות</strong>
+                                    החומצה נשארת נוזלית עד 300°C. אנו עובדים ב-180°C בבטחה.
+                                </td>
+                            </tr>
+                            <tr class="border-b border-slate-800 hover:bg-slate-800/50">
+                                <td class="p-4 font-bold text-white">משאבות חום מכניות (HTHP)<br><span class="text-xs text-gray-500 font-normal">Siemens, MAN</span></td>
+                                <td class="p-4 text-red-300">
+                                    <strong class="block">OPEX גבוה</strong>
+                                    דחיסת גז לטמפרטורות של 180°C דורשת חשמל רב ויקר.
+                                </td>
+                                <td class="p-4 text-green-300">
+                                    <strong class="block">ללא מדחס</strong>
+                                    הדחיסה היא כימית. צריכת חשמל אפסית (משאבות בלבד).
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/50">
+                                <td class="p-4 font-bold text-white">דודי קיטור (גז)<br><span class="text-xs text-gray-500 font-normal">הסטנדרט הקיים</span></td>
+                                <td class="p-4 text-secondary">
+                                    <strong class="block">עלות ורגולציה</strong>
+                                    תלות במחירי גז תנודתיים וחשיפה למס פחמן עתידי.
+                                </td>
+                                <td class="p-4 text-accent">
+                                    <strong class="block">אנרגיה חינם</strong>
+                                    חומר הגלם הוא חום שיורי. עלות שולית אפסית.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mt-4 p-4 bg-red-900/20 border-r-4 border-red-500 rounded-l-lg flex items-start shadow-lg">
+                    <div class="ml-4 text-red-400 text-2xl">⚠</div>
+                    <div>
+                        <h4 class="font-bold text-red-400 text-lg mb-2">השינוי הרגולטורי (CBAM): ממס פחמן ליתרון תחרותי</h4>
+                        <p class="text-sm text-gray-300 leading-relaxed">
+                            החל מ-2026, יצואנים לשוק האירופי (בדגש על כימיה, דשנים ופלדה) יחויבו במס פחמן בגבול (CBAM), הצפוי להגיע ל-€100 לטון CO2.
+                            רגולציה זו משנה את תחשיב הכדאיות: דוד גז "זול" הופך ליקר משמעותית בשל קנסות הפליטה הנלווים אליו.
+                        </p>
+                        <p class="text-sm text-white font-semibold mt-2 border-t border-red-500/30 pt-2">
+                            המשמעות הכלכלית: המערכת שלנו, המייצרת קיטור ללא פליטות (Zero Emission), מעניקה למפעל "פטור" מעשי מהמס. פער זה משפר דרמטית את ה-ROI ומבטיח את כושר התחרות של היצואן בשווקים הבינלאומיים.
+                        </p>
+                    </div>
+            </section>
+
+            <section id="market-gap">
+                <div class="bg-slate-900/50 border border-slate-800 p-8 rounded-xl">
+                    <h3 class="text-2xl font-bold text-primary mb-4 text-center">הוואקום הטכנולוגי (The Missing Middle)</h3>
+                    <p class="text-center text-secondary mb-12 max-w-2xl mx-auto">בין משאבות החום הביתיות לבין שריפה תעשייתית ישנו "שטח מת" שבו אין כיום פתרון כלכלי. זהו שוק היעד שלנו.</p>
+                    
+                    <div class="relative w-full max-w-4xl mx-auto h-32 mt-10">
+                        <div class="absolute left-[10%] top-0 text-xs text-blue-400 font-bold">100°C</div>
+                        <div class="absolute left-[30%] top-0 text-xs text-purple-400 font-bold">120°C</div>
+                        <div class="absolute left-[70%] top-0 text-xs text-purple-400 font-bold">220°C</div>
+                        <div class="absolute left-[90%] top-0 text-xs text-red-400 font-bold">250°C+</div>
+                        
+                        <div class="absolute top-6 left-0 w-full h-4 rounded-full bg-gray-800 overflow-hidden flex">
+                            <div class="w-[30%] h-full bg-blue-900/50 border-r border-slate-700"></div> <div class="w-[40%] h-full bg-purple-600/20 border-x border-purple-500/50 relative"> <div class="absolute inset-0 bg-purple-500/10 animate-pulse"></div>
+                            </div>
+                            <div class="w-[30%] h-full bg-red-900/50 border-l border-slate-700"></div> </div>
+
+                        <div class="absolute top-12 left-[15%] -translate-x-1/2 text-center">
+                            <span class="text-xs text-secondary block">משאבות חום</span>
+                            <span class="text-[10px] text-gray-600">שוק רווי</span>
+                        </div>
+                        
+                        <div class="absolute top-12 left-[50%] -translate-x-1/2 text-center w-64">
+                            <span class="text-sm font-bold text-purple-400 block">קיטור תעשייתי (Process Steam)</span>
+                            <span class="text-xs text-gray-400">כאן נדרשת טכנולוגיית H2SO4</span>
+                        </div>
+
+                        <div class="absolute top-12 left-[85%] -translate-x-1/2 text-center">
+                            <span class="text-xs text-secondary block">שריפה ישירה</span>
+                            <span class="text-[10px] text-gray-600">עלות דלק גבוהה</span>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <section id="innovation">
-                <div class="max-w-6xl mx-auto">
-                    <div class="section-heading text-center"><h2 class="text-3xl md:text-4xl font-bold text-primary">ארבע הזדמנויות שוק מרכזיות</h2></div>
+            <section id="ip-strategy">
+                <div class="section-heading"><h2 class="text-3xl font-bold text-primary">אסטרטגיית קניין רוחני (IP Strategy)</h2><p class="mt-2 text-secondary">הגנה על הטכנולוגיה המאפשרת (Enabling Technology), לא על הכימיה.</p></div>
+                
+                <div class="bg-slate-800/30 p-6 rounded-lg border border-slate-700 mb-8">
+                    <p class="text-lg text-white font-semibold leading-relaxed">
+                        "הקניין הרוחני של החברה אינו מגן על 'הנוסחה הכימית', אלא על המכונה. 
+                        רשמנו פטנטים על הדרך היחידה להפוך חומרים אקזוטיים ושבירים (SiC) למערכת תעשייתית זולה, עמידה ומנוהלת חכמה. המתחרים יכולים להעתיק את הכימיה, אבל בלי שיטת היישום שלנו – המערכת שלהם תהיה יקרה פי 5 או תישבר ברעידה הראשונה."
+                    </p>
+                </div>
 
-                    <div class="space-y-12">
-                        <div class="grid md:grid-cols-2 gap-8 items-center">
-                            <img src="advantage-cooling.jpg" alt="קירור מרכז נתונים" class="rounded-lg shadow-xl object-cover w-full h-64">
-                            <div>
-                                <h3 class="text-2xl font-bold text-accent mb-2">1. מהפכה בעולם הקירור</h3>
-                                <p class="text-secondary mb-3">המערכת הופכת את תהליך הקירור ממרכז עלות למקור רווח. היא מקררת ביעילות תוך כדי ייצור חשמל, מה שהופך את התהליך לחסכוני ואף רווחי.</p>
-                                <p class="font-semibold text-primary">שוקי יעד: מרכזי נתונים, מבנים מסחריים, מחסני קירור.</p>
-                            </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <div class="ip-card anchor bg-slate-800 p-6 rounded-r-lg">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-lg font-bold text-white">1. אינטגרציה מכאנית עמידה</h4>
+                            <span class="text-xs bg-red-900/50 text-red-300 px-2 py-1 rounded">Robust Integration</span>
                         </div>
-                        <div class="grid md:grid-cols-2 gap-8 items-center">
-                             <div class="md:order-last">
-                                <img src="advantage-steam.jpg" alt="קיטור תעשייתי" class="rounded-lg shadow-xl object-cover w-full h-64">
-                            </div>
-                            <div>
-                                <h3 class="text-2xl font-bold text-accent mb-2">2. קיטור במחיר מהפכני</h3>
-                                <p class="text-secondary mb-3">בטמפ' סביבה של 25°C, המערכת מספקת קיטור בהספק גבוה בחיסכון של 37% מעלות השוק. בתפוקה נמוכה יותר, המערכת מזינה את עצמה וחוסכת 100% מעלות הקיטור. <a href="simulation2.html" class="font-bold hover:underline">בחן בסימולטור</a>.</p>
-                                <p class="font-semibold text-primary">שוקי יעד: תעשיית המזון, טקסטיל, תרופות, כימיקלים.</p>
-                            </div>
-                        </div>
-                        <div class="grid md:grid-cols-2 gap-8 items-center">
-                            <img src="advantage-generator.jpg" alt="גנרטור שקט" class="rounded-lg shadow-xl object-cover w-full h-64">
-                            <div>
-                                <h3 class="text-2xl font-bold text-accent mb-2">3. גנרטור תרמי שקט</h3>
-                                <p class="text-secondary mb-3">בניגוד לגנרטורים רועשים הפולטים חום, המערכת שלנו מפיקה חשמל בשקט תוך כדי קירור הסביבה. יתרון זה קריטי ליישומים רגישים לרעש.</p>
-                                <p class="font-semibold text-primary">שוקי יעד: יישומים צבאיים, מתקנים ביטחוניים, אזורים אורבניים צפופים.</p>
-                            </div>
-                        </div>
-                         <div class="grid md:grid-cols-2 gap-8 items-center">
-                            <div class="md:order-last">
-                                <img src="advantage-green.jpg" alt="פתרון ירוק" class="rounded-lg shadow-xl object-cover w-full h-64">
-                            </div>
-                            <div>
-                                <h3 class="text-2xl font-bold text-accent mb-2">4. פתרון ירוק ופרקטי</h3>
-                                <p class="text-secondary mb-3">המערכת פועלת ישירות נגד ההתחממות הגלובלית: היא פועלת בלולאה סגורה ללא פליטת CO₂, מייצרת חשמל ירוק, ובנוסף מקררת באופן אקטיבי את סביבתה הקרובה.</p>
-                                <p class="font-semibold text-primary">שוקי יעד: ערים חכמות, מבנים ירוקים, פרויקטי תשתית בת-קיימא.</p>
-                            </div>
-                        </div>
+                        <p class="text-sm text-gray-400 mb-2">הפיתוח המוגן מאפשר שילוב של מחליפי חום קרמיים (SiC) בתוך צנרת תעשייתית סטנדרטית. הפטנט מתמקד במנגנון השיכוך והצימוד שמנטרל את הפערים בהתפשטות התרמית, ומונע סדיקה תחת רעידות ולחצים.</p>
                     </div>
+
+                    <div class="ip-card brain bg-slate-800 p-6 rounded-r-lg">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-lg font-bold text-white">2. בקרת תהליך דינמית</h4>
+                            <span class="text-xs bg-yellow-900/50 text-yellow-300 px-2 py-1 rounded">Dynamic Control</span>
+                        </div>
+                        <p class="text-sm text-gray-400 mb-2">מערכת בקרה אדפטיבית עם אלגוריתם ייחודי, המווסתת בזמן אמת את ריכוז התמיסה ולחץ העבודה. המטרה: הבטחת תפוקת קיטור יציבה ו-COP קבוע, גם כאשר מקור החום השיורי במפעל משתנה בחדות.</p>
+                    </div>
+
+                    <div class="ip-card shield bg-slate-800 p-6 rounded-r-lg">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-lg font-bold text-white">3. ארכיטקטורת בטיחות רב-שכבתית</h4>
+                            <span class="text-xs bg-green-900/50 text-green-300 px-2 py-1 rounded">Multi-Layer Safety</span>
+                        </div>
+                        <p class="text-sm text-gray-400 mb-2">תפיסת בטיחות המשלבת עבודה בתת-לחץ (וואקום) למניעת דליפות החוצה, יחד עם מנגנוני ניטרול כימיים אוטומטיים בתוך המערכת. הפטנט מכסה את שיטת הניהול של אירועי קיצון ללא סיכון לסביבה.</p>
+                    </div>
+
+                    <div class="ip-card feature bg-slate-800 p-6 rounded-r-lg">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-lg font-bold text-white">4. תצורה מודולרית לאגירה</h4>
+                            <span class="text-xs bg-blue-900/50 text-blue-300 px-2 py-1 rounded">Modular Configuration</span>
+                        </div>
+                        <p class="text-sm text-gray-400 mb-2">חדשנות מבנית המאפשרת לנתק פיזית בין יחידת הטעינה (הפרדה) ליחידת הפריקה (ייצור קיטור). מאפשר גמישות תכנונית, שינוע אנרגיה ללא איבודי חום בצנרת, וניהול עומסים (Load Shifting).</p>
+                    </div>
+
                 </div>
             </section>
 
-             <section id="summary">
-                 <div class="max-w-4xl mx-auto text-center bg-slate-800/50 border border-slate-700 p-10 rounded-lg">
-                    <h2 class="text-3xl font-bold text-primary">סיכום: הזדמנות ב"אוקיינוס כחול"</h2>
-                    <p class="mt-4 text-xl text-secondary leading-relaxed">בדיקת השוק מראה שהרעיון שלנו ממקם אותנו ב<strong class="text-accent">"שטח כחול" (Blue Ocean)</strong> – שוק חדש שעדיין לא נכבש. יתרון זה, בשילוב עם תוכנית האימות ההנדסית שלנו, יוצר הזדמנות משמעותית לפיתוח טכנולוגיה פורצת דרך.</p>
-                 </div>
+            <section class="mt-16 pt-8 border-t border-slate-800">
+                <h5 class="text-sm font-bold text-secondary mb-2">מקורות וביבליוגרפיה נבחרים:</h5>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-1 text-xs text-gray-600">
+                    <li>1. Wu & Young (1980): "Enthalpy of dilution of sulfuric acid" - הבסיס התרמודינמי.</li>
+                    <li>2. IEA Heat Pump Centre: דוחות על מגבלות התגבשות ב-LiBr בטמפרטורות גבוהות.</li>
+                    <li>3. SGL Carbon / Mersen: מפרטים טכניים של מחליפי חום SiC (עמידות ומוליכות).</li>
+                    <li>4. דוחות פטנטים (2024): ניתוח Freedom to Operate בתחום ה-AHT.</li>
+                </ul>
             </section>
-            
-            <section id="next-steps" class="text-center">
-                 <div class="max-w-4xl mx-auto border-t border-slate-700 pt-12">
-                    <h2 class="text-3xl font-bold text-primary mb-6">השלבים הבאים</h2>
-                    <div class="flex flex-col md:flex-row gap-6 justify-center">
-                        <a href="feasibility.html" class="bg-transparent border-2 border-accent text-accent font-bold py-3 px-8 rounded-full text-lg transition-colors hover:bg-accent hover:text-white">עיין בתוכנית האימות ההנדסית</a>
-                        <a href="simulation2.html" class="bg-accent text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg transform hover:scale-105 transition-transform hover:bg-blue-600">בחן את המודל הכלכלי</a>
-                    </div>
-                </div>
-            </section>
+
         </div>
     </main>
     <footer class="bg-gray-900 text-gray-500 text-center py-6 border-t border-gray-700"><p>&copy; 2025 HeatPower. כל הזכויות שמורות.</p></footer>
+
     <script>
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
             var menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+            var desktopLinks = document.querySelector('header .hidden.lg\\:flex.items-center');
+            if (menu.classList.contains('hidden')) {
+                if (desktopLinks) { 
+                    menu.innerHTML = desktopLinks.innerHTML.replace(/<li/g, '<a').replace(/<\/li/g, '</a>').replace(/ class="[^"]*"/g, ' class="block py-3 px-6 text-gray-300 hover:bg-slate-700"');
+                     const currentPageLink = menu.querySelector('a[href="market-analysis.html"]');
+                    if (currentPageLink) {
+                        currentPageLink.classList.add('text-white', 'bg-slate-700');
+                        currentPageLink.classList.remove('text-gray-300');
+                    }
+                }
+                menu.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+            }
         });
     </script>
 </body>

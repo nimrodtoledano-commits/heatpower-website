@@ -6,74 +6,60 @@
     <title>HeatPower | ניתוח מחיר והשקעה</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Assistant', sans-serif; background-color: #0d1117; background-image: radial-gradient(at 15% 20%, hsla(212, 45%, 15%, 0.7) 0px, transparent 50%), radial-gradient(at 85% 80%, hsla(180, 50%, 20%, 0.6) 0px, transparent 50%); color: #e6edf3; scroll-behavior: smooth; }
         .text-primary { color: #f0f6fc; } .text-secondary { color: #8b949e; } .text-accent { color: #58a6ff; }
         .border-accent { border-color: #58a6ff; }
-        .navbar { position: fixed; top: 0; left: 0; width: 100%; background-color: rgba(13, 17, 23, 0.7); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid #30363d; }
-        .page-hero { text-align: center; background-image: linear-gradient(rgba(13, 17, 23, 0.7), rgba(13, 17, 23, 0.7)), url('hero-investors.jpg'); background-size: cover; background-position: center; }
+        .navbar { position: fixed; top: 0; left: 0; width: 100%; background-color: rgba(13, 17, 23, 0.9); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid #30363d; }
+        .page-hero { text-align: center; background-image: linear-gradient(rgba(13, 17, 23, 0.8), rgba(13, 17, 23, 0.9)), url('hero-investors.jpg'); background-size: cover; background-position: center; }
         .section-heading { border-bottom: 1px solid #30363d; padding-bottom: 1.5rem; margin-bottom: 3rem; }
         
-        /* טבלאות כהות */
         .table-responsive { overflow-x: auto; -webkit-overflow-scrolling: touch; }
         .table-responsive table { border-collapse: collapse; width: 100%; margin-bottom: 1.5rem; }
         .table-responsive th, .table-responsive td { padding: 0.75rem 1rem; border: 1px solid #30363d; white-space: nowrap; }
         .table-responsive th { background-color: #161b22; color: #58a6ff; text-align: right; }
         .table-responsive td { color: #c9d1d9; }
-        .table-responsive tr:hover { background-color: #161b22; }
+        .table-responsive tr:hover { background-color: #1f2937; }
         
-        .iframe-container { overflow-x: auto; -webkit-overflow-scrolling: touch; }
         .grid-scrollable { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 1rem; }
     </style>
 </head>
 <body class="bg-slate-900">
     <header class="navbar">
-    <nav class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
-        <div class="text-3xl font-bold text-accent tracking-wider">HeatPower</div>
-        <ul class="hidden lg:flex items-center text-md font-semibold space-x-6 space-x-reverse" id="desktop-nav-links">
-            <li><a href="index.html" class="text-gray-300 hover:text-accent transition-colors">דף הבית</a></li>
-            <li><a href="presentation.html" class="text-gray-300 hover:text-accent transition-colors">ההזדמנות</a></li>
-            <li><a href="market-analysis.html" class="text-gray-300 hover:text-accent transition-colors">שוק ומתחרים</a></li>
-            <li><a href="technology.html" class="text-gray-300 hover:text-accent transition-colors">הפיתוח הטכנולוגי</a></li>
-            <li><a href="feasibility.html" class="text-gray-300 hover:text-accent transition-colors">בדיקת היתכנות</a></li>
-            <li><a href="business-plan.html" class="text-gray-300 hover:text-accent transition-colors">התוכנית העסקית</a></li>
-            <li><a href="investors.html" class="text-white hover:text-accent transition-colors">ניתוח מחיר</a></li>
-            <li><a href="simulation1.html" class="text-gray-300 hover:text-accent transition-colors">סימולטור אנרגיה</a></li>
-            <li><a href="simulation2.html" class="text-gray-300 hover:text-accent transition-colors">סימולטור כלכלי</a></li>
-            <li><a href="our-story.html" class="text-gray-300 hover:text-accent transition-colors">הסיפור שלנו</a></li>
-        </ul>
-        <div class="lg:hidden">
-            <button id="mobile-menu-button" class="text-white focus:outline-none"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg></button>
-        </div>
-    </nav>
-    <div id="mobile-menu" class="hidden lg:hidden bg-slate-800/95 backdrop-blur-sm"></div>
-</header>
+        <nav class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+            <div class="text-3xl font-bold text-accent tracking-wider">HeatPower</div>
+            <ul class="hidden lg:flex items-center text-md font-semibold space-x-6 space-x-reverse" id="desktop-nav-links">
+                <li><a href="index.html" class="text-gray-300 hover:text-accent transition-colors">דף הבית</a></li>
+                <li><a href="presentation.html" class="text-gray-300 hover:text-accent transition-colors">ההזדמנות</a></li>
+                <li><a href="market-analysis.html" class="text-gray-300 hover:text-accent transition-colors">שוק ומתחרים</a></li>
+                <li><a href="technology.html" class="text-gray-300 hover:text-accent transition-colors">הפיתוח הטכנולוגי</a></li>
+                <li><a href="feasibility.html" class="text-gray-300 hover:text-accent transition-colors">בדיקת היתכנות</a></li>
+                <li><a href="business-plan.html" class="text-gray-300 hover:text-accent transition-colors">התוכנית העסקית</a></li>
+                <li><a href="investors.html" class="text-white font-bold hover:text-accent transition-colors">ניתוח מחיר</a></li>
+                <li><a href="simulation1.html" class="text-gray-300 hover:text-accent transition-colors">סימולטור אנרגיה</a></li>
+                <li><a href="simulation2.html" class="text-gray-300 hover:text-accent transition-colors">סימולטור כלכלי</a></li>
+                <li><a href="our-story.html" class="text-gray-300 hover:text-accent transition-colors">הסיפור שלנו</a></li>
+            </ul>
+            <div class="lg:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg></button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden lg:hidden bg-slate-800/95 backdrop-blur-sm"></div>
+    </header>
 
 <main>
     <section class="page-hero pt-32 pb-16 md:pt-48 md:pb-24">
         <div class="max-w-4xl mx-auto px-4 sm:px-6">
             <h1 class="text-4xl md:text-7xl font-extrabold text-primary leading-tight">ניתוח פיננסי וגיוס</h1>
-            <p class="mt-4 text-lg md:text-2xl text-secondary">ניתוח מקיף של עלויות פיתוח, ייצור סדרתי וצרכי מימון.</p>
+            <p class="mt-4 text-lg md:text-2xl text-secondary">תקציב המותאם לאתגרי Deep-Tech: ריפוד משמעותי לפיתוח ורזרבות.</p>
         </div>
     </section>
     
     <div class="container mx-auto px-4 sm:px-6 py-16 space-y-16 md:py-24 md:space-y-24">
         
-        <section id="executive-summary">
-             <div class="max-w-4xl mx-auto text-center bg-slate-800/50 border border-slate-700 p-8 md:p-10 rounded-lg">
-                <h2 class="text-3xl font-bold text-primary">תקציר מנהלים</h2>
-                <p class="mt-4 text-lg text-secondary leading-relaxed text-right">
-                    דוח זה מציג את מבנה העלויות לשני השלבים הקריטיים הקרובים: <strong>שלב ב' (אב-טיפוס)</strong> ו-<strong>שלב ג' (ייצור סדרתי)</strong>.
-                    הניתוח מתבסס על הצעות מחיר לרכיבי מדף (COTS) ועל הערכה שמרנית של עלויות תפעול, במטרה לגזור את סכום הגיוס הכולל הנדרש ($2.5M) להגעה לתזרים חיובי.
-                </p>
-             </div>
-        </section>
-        
         <section id="cost-analysis">
-            <div class="section-heading text-center"><h2 class="text-3xl md:text-4xl font-bold text-primary">פירוט התקציב והגיוס</h2></div>
+            <div class="section-heading text-center"><h2 class="text-3xl md:text-4xl font-bold text-primary">תקציב פיתוח וייצור (Use of Funds)</h2></div>
             
             <div class="bg-slate-800/50 border border-slate-700 p-6 md:p-8 rounded-lg">
                 <div class="grid lg:grid-cols-5 gap-8 grid-scrollable">
@@ -81,20 +67,20 @@
                     <div class="lg:col-span-3 space-y-8 min-w-[650px]">
                         
                         <div>
-                            <h4 class="text-xl font-semibold mb-4 text-primary">שלב ב': אב-טיפוס (חד-פעמי)</h4>
+                            <h4 class="text-xl font-semibold mb-4 text-primary border-r-4 border-yellow-500 pr-3">שלב ב': מדגים טכנולוגי (Pilot)</h4>
+                            <p class="text-sm text-gray-400 mb-3">כולל עלויות פיתוח, ניסויים הרסניים ואיטרציות חומרה.</p>
                             <div class="table-responsive">
                                 <table class="w-full">
-                                    <thead class="text-secondary">
-                                        <tr><th>סעיף</th><th>פירוט</th><th>עלות ($)</th></tr>
-                                    </thead>
+                                    <thead class="text-secondary"><tr><th>רכיב</th><th>מפרט</th><th>עלות ($)</th></tr></thead>
                                     <tbody class="text-primary">
-                                        <tr><td>ליבת הריאקטור (Skid)</td><td>מיכלים, מחליפי חום (זכוכית/גרפיט)</td><td>$120,000</td></tr>
-                                        <tr><td>רכש רכיבי מדף</td><td>משאבות, צנרת, ברזים (COTS)</td><td>$95,000</td></tr>
-                                        <tr><td>בקרה ואוטומציה</td><td>בקר PLC, חיישנים, חיווט</td><td>$40,000</td></tr>
-                                        <tr><td>הרכבה והתקנה</td><td>קבלן משנה, הובלה לאתר לקוח</td><td>$50,000</td></tr>
-                                        <tr class="font-bold bg-slate-900/50">
-                                            <td colspan="2">סה"כ חומרה לאב-טיפוס (כולל בלת"מ)</td>
-                                            <td class="text-accent">$366,000</td>
+                                        <tr><td>ליבת ריאקטור SiC</td><td>מודול מוקטן + חלפים</td><td>$95,000</td></tr>
+                                        <tr><td>BOP וצנרת</td><td>מערכות היקפיות (רכש מהיר)</td><td>$75,000</td></tr>
+                                        <tr><td>בקרה וחשמל</td><td>PLC, חיישנים ואינטגרציה</td><td>$65,000</td></tr>
+                                        <tr><td>ניסויים ואיטרציות</td><td>חומרי גלם, מעבדה, בלת"מ טכני</td><td>$100,000</td></tr>
+                                        <tr><td>הרכבה</td><td>סדנת הרכבות (Skid)</td><td>$80,000</td></tr>
+                                        <tr class="font-bold bg-slate-700/50">
+                                            <td colspan="2">סה"כ פיתוח אב-טיפוס</td>
+                                            <td class="text-yellow-400">$415,000</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -102,19 +88,18 @@
                         </div>
 
                         <div>
-                            <h4 class="text-xl font-semibold mb-4 text-primary">תקורה תפעולית (חודשי)</h4>
+                            <h4 class="text-xl font-semibold mb-4 text-primary border-r-4 border-blue-500 pr-3">תקורה רזה (Lean OpEx)</h4>
                             <div class="table-responsive">
                                 <table class="w-full">
-                                    <thead class="text-secondary">
-                                        <tr><th>סעיף</th><th>פירוט</th><th>עלות חודשית ($)</th></tr>
-                                    </thead>
+                                    <thead class="text-secondary"><tr><th>סעיף</th><th>הערות</th><th>עלות חודשית ($)</th></tr></thead>
                                     <tbody class="text-primary">
-                                        <tr><td>צוות פיתוח</td><td>מהנדסי מכונות, כימיה ובקרה</td><td>$25,000</td></tr>
-                                        <tr><td>הנהלה ותפעול</td><td>מנכ"ל, מנהל תפעול</td><td>$15,000</td></tr>
-                                        <tr><td>שכירות ורישיונות</td><td>משרד, תוכנות הנדסיות</td><td>$5,000</td></tr>
-                                        <tr class="font-bold bg-slate-900/50">
-                                            <td colspan="2">סה"כ "Burn Rate" חודשי</td>
-                                            <td class="text-accent">$45,000</td>
+                                        <tr><td>צוות ליבה (R&D)</td><td>3 מהנדסים (מייסדים)</td><td>$25,000</td></tr>
+                                        <tr><td>תפעול שוטף</td><td>שכירות, ביטוח, תוכנה</td><td>$7,000</td></tr>
+                                        <tr><td>הנהלה ואדמין.</td><td>ללא עלות בשלב זה</td><td>$0</td></tr>
+                                        <tr class="font-bold bg-slate-700/50">
+                                            <td>סה"כ Burn Rate</td>
+                                            <td>למשך 24 חודשים</td>
+                                            <td class="text-blue-400">$32,000</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -122,18 +107,18 @@
                         </div>
 
                         <div>
-                            <h4 class="text-xl font-semibold mb-4 text-primary">שלב ג': ייצור סדרתי (Batch 1)</h4>
+                            <h4 class="text-xl font-semibold mb-4 text-primary border-r-4 border-green-500 pr-3">שלב ג': הון חוזר לייצור</h4>
                             <div class="table-responsive">
                                 <table class="w-full">
-                                    <thead class="text-secondary">
-                                        <tr><th>סעיף</th><th>פירוט</th><th>עלות ($)</th></tr>
-                                    </thead>
+                                    <thead class="text-secondary"><tr><th>סעיף</th><th>פירוט</th><th>תקציב ($)</th></tr></thead>
                                     <tbody class="text-primary">
-                                        <tr><td>מלאי לייצור (6 יחידות)</td><td>רכש חומרי גלם וייצור (250k ליחידה)</td><td>$1,500,000</td></tr>
-                                        <tr><td>שיווק ומכירות</td><td>השקה, כנסים, תמיכה ראשונית</td><td>$150,000</td></tr>
-                                        <tr class="font-bold bg-slate-900/50">
-                                            <td colspan="2">סה"כ הון חוזר לשלב ג'</td>
-                                            <td class="text-accent">$1,650,000</td>
+                                        <tr><td>הון חוזר (2 יחידות)</td><td>מימון ייצור מקביל (Revolving)</td><td>$480,000</td></tr>
+                                        <tr><td>מלאי אסטרטגי (Long Lead)</td><td>הזמנת SiC ל-4 יחידות נוספות</td><td>$200,000</td></tr>
+                                        <tr><td>תבניות וג'יגים</td><td>הקמת קו הרכבה מהיר</td><td>$70,000</td></tr>
+                                        <tr><td>לוגיסטיקה ושילוח</td><td>יצוא ללקוחות ראשונים</td><td>$30,000</td></tr>
+                                        <tr class="font-bold bg-slate-700/50">
+                                            <td colspan="2">סה"כ הקמת ייצור</td>
+                                            <td class="text-green-400">$780,000</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -142,15 +127,29 @@
                     </div>
 
                     <div class="lg:col-span-2 flex flex-col gap-y-6 min-w-[300px]">
-                        <div class="bg-slate-700/50 p-6 rounded-lg text-center border border-slate-600">
-                            <h4 class="text-lg font-semibold text-secondary">יעד גיוס כולל (Seed Round)</h4>
-                            <p class="text-5xl font-bold text-accent mt-4 mb-2">$2,500,000</p>
-                            <p class="text-sm text-gray-300">למימון 24 חודשי פעילות עד לתזרים חיובי.</p>
+                        <div class="bg-gradient-to-br from-slate-700 to-slate-800 p-8 rounded-xl text-center border border-slate-600 shadow-lg relative overflow-hidden">
+                             <div class="absolute top-0 right-0 bg-red-600 text-white text-xs px-3 py-1 font-bold rounded-bl-lg">21.5% Contingency</div>
+                            
+                            <h4 class="text-lg font-semibold text-gray-300">יעד גיוס (Seed)</h4>
+                            <p class="text-6xl font-bold text-accent mt-4 mb-2 tracking-tight">$2.5M</p>
+                            <p class="text-sm text-gray-400 mt-2 mb-4">Runway ל-24 חודשים עד תזרים</p>
+                            
+                            <div class="bg-slate-900/50 rounded-lg p-3 text-xs text-gray-400 mb-6 border border-slate-700">
+                                <p class="font-bold text-gray-300">מקדם ביטחון מערכתי:</p>
+                                <p>התקציב כולל רזרבה של <span class="text-white font-bold">21.5%</span> (כ-$537,000) לניהול סיכוני פיתוח ושינויים במחירי רכיבים.</p>
+                            </div>
+
+                            <div class="border-t border-slate-600 pt-4 text-sm text-gray-300 text-right space-y-2">
+                                <div class="flex justify-between"><span>פיתוח ופיילוט (R&D):</span> <span>$0.42M</span></div>
+                                <div class="flex justify-between"><span>תפעול שוטף (OpEx):</span> <span>$0.77M</span></div>
+                                <div class="flex justify-between"><span>הון חוזר לייצור:</span> <span>$0.78M</span></div>
+                                <div class="flex justify-between text-red-400 font-bold border-t border-slate-600 pt-1 mt-1"><span>רזרבה ניהולית:</span> <span>$0.53M</span></div>
+                            </div>
                         </div>
                         
                         <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-800">
-                            <h4 class="text-lg font-semibold mb-4 text-center text-primary">שימוש בכספי הגיוס</h4>
-                            <div class="relative w-full mx-auto aspect-square max-w-[300px]">
+                            <h4 class="text-lg font-semibold mb-4 text-center text-primary">חלוקת מקורות</h4>
+                            <div class="relative w-full mx-auto aspect-square max-w-[280px]">
                                 <canvas id="investmentChart"></canvas>
                             </div>
                         </div>
@@ -160,67 +159,94 @@
             </div>
         </section>
 
-        <section id="price-analysis">
-            <div class="section-heading text-center"><h2 class="text-3xl md:text-4xl font-bold text-primary">ניתוח מחיר ומודל עסקי</h2></div>
-            <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+        <section id="business-model">
+            <div class="section-heading text-center"><h2 class="text-3xl md:text-4xl font-bold text-primary">מודל עסקי: בוטיק תעשייתי</h2></div>
+            <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
                 
-                <div class="bg-slate-800/50 border border-slate-700 p-8 rounded-lg text-center hover:border-accent transition-colors">
-                    <h4 class="text-xl font-bold text-primary mb-2">רכישת מערכת (CAPEX)</h4>
-                    <p class="text-secondary mb-6">מודל מכירה ישירה ברווח גולמי ראשוני.</p>
-                    <div class="text-left space-y-2 mb-6 text-gray-300 text-sm">
-                        <p class="flex justify-between"><span>עלות ייצור (COGS):</span> <span>$250,000</span></p>
-                        <p class="flex justify-between border-b border-gray-600 pb-2"><span>רווח גולמי (20%):</span> <span>$50,000</span></p>
-                        <p class="flex justify-between text-lg font-bold text-white pt-2"><span>מחיר ללקוח:</span> <span class="text-accent">$300,000</span></p>
+                <div class="bg-slate-800 p-8 rounded-xl border-t-4 border-blue-500 hover:shadow-2xl hover:shadow-blue-900/20 transition-all">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h4 class="text-2xl font-bold text-white">מערכת תעשייתית (500kW)</h4>
+                            <p class="text-gray-400 text-sm mt-1">מכירה ישירה (CAPEX)</p>
+                        </div>
                     </div>
-                    <div class="bg-green-900/30 text-green-400 px-4 py-2 rounded-full text-sm inline-block font-bold">
-                        ROI ללקוח: < 1 שנה
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex justify-between text-gray-300 border-b border-gray-700 pb-2">
+                            <span>עלות ייצור (COGS):</span>
+                            <span>$240,000</span>
+                        </div>
+                        <div class="flex justify-between text-gray-300 border-b border-gray-700 pb-2">
+                            <span>התאמה אישית והתקנה:</span>
+                            <span>$20,000</span>
+                        </div>
+                        <div class="flex justify-between text-white font-bold text-lg pt-2">
+                            <span>מחיר ללקוח:</span>
+                            <span class="text-blue-400">$360,000</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-900/30 p-4 rounded-lg text-center">
+                        <p class="text-blue-300 font-bold text-xl">~28% רווח גולמי</p>
+                        <p class="text-gray-400 text-xs mt-1">($100k רווח ליחידה)</p>
                     </div>
                 </div>
 
-                <div class="bg-slate-800/50 border border-slate-700 p-8 rounded-lg text-center hover:border-accent transition-colors">
-                    <h4 class="text-xl font-bold text-primary mb-2">מודל שירות (SaaS)</h4>
-                    <p class="text-secondary mb-6">הכנסה חודשית קבועה (Recurring Revenue) החל משנה 2.</p>
-                    <ul class="text-right text-gray-300 space-y-3 mb-6 text-sm list-disc list-inside">
-                        <li>ניטור ואופטימיזציה מרחוק (AI).</li>
-                        <li>ניהול כימי ובטיחות.</li>
-                        <li>אחריות מורחבת וחלפים.</li>
+                <div class="bg-slate-800 p-8 rounded-xl border-t-4 border-green-500 hover:shadow-2xl hover:shadow-green-900/20 transition-all">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h4 class="text-2xl font-bold text-white">חוזה שירות שנתי (SLA)</h4>
+                            <p class="text-gray-400 text-sm mt-1">הכנסה שנתית חוזרת (ARR)</p>
+                        </div>
+                    </div>
+                    
+                    <ul class="space-y-3 mb-8 text-gray-300 text-sm">
+                        <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> ניטור ובקרה מרחוק</li>
+                        <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> החלפת אטמים שנתית (Preventive)</li>
+                        <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> כיול חיישנים</li>
                     </ul>
-                    <div class="text-2xl font-bold text-white border-t border-gray-600 pt-4">
-                        $2,500 <span class="text-sm text-gray-400 font-normal">/ חודש למערכת</span>
+                    
+                    <div class="flex justify-between items-end border-t border-gray-700 pt-4">
+                        <div class="text-left">
+                            <p class="text-white font-bold text-3xl">$25,000</p>
+                            <p class="text-gray-500 text-xs">לשנה / למערכת</p>
+                        </div>
+                        <div class="bg-green-900/30 px-4 py-2 rounded-lg">
+                            <span class="text-green-400 font-bold">תזרים יציב</span>
+                        </div>
                     </div>
                 </div>
 
             </div>
             
-            <div class="text-center mt-12">
-                <a href="simulation2.html" class="inline-block bg-accent text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg transform hover:scale-105 transition-transform hover:bg-blue-600">
-                    בחן את הכדאיות בסימולטור הכלכלי
+            <div class="text-center mt-16">
+                <a href="simulation2.html" class="inline-flex items-center bg-accent text-white font-bold py-4 px-10 rounded-full text-lg shadow-lg hover:bg-blue-600 transition-transform transform hover:-translate-y-1">
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    <span>הפעל סימולטור ROI</span>
                 </a>
             </div>
         </section>
         
-        <section id="sheets-preview">
-            <div class="max-w-5xl mx-auto">
-                <div class="section-heading text-center"><h2 class="text-3xl md:text-4xl font-bold text-primary">המודל הפיננסי המלא</h2></div>
-                <div class="bg-slate-800/50 border border-slate-700 rounded-lg overflow-hidden">
-                    <div class="iframe-container"> 
-                       <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ1pjgODEbyZiFt9M7jiXYwodjGWzXHP8Vf_llqEoYFhNGKkYUPHLAa42mba0yVoQlw1-vuAJFy3Bx_/pubhtml?widget=true&amp;headers=false" style="width:100%; height: 600px; min-width: 700px; border: none;"></iframe>
-                    </div>
-                </div>
-                <div class="mt-6 text-center">
-                    <a href="https://docs.google.com/spreadsheets/d/1-uPKE3uEAP-6xWES1eY9lORL6n5YRG0QG8hqhGcFGD8/edit?gid=159127296#gid=159127296" target="_blank" rel="noopener noreferrer" class="inline-block bg-transparent border-2 border-accent text-accent font-bold py-2 px-6 rounded-full text-md transition-colors hover:bg-accent hover:text-white">
-                        פתח את גיליון הנתונים המלא
-                    </a>
+        <section class="max-w-4xl mx-auto text-center border-t border-slate-800 pt-12">
+            <div class="bg-slate-800/50 border border-slate-700 rounded-lg overflow-hidden mb-6">
+                <div class="iframe-container"> 
+                    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ1pjgODEbyZiFt9M7jiXYwodjGWzXHP8Vf_llqEoYFhNGKkYUPHLAa42mba0yVoQlw1-vuAJFy3Bx_/pubhtml?widget=true&amp;headers=false" style="width:100%; height: 500px; min-width: 700px; border: none;"></iframe>
                 </div>
             </div>
+            <a href="https://docs.google.com/spreadsheets/d/1-uPKE3uEAP-6xWES1eY9lORL6n5YRG0QG8hqhGcFGD8/edit?gid=159127296#gid=159127296" target="_blank" class="text-accent hover:text-white underline underline-offset-4 transition-colors">
+                לגיליון הנתונים המלא ב-Google Sheets &nearr;
+            </a>
         </section>
+
     </div>
 </main>
 
-<footer class="bg-gray-900 text-gray-500 text-center py-6 border-t border-gray-700"><p>&copy; 2025 HeatPower. כל הזכויות שמורות.</p></footer>
+<footer class="bg-gray-900 text-gray-500 text-center py-8 border-t border-gray-800 text-sm">
+    <p>&copy; 2025 HeatPower. Confidential.</p>
+</footer>
 
 <script>
-    // ניהול תפריט מובייל
+    // Mobile Menu Logic
     document.getElementById('mobile-menu-button').addEventListener('click', function() {
         var menu = document.getElementById('mobile-menu');
         var desktopLinks = document.getElementById('desktop-nav-links');
@@ -228,25 +254,18 @@
         if (desktopLinks && menu.innerHTML === '') {
             let linksHTML = '';
             desktopLinks.querySelectorAll('li a').forEach(function(link) {
-                linksHTML += `<a href="${link.href}" class="block py-3 px-6 text-gray-300 hover:bg-slate-700">${link.innerHTML}</a>`;
+                linksHTML += `<a href="${link.href}" class="block py-3 px-6 text-gray-300 hover:bg-slate-700 border-b border-slate-700/50">${link.innerHTML}</a>`;
             });
             menu.innerHTML = linksHTML;
-            
-            const currentPageFilename = window.location.pathname.split('/').pop() || 'index.html';
-            const currentPageLink = menu.querySelector(`a[href*="${currentPageFilename}"]`);
-            if (currentPageLink) {
-                currentPageLink.classList.add('text-white', 'bg-slate-700');
-                currentPageLink.classList.remove('text-gray-300');
-            }
         }
         menu.classList.toggle('hidden');
     });
 
-    // גרף העוגה (Chart.js)
+    // Investment Chart Logic (Updated)
     document.addEventListener('DOMContentLoaded', () => {
          const investmentData = { 
-             labels: ['אב-טיפוס (חומרה)', 'ייצור סדרתי (מלאי)', 'תפעול ופיתוח (24 חודש)'], 
-             data: [366000, 1500000, 634000]
+             labels: ['פיתוח ופיילוט', 'תפעול (24 חודש)', 'ייצור והון חוזר', 'רזרבה ובלת"מ'], 
+             data: [415000, 768000, 780000, 537000] // Total 2.5M
          };
          const chartElement = document.getElementById('investmentChart'); 
          if (!chartElement) return; 
@@ -257,9 +276,10 @@
                 labels: investmentData.labels, 
                 datasets: [{ 
                     data: investmentData.data, 
-                    backgroundColor: ['#58a6ff', '#238636', '#8b949e'], // כחול, ירוק, אפור
-                    borderColor: '#1e293b', 
-                    borderWidth: 2 
+                    backgroundColor: ['#f59e0b', '#3b82f6', '#22c55e', '#ef4444'], // Yellow, Blue, Green, Red
+                    borderColor: '#0f172a', 
+                    borderWidth: 4,
+                    hoverOffset: 10
                 }] 
             }, 
             options: { 
@@ -268,23 +288,27 @@
                 plugins: { 
                     legend: { 
                         position: 'bottom', 
-                        labels: { color: '#d1d5db', font: { size: 12 }, padding: 20 } 
+                        labels: { color: '#9ca3af', font: { family: 'Assistant', size: 12 }, padding: 15, usePointStyle: true } 
                     }, 
                     tooltip: { 
+                        backgroundColor: 'rgba(15, 23, 42, 0.9)',
+                        titleFont: { family: 'Assistant' },
+                        bodyFont: { family: 'Assistant' },
+                        padding: 12,
                         callbacks: {
                             label: function(context) {
                                 let label = context.label || '';
                                 if (label) { label += ': '; }
-                                label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(context.raw);
+                                label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumSignificantDigits: 2 }).format(context.raw);
                                 return label;
                             }
                         }
                     }
-                } 
+                },
+                cutout: '65%'
             } 
         }); 
     });
 </script>
-
 </body>
 </html>

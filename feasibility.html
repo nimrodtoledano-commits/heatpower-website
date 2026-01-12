@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HeatPower | בדיקת היתכנות (תוכנית R&D)</title>
+    <title>HeatPower | בדיקת היתכנות ואינטגרציה</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,6 +17,13 @@
         .navbar { position: fixed; top: 0; left: 0; width: 100%; background-color: rgba(245, 245, 240, 0.8); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid #e5e5e0; }
         .page-hero-warm { text-align: center; background-image: linear-gradient(rgba(245, 245, 240, 0.2), rgba(245, 245, 240, 0.2)), url('hero-feasibility.jpg'); background-size: cover; background-position: center; }
         .section-heading { border-bottom: 1px solid #d7d4cb; padding-bottom: 1.5rem; margin-bottom: 3rem; }
+        
+        /* Specific Styles for Risk Matrix Table */
+        .risk-table th { background-color: #e7e5e0; color: #2d2d2d; font-weight: 700; padding: 1rem; border-bottom: 2px solid #d7d4cb; }
+        .risk-table td { padding: 1rem; border-bottom: 1px solid #e5e5e0; vertical-align: middle; }
+        .risk-tag { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.85rem; font-weight: 600; }
+        .risk-low { background-color: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+        .risk-zero { background-color: #ecfccb; color: #3f6212; border: 1px solid #d9f99d; }
     </style>
 </head>
 <body class="bg-stone-50">
@@ -40,107 +47,153 @@
         </div>
     </nav>
     <div id="mobile-menu" class="hidden lg:hidden bg-stone-50/95 backdrop-blur-sm shadow-md">
-        </div>
+    </div>
 </header>
+
     <main class="main-content-area">
         <section class="page-hero-warm pt-32 pb-16 md:pt-48 md:pb-24">
             <div class="max-w-4xl mx-auto px-4 sm:px-6">
-                <h1 class="text-4xl md:text-6xl font-extrabold text-primary-warm" style="text-shadow: 0px 1px 3px rgba(0,0,0,0.1);">בדיקת היתכנות: תוכנית האימות המחקרית (R&D)</h1>
+                <h1 class="text-4xl md:text-6xl font-extrabold text-primary-warm" style="text-shadow: 0px 1px 3px rgba(0,0,0,0.1);">בדיקת היתכנות: תוכנית האימות המחקרית</h1>
+                <p class="mt-4 text-xl text-secondary-warm max-w-3xl mx-auto">מניתוח תיאורטי להוכחת היתכנות: התמודדות עם האתגר התרמודינמי ואתגר החומרים.</p>
             </div>
         </section>
+        
         <div class="py-16 md:py-20 container mx-auto px-4 sm:px-6 max-w-5xl space-y-16">
-            <section id="intro">
+            
+            <section id="challenges">
                 <div class="text-center">
-                    <h2 class="text-3xl font-bold text-primary-warm mb-4">הפוטנציאל העצום והאתגר שבצידו</h2>
-                    <p class="text-lg text-secondary-warm leading-relaxed max-w-4xl mx-auto">הרעיון בבסיס HeatPower הוא מהפכני: ניצול חום סביבתי זמין להפקת חשמל נקי, קירור, וקיטור זול בו-זמנית. אם הפוטנציאל כל כך גדול, נשאלת השאלה המתבקשת: <strong class="text-primary-warm">"מדוע אף אחד לא עשה זאת עד כה?"</strong></p>
-                    <p class="mt-4 text-lg text-secondary-warm leading-relaxed max-w-4xl mx-auto">התשובה היא שקיימים שני אתגרים הנדסיים משמעותיים, שרבים רואים בהם "קיר" בלתי עביר. אנו רואים בהם אתגרים שניתן לפתור באמצעות גישה מדעית שיטתית, והתוכנית הבאה נועדה להוכיח זאת:</p>
+                    <h2 class="text-3xl font-bold text-primary-warm mb-4">הפוטנציאל העצום והחומות שבדרך</h2>
+                    <p class="text-lg text-secondary-warm leading-relaxed max-w-4xl mx-auto">
+                        אנו לא מתעלמים מההיסטוריה. פיתוח מנוע תרמו-כימי מציב שני אתגרים הנדסיים ידועים, אשר מנעו יישום מסחרי עד היום. תוכנית ה-R&D שלנו תוכננה ספציפית כדי לפרק את המכשולים הללו:
+                    </p>
                 </div>
-                <div class="mt-12 grid md:grid-cols-2 gap-8">
-                    <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-accent-warm">
-                        <h3 class="text-2xl font-bold text-primary-warm mb-3">1. האתגר התרמודינמי</h3>
-                        <p class="text-secondary-warm"><strong>המכשול:</strong> ניתוח תיאורטי מראה שהאנרגיה הנדרשת למחזור החומצה גבוהה, ועלולה להותיר מאזן אנרגיה שלילי.</p>
-                        <p class="mt-3 text-secondary-warm"><strong class="text-primary-warm">הביטחון שלנו בפתרון:</strong> המודלים הקיימים אינם לוקחים בחשבון את הארכיטקטורה הייחודית שלנו, המשלבת מיחזור חום פנימי עם משאבת חום מתקדמת. אנו מאמינים כי גישה זו משנה מהיסוד את המשוואה האנרגטית ומאפשרת להגיע לרווח אנרגטי נקי ומשמעותי.</p>
+                
+                <div class="mt-12 grid md:grid-cols-2 gap-8 items-stretch">
+                    <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-red-500">
+                        <h3 class="text-2xl font-bold text-primary-warm mb-3">1. אתגר המאזן האנרגטי</h3>
+                        <p class="text-secondary-warm text-sm mb-4">
+                            <strong>הבעיה:</strong> תיאורטית, המערכת עלולה לצרוך בשלב הפרדת החומצה (Regeneration) יותר אנרגיה ממה שהיא מסוגלת לייצר כקיטור, מה שיהפוך אותה ללא-יעילה.
+                        </p>
+                        <div class="bg-stone-50 p-4 rounded border border-stone-200">
+                            <p class="text-primary-warm font-semibold text-sm">התזה שלנו:</p>
+                            <p class="text-secondary-warm text-sm mt-1">
+                                השגת מאזן חיובי (Net Positive) באמצעות ארכיטקטורת <strong>מיחזור חום פנימי (Regenerative Heat Exchange)</strong> ושימוש בחום שיורי לכל שלבי האידוי, ללא תלות במקור חום ראשוני (Primary Heat Source).
+                            </p>
+                        </div>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-accent-warm">
-                        <h3 class="text-2xl font-bold text-primary-warm mb-3">2. האתגר ההנדסי המשולב (חומרים ובטיחות)</h3>
-                        <p class="text-secondary-warm"><strong>המכשול:</strong> הסביבה הכימית הקיצונית דורשת חומרים יקרים, והתהליך עצמו טומן בחובו סיכונים בטיחותיים.</p>
-                        <p class="mt-3 text-secondary-warm"><strong class="text-primary-warm">הביטחון שלנו בפתרון:</strong> בטיחות היא תוצאה ישירה של בחירת חומרים נכונה. במקום להסתמך על פתרונות יקרים עד כדי חוסר כדאיות (כמו טנטלום), תוכנית המחקר שלנו מתמקדת בבחינת סגסוגות וציפויים מודרניים וכלכליים תחת תנאי אמת. ניהול סיכונים הנדסי, בדומה לאופן שבו מנוע רכב רותם פיצוצים מבוקרים, הוא חלק בלתי נפרד מהתכנון שלנו.</p>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-red-500">
+                        <h3 class="text-2xl font-bold text-primary-warm mb-3">2. אתגר חומרים ובטיחות</h3>
+                        <p class="text-secondary-warm text-sm mb-4">
+                            <strong>הבעיה:</strong> חומצה גופרתית ב-200°C היא אגרסיבית ביותר. פתרונות העבר (טנטלום) היו יקרים מדי ליישום המוני, ופתרונות זולים (זכוכית) היו שבירים ומסוכנים.
+                        </p>
+                        <div class="bg-stone-50 p-4 rounded border border-stone-200">
+                            <p class="text-primary-warm font-semibold text-sm">התזה שלנו:</p>
+                            <p class="text-secondary-warm text-sm mt-1">
+                                פתרון משוואת ה-CAPEX והבטיחות באמצעות אימוץ מחליפי חום מקרמיקה מתקדמת (SiC), צנרת PFA, ומעבר לתפיסת בטיחות פאסיבית מבוססת ואקום (Vacuum).
+                            </p>
+                        </div>
                     </div>
                 </div>
             </section>
 
             <section id="experiment1" class="bg-white p-6 md:p-8 rounded-lg shadow-md border">
-                <h2 class="text-3xl font-bold text-primary-warm mb-6 section-heading">ניסוי מס' 1: הוכחת מאזן אנרגיה חיובי</h2>
-                <div class="mb-8">
-                    <h4 class="text-xl font-semibold text-primary-warm mb-3">סקירת ספרות: מה אנחנו כבר יודעים</h4>
-                    <ul class="list-disc list-inside space-y-2 text-secondary-warm">
-                        <li><strong>אנתלפיית הדילול (Wu & Young, 1980):</strong> מחקרים קלורימטריים מאמתים כמותית את שחרור החום המשמעותי בתגובה, ומספקים את הבסיס האנרגטי של הקונספט.</li>
-                        <li><strong>משאבות חום בטמפרטורה גבוהה (Enertime, Olvondo):</strong> טכנולוגיות מסחריות קיימות מוכיחות כי ניתן "להרים" חום לטמפרטורות הנדרשות לתהליך המחזור.</li>
-                        <li><strong>הפער בידע:</strong> אף מחקר לא בחן את שילוב הרכיבים במערכת סגורה וממוטבת כמו זו המוצעת, ולכן השאלה הקריטית של מאזן האנרגיה הנטו נותרה פתוחה.</li>
-                    </ul>
-                </div>
-                <div class="grid md:grid-cols-2 gap-8 items-start">
+                <h2 class="text-3xl font-bold text-primary-warm mb-6 section-heading">ניסוי מס' 1: הוכחת המאזן האנרגטי</h2>
+                <div class="grid md:grid-cols-2 gap-12 items-start">
                     <div>
-                        <h4 class="text-xl font-semibold text-primary-warm mb-3">מטרת הניסוי</h4>
-                        <p class="text-secondary-warm">להוכיח באופן אמפירי כי התכנון הייחודי של המערכת, המשלב מיחזור חום פנימי עם משאבת חום, מאפשר להשיג מאזן אנרגיה נטו חיובי, כלומר, לייצר יותר חשמל מהקיטור מאשר סך החשמל הנצרך לתהליך המחזור.</p>
-                        <h4 class="text-xl font-semibold text-primary-warm mt-6 mb-3">מדדי הצלחה</h4>
-                        <ul class="list-decimal list-inside text-secondary-warm font-semibold">
-                            <li>השגת רווח אנרגטי נקי של מעל 5%.</li>
-                            <li>הדגמת פעולה יציבה לאורך 100 מחזורים רציפים.</li>
+                        <h4 class="text-xl font-semibold text-primary-warm mb-3">המטרה</h4>
+                        <p class="text-secondary-warm mb-4">
+                            להוכיח אמפירית שהמערכת עומדת בגבולות היעילות התרמודינמית של שנאי חום (Type II) ומייצרת ערך אנרגטי חיובי בתנאי אמת.
+                        </p>
+                        <h4 class="text-xl font-semibold text-primary-warm mb-3">השיטה</h4>
+                        <ul class="list-disc list-inside space-y-2 text-secondary-warm text-sm">
+                            <li>בניית מודל תרמו-דינמי ממוחשב (MATLAB/ASPEN).</li>
+                            <li>בדיקת מעבדה (Bench-top) למדידת אנתלפיית הדילול המדויקת.</li>
+                            <li>כיול המודל מול תוצאות הניסוי.</li>
                         </ul>
                     </div>
-                    <div>
-                        <h4 class="text-xl font-semibold text-primary-warm mb-3">מערך הניסוי</h4>
-                        <p class="text-secondary-warm mb-3">תבנה מערכת מעבדתית (Bench-top) סגורה שתכלול:</p>
-                        <ul class="list-disc list-inside space-y-2 text-secondary-warm">
-                            <li>ריאקטור זכוכית בורוסיליקט בנפח 5 ליטר, בעל דופן כפולה למעבר נוזל תרמי.</li>
-                            <li>מחליף חום מיניאטורי מסוג Shell & Tube.</li>
-                            <li>מערכת זיקוק בוואקום עם בקרה דיגיטלית.</li>
-                            <li>משאבת חום קומפקטית עם COP ניתן למדידה.</li>
-                            <li>מערך חיישני טמפרטורה, לחץ וספיקה לניטור רציף של נתוני האנרגיה.</li>
-                        </ul>
+                    
+                    <div class="bg-stone-100 p-6 rounded-lg text-center h-full flex flex-col justify-center">
+                        <h4 class="text-lg font-bold text-accent-warm mb-2">תוצאה רצויה (KPI)</h4>
+                        <div class="text-4xl font-extrabold text-primary-warm mb-1">COP > 0.45</div>
+                        <p class="text-xs text-secondary-warm mt-2 px-4 border-t border-stone-300 pt-2">
+                            <strong>הערת מהנדס:</strong> הגבול התיאורטי (קרנו) הוא 0.5. המודל שלנו מראה היתכנות ל-0.48. אנו מציבים יעד שמרני וריאליסטי של 0.45, המבטיח רווחיות גבוהה מבלי להבטיח נצילות "בלתי אפשרית".
+                        </p>
                     </div>
                 </div>
             </section>
 
             <section id="experiment2" class="bg-white p-6 md:p-8 rounded-lg shadow-md border">
-                <h2 class="text-3xl font-bold text-primary-warm mb-6 section-heading">ניסוי מס' 2: אימות חומרים ובטיחות</h2>
-                 <div class="mb-8">
-                    <h4 class="text-xl font-semibold text-primary-warm mb-3">סקירת ספרות: מה אנחנו כבר יודעים</h4>
-                    <ul class="list-disc list-inside space-y-2 text-secondary-warm">
-                        <li><strong>קורוזיה בסגסוגות-על (Keiser et al., 2007):</strong> מחקרים מראים שגם סגסוגות יקרות כמו Hastelloy סובלות מקורוזיה משמעותית בתנאים הקיצוניים של טמפרטורה וריכוז חומצה.</li>
-                        <li>**עמידות טנטלום:** ידוע שטנטלום עמיד מאוד אך עלותו הופכת אותו לבלתי כלכלי.</li>
-                        <li>**סיכוני מימן (Metso):** תהליכי קורוזיה בסביבת חומצה גופרתית עלולים לייצר גז מימן דליק, מה שמהווה סיכון בטיחותי ידוע.</li>
-                        <li><strong>הפער בידע:</strong> קיים חוסר בנתונים לגבי עמידות של ציפויים מודרניים (כמו קרמיקה) וסגסוגות חדשות תחת **עומס מחזורי** (חימום וקירור לסירוגין), המדמה את תנאי הפעולה האמיתיים במערכת שלנו.</li>
-                    </ul>
+                <h2 class="text-3xl font-bold text-primary-warm mb-6 section-heading">ניסוי מס' 2: ולידציה של חומרים</h2>
+                <div class="mb-6">
+                    <p class="text-lg text-secondary-warm">
+                        מטרת הניסוי היא לאמת את עמידות הרכיבים הזולים (Non-Metallic) לאורך זמן, בדגש על כשלים אופייניים למערכות ואקום.
+                    </p>
                 </div>
-                <div class="grid md:grid-cols-2 gap-8 items-start">
-                    <div>
-                         <h4 class="text-xl font-semibold text-primary-warm mb-3">מטרת הניסוי</h4>
-                        <p class="text-secondary-warm">לזהות חומר מבנה או ציפוי המציע את האיזון הטוב ביותר בין עמידות לקורוזיה, עלות כלכלית וקלות ייצור. במקביל, להדגים תפעול בטוח של המערכת וניהול הסיכונים שהוגדרו.</p>
-                        <h4 class="text-xl font-semibold text-primary-warm mt-6 mb-3">מדדי הצלחה</h4>
-                        <ul class="list-decimal list-inside text-secondary-warm font-semibold">
-                            <li>זיהוי חומר עם קצב קורוזיה נמוך מ-0.1 מ"מ/שנה.</li>
-                             <li>השלמת 500 שעות פעולה ללא אירועי בטיחות חריגים.</li>
-                        </ul>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-stone-50 p-5 rounded border border-stone-200">
+                        <h4 class="font-bold text-primary-warm mb-2">1. מבחן קורוזיה (Immersion Test)</h4>
+                        <p class="text-sm text-secondary-warm mb-2">חשיפת "קופונים" (דגימות) של SiC ו-Hastelloy לחומצה רותחת למשך 1,000 שעות.</p>
+                        <p class="text-sm font-semibold text-green-700">יעד: קצב קורוזיה אפסי ב-SiC.</p>
                     </div>
-                    <div>
-                        <h4 class="text-xl font-semibold text-primary-warm mb-3">מערך הניסוי</h4>
-                        <p class="text-secondary-warm mb-3">בתוך הריאקטור מניסוי מס' 1 יוכנסו "קופונים" (דגימות) של חומרים מועמדים:</p>
-                        <ul class="list-disc list-inside space-y-2 text-secondary-warm">
-                            <li>סגסוגת Hastelloy C-2000.</li>
-                            <li>פלדת אל-חלד מצופה בטפלון (PTFE).</li>
-                            <li>פלדה מצופה בציפוי קרמי מבוסס סיליקון קרביד (SiC).</li>
-                            <li>במקביל, המערכת תצויד בחיישן מימן ובמערכת שטיפת חנקן למצבי חירום.</li>
-                        </ul>
+                    
+                    <div class="bg-stone-50 p-5 rounded border border-stone-200">
+                        <h4 class="font-bold text-primary-warm mb-2">2. עמידות ציפויים בוואקום</h4>
+                        <p class="text-sm text-secondary-warm mb-2">
+                            בדיקת עמידות ציפוי <strong>PFA Lining</strong> תחת תת-לחץ (Vacuum Resistance) בטמפרטורה גבוהה, למניעת קריסה (Liner Collapse).
+                        </p>
+                        <p class="text-sm font-semibold text-green-700">יעד: אפס התנתקות, מעבר Spark Testing בהצלחה.</p>
                     </div>
                 </div>
             </section>
 
-             <section id="conclusion" class="text-center">
+            <section id="risk-matrix">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-primary-warm mb-2">מטריצת הפחתת סיכונים</h2>
+                    <p class="text-secondary-warm">אנו לא מהמרים. כך הפכנו את הסיכונים המובנים לפרמטרים מנוהלים:</p>
+                </div>
+                
+                <div class="overflow-x-auto bg-white rounded-lg shadow border border-stone-200">
+                    <table class="w-full text-right risk-table">
+                        <thead>
+                            <tr>
+                                <th class="w-1/4">קטגוריית סיכון</th>
+                                <th class="w-1/3">הסיכון המקורי (High)</th>
+                                <th class="w-1/3">הפתרון ההנדסי (Mitigation)</th>
+                                <th class="w-1/6 text-center">סטטוס הנדסי</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm text-secondary-warm">
+                            <tr>
+                                <td class="font-bold">כימי</td>
+                                <td>דליפת חומצה בלחץ לסביבת המפעל</td>
+                                <td>עבודה בוואקום (דליפה פנימה בלבד - Inward Leakage)</td>
+                                <td class="text-center"><span class="risk-tag risk-low">נמוך (Fail-Safe)</span></td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold">חומרים</td>
+                                <td>סדיקת זכוכית או קורוזיה בצנרת</td>
+                                <td>מחליפי חום SiC + צנרת מצופה PFA</td>
+                                <td class="text-center"><span class="risk-tag risk-low">נמוך (מוכח)</span></td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold">תפעולי</td>
+                                <td>השבתת המפעל עקב תקלה במערכת</td>
+                                <td>מערכת מעקף (Bypass) אוטומטית מלאה</td>
+                                <td class="text-center"><span class="risk-tag risk-zero">אפס (אין תלות)</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+             <section id="conclusion" class="text-center pt-12 pb-8">
                  <div class="max-w-4xl mx-auto border-t border-stone-300 pt-12">
-                    <h2 class="text-3xl font-bold text-primary-warm mb-6">מסקנות והשלבים הבאים</h2>
-                    <p class="text-lg text-secondary-warm mb-8 max-w-3xl mx-auto">השלמה מוצלחת של שני ניסויים אלו תסיר את הסיכון מהאתגרים הטכנולוגיים והמדעיים המרכזיים של המיזם. עם נתונים אמפיריים המוכיחים מאזן אנרגיה חיובי, ועם פתרון חומרים בר-קיימא ובטוח, יהיה בידינו בסיס איתן להתקדם לגיוס הון משמעותי (סבב Seed) ולבניית אב-טיפוס הנדסי בקנה מידה מלא.</p>
+                    <h2 class="text-3xl font-bold text-primary-warm mb-4">השלב הבא: Scale-Up</h2>
+                    <p class="text-lg text-secondary-warm mb-8 max-w-3xl mx-auto">
+                        לאחר השלמת תוכנית האימות וסגירת הפערים ההנדסיים, הדרך פתוחה לבניית אב-טיפוס תעשייתי (Pilot). הטכנולוגיה בשלה, הסיכונים מנוהלים, וההיתכנות הכלכלית ברורה.
+                    </p>
                     <a href="business-plan.html" class="bg-accent-warm text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg transform hover:scale-105 transition-duration-300">לעבר התוכנית העסקית</a>
                 </div>
             </section>
@@ -152,9 +205,8 @@
         document.addEventListener('DOMContentLoaded', function() {
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
-            const desktopNavLinks = document.getElementById('desktop-nav-links'); // Ensure the ul has this ID
+            const desktopNavLinks = document.getElementById('desktop-nav-links');
 
-            // Function to populate and highlight mobile menu
             function setupMobileMenu() {
                 if (desktopNavLinks && mobileMenu) {
                     let linksHTML = '';
@@ -163,7 +215,7 @@
                     });
                     mobileMenu.innerHTML = linksHTML;
 
-                    const currentPageFilename = window.location.pathname.split('/').pop() || 'index.html'; // Default to index.html if path is empty
+                    const currentPageFilename = window.location.pathname.split('/').pop() || 'index.html';
                     const currentPageLink = mobileMenu.querySelector(`a[href*="${currentPageFilename}"]`);
                     if (currentPageLink) {
                         currentPageLink.classList.add('text-primary-warm', 'font-bold', 'bg-stone-200');
@@ -172,10 +224,8 @@
                 }
             }
 
-            // Initial setup
             setupMobileMenu();
 
-            // Event listener for the button
             if (mobileMenuButton && mobileMenu) {
                 mobileMenuButton.addEventListener('click', function() {
                     mobileMenu.classList.toggle('hidden');
